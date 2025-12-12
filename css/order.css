@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+/* 注文ページのスタイル */
+
+.order_container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.order_container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* エラーメッセージ */
+.error_messages {
+    background: #ffebee;
+    border: 1px solid #ef5350;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #c62828;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* お客様情報フォーム */
+.customer_info {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.customer_info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.form_group {
+    margin-bottom: 20px;
+}
+
+.form_group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.required {
+    color: #d32f2f;
+    margin-left: 3px;
+}
+
+.form_note {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.form_group input[type="text"],
+.form_group input[type="tel"],
+.form_group input[type="email"],
+.form_group input[type="date"],
+.form_group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form_group input:focus,
+.form_group select:focus {
+    outline: none;
+    border-color: #d32f2f;
+}
+
+/* ラジオボタン */
+.radio_group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio_label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.radio_label:hover {
+    border-color: #d32f2f;
+    background: #fff5f5;
+}
+
+.radio_label input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.radio_label input[type="radio"]:checked {
+    accent-color: #d32f2f;
+}
+
+/* ボタン */
+.form_actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.btn_primary,
+.btn_secondary {
+    flex: 1;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn_primary {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn_primary:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn_secondary {
+    background: #fff;
+    color: #333;
+    border: 2px solid #ddd;
+}
+
+.btn_secondary:hover {
+    border-color: #999;
+    background: #f5f5f5;
+}
+
+/* =============== モーダル =============== */
+.modal_confirm {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal_confirm_content {
+    position: relative;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal_close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal_close:hover {
+    color: #333;
+}
+
+.modal_confirm_content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 15px;
+}
+
+.modal_confirm_content h2 i {
+    color: #d32f2f;
+}
+
+/* モーダルセクション */
+.modal_section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.modal_section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #d32f2f;
+}
+
+/* 商品一覧 */
+.modal_items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal_item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.modal_item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.modal_item_details {
+    flex: 1;
+}
+
+.modal_item_name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.modal_item_price {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.modal_total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #d32f2f;
+    text-align: right;
+    font-size: 1.3rem;
+    color: #d32f2f;
+}
+
+/* 情報テーブル */
+.modal_info_table {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal_info_table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal_info_table tr:last-child {
+    border-bottom: none;
+}
+
+.modal_info_table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    width: 35%;
+    color: #555;
+}
+
+.modal_info_table td {
+    padding: 12px;
+    color: #333;
+}
+
+/* モーダルアクション */
+.modal_actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.modal_actions form {
+    flex: 1;
+}
+
+.modal_edit_btn {
+    flex: 1;
+}
+
+.btn_submit {
+    width: 100%;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .modal_confirm_content {
+        margin: 10px;
+        padding: 20px;
+        width: calc(100% - 20px);
+        max-height: 90vh;
+    }
+
+    .modal_confirm_content h2 {
+        font-size: 1.4rem;
+    }
+
+    .modal_item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal_item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .modal_info_table th,
+    .modal_info_table td {
+        display: block;
+        width: 100%;
+        padding: 8px;
+    }
+
+    .modal_info_table th {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .modal_actions {
+        flex-direction: column;
+    }
+
+    .form_actions {
+        flex-direction: column;
+    }
+}

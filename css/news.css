@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+.title_section {
+	width: 100vw;
+	height: 400px;
+	background-image: url(../img/news/news_title.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: 50px
+}
+
+.title_text {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.title_text h1 {
+	font-size: 60px;
+}
+
+.title_text h1 span {
+	color: #D62828;
+}
+.title_text p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#article_inner {
+	width: 65%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+#article_head {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+	border-bottom: solid 0.5px rgba(255, 255, 255, 0.3);
+} 
+
+#article_head #post_info {
+	font-size: 16px;
+	font-weight: 200;
+}
+
+#article_head #post_title {
+	width: 100%;
+	font-weight: 200;
+	font-size: 32px;
+}
+
+#article_main {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 120px;
+}
+
+#article_main img {
+	width: 100%;
+}
+
+#article_main #post_text {
+	padding: 20px 0;
+}
+
+#article_main #text_inner {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	line-height: 2;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+#text_inner #contact_text {
+	margin-top: 20px;
+}
+
+#text_inner #contact_text div {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#text_inner #contact_text div a {
+	font-weight: 600;
+}
+
+#text_inner #contact_text div a:hover {
+	color: #D62828;
+}
+
+#article_foot {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	width: 100%;
+	padding: 50px 0;
+	border-top: solid 0.5px rgba(255, 255, 255, 0.3);
+}
+
+.article_page_btn a {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: all .3s;
+}
+
+#before_article a {
+	justify-content: flex-start;
+}
+
+#next_article a {
+	justify-content: flex-end;
+}
+
+.article_page_btn a:hover span {
+	color: #D62828;
+}
+
+
+.article_page_btn span, #article_foot button {
+	font-size: 14px;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+	color: #FFFFFF;
+}
+
+#article_foot button {
+	width: 210px;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+	padding: 10px 20px;
+	border-radius: 50px;
+	cursor: pointer;
+	background-color: #0F0F0F;
+	border: solid 1px #FFFFFF;
+	position: relative;
+	overflow: hidden;
+	transition: border-color .5s ease;
+}
+
+#article_foot button::before {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	content: '';
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #D62828;
+	transition: left .4s ease;
+	z-index: 0;
+}
+
+#article_foot button:hover {
+	border-color: #D62828;
+}
+
+#article_foot button:hover::before {
+	left: 0;
+}
+
+#article_foot button span {
+	position: relative;
+	z-index: 1;
+}

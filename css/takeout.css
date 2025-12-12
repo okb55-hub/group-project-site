@@ -1,0 +1,342 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Zen Old Mincho", sans-serif;
+}
+
+#header_icons {
+	position: fixed;
+	top: 20px;
+	right: 100px;
+	/* ハンバーガーの左側に配置 */
+	display: flex;
+	gap: 15px;
+	z-index: 130;
+}
+
+/* 個別アイコンの共通デザイン */
+#header_icons .icon_btn i {
+	font-size: 50px;
+	color: #fff;
+}
+
+/* カートアイコンのバッジ */
+#header_icons .cart_icon {
+	position: relative;
+}
+
+#cart_count {
+	position: absolute;
+	top: -8px;
+	right: -14px;
+	background: #D62828;
+	color: #fff;
+	font-size: 14px;
+	padding: 7px 14px;
+	border-radius: 50%;
+}
+
+.icon_btn:hover i {
+	transform: scale(1.2);
+}
+
+/* title_sectionここから */
+.title_section {
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding-top: 50px;
+}
+
+.title_text {
+	max-width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 100px;
+	padding-bottom: 50px;
+}
+
+.title_text h1 {
+	font-size: 60px;
+}
+
+.title_text h1 span {
+	color: #D62828;
+}
+
+.title_text p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.title_img {
+	display: block;
+	width: 60%;
+	height: 300px;
+	background-image: url(../img/takeout/ambitious-studio-rick-barrett-xmibn7mzXV0-unsplash.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* title section ここまで */
+
+/* main section ここから */
+.main_text {
+	text-align: center;
+	margin: 100px auto;
+}
+
+.h1_wrapper {
+	text-align: center;
+}
+
+.order_notice {
+	text-align: center;
+	margin: 50px;
+}
+
+.order_notice h3 {
+	margin: 20px;
+	position: relative;
+	display: flex;
+	align-items: center;/* 文字と線を縦方向センター揃え */
+	justify-content: center;
+	gap: 10px;/* 文字と線の間のスペース */
+}
+h3::before,
+h3::after {
+  content: "";
+  flex: 1;               /* 両側の線の長さを自動でそろえる */
+  height: 2px;           /* 線の太さ */
+  background-color: #D62828; /* 線の色 */
+}
+
+h3::before {
+  margin-right: 10px;
+}
+
+h3::after {
+  margin-left: 10px;
+}
+
+.main_section h1 {
+	display: inline-block;
+	margin: 0 auto 100px auto;
+	border-bottom: solid 2px #D62828;
+}
+
+/* takeout_menu ここから */
+.takeout_container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	/* 最初は3列 */
+	gap: 30px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.takeout_item {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	font-size: 18px;
+	font-weight: bold;
+	border: double 4px #FFFFFF;
+	padding: 30px 0;
+}
+
+.takeout_item img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+}
+
+.takeout_item_text {
+	font-size: 17px;
+	font-weight: 200;
+	line-height: 1.5;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+.takeout_item button {
+	width: 40%;
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 14px;
+	padding: 7px;
+	background: none;
+	border-radius: 20px;
+	border: solid 1px #FFFFFF;
+	color: white;
+	cursor: pointer;
+	transition: border-color .3s ease;
+}
+
+.takeout_item button:hover {
+	border-color: #D62828;
+}
+
+.takeout_item.selected {
+	border: double 4px #D62828;
+}
+
+@media (max-width: 820px) {
+	.takeout_container {
+		grid-template-columns: repeat(2, 1fr);
+		/* タブレットは2列 */
+	}
+}
+
+@media (max-width: 430px) {
+	.takeout_container {
+		grid-template-columns: 1fr;
+		/* スマホは1列 */
+	}
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background: #0f0f0f;
+	color: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 430px;
+	min-height: auto;
+	position: relative;
+	text-align: center;
+}
+
+.close {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	font-size: 24px;
+	cursor: pointer;
+	transition: color .3s ease;
+}
+
+.close:hover {
+	color: #D62828;
+}
+
+.modal-content-container {
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.modal-content-container img {
+	width: 100%;
+	height: auto;
+}
+
+.modal-content-container-info h2 {
+	margin: 10px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px #D62828;
+}
+
+.modal-content-container-info {
+	flex: 1;
+	font-size: 1.1rem;
+	/* 好きなサイズに調整 */
+	line-height: 1.6;
+}
+
+.modal-content-container-info p {
+	padding: 10px;
+	font-size: 14px;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+}
+
+.modal-content-container-info button {
+	width: 60%;
+	font-size: 15px;
+	padding: 10px;
+	margin: 15px auto 0 auto;
+	background: none;
+	border-radius: 50px;
+	border: solid 1px #FFFFFF;
+	color: white;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.modal-content-container-info button:hover {
+	border-color: #D62828;
+	color: #D62828;
+}
+
+@media (max-width: 430px) {
+	.modal-content {
+		padding: 10px;
+	}
+}
+
+.to_cartbtn {
+	text-align: center;
+	margin-top: 100px;
+}
+
+.to_cartbtn button {
+	width: 50%;
+	border-radius: 30px;
+	border: solid 1px #FFFFFF;
+	background-color: #0F0F0F;
+	transition: 0.5s;
+	position: relative;
+	padding-right: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.to_cartbtn button span {
+	line-height: 2.8;
+	transition: 0.5s;
+}
+
+
+.to_cartbtn button span::after {
+	position: absolute;
+	top: 50%;
+	right: 2em;
+	content: '';
+	width: 0.5em;
+	height: 0.5em;
+	transform: translateY(-50%) rotate(45deg);
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+
+.to_cartbtn button:hover {
+	border-color: #D62828;
+	color: #D62828;
+
+}
+
+
+/* main section ここまで */

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>本格韓国料理 ソダム - お問い合わせ</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/contact.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<a href="index.html"><img id="header_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+		<button id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<nav id="nav_list">
+			<ul>
+				<li><a href="index.html">TOP</a></li>
+				<li><a href="menu.html">メニュー</a></li>
+				<li><a href="shop.html">店舗情報</a></li>
+				<li><a href="">来店予約</a></li>
+				<li><a href="takeout.html">テイクアウト</a></li>
+				<li><a href="contact.html">お問い合わせ</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="title_section">
+			<div class="title_text">
+				<h1><span>C</span>ontact</h1>
+				<p>お知らせ</p>
+			</div>
+			<div class="title_img">
+			</div>
+		</div>
+		<section class="main_section">
+			<div>
+				<div class="h1_wrapper">
+					<h1>お問い合わせフォーム</h1>
+				</div>
+				<div id="contact_text">
+					<p>
+						ご予約に関するご質問、貸切や団体利用のご相談、メディア取材のお申し込みなど、各種お問い合わせはこちらのフォームより承っております。<br>
+						以下のフォームに必要事項をご入力の上、「送信」ボタンを押してください。<br>
+						お問い合わせ内容によっては、ご返信に数日いただく場合がございます。<br>
+					</p>
+				</div>
+				<div id="contact_tel">
+					<h3>お急ぎの方は、お電話にてお問い合わせください。</h3>
+					<a href="tel:000-0000-0000">000-000-0000</a>
+					<p>営業時間：17:00～24:00（23:00 L.O）</p>
+					<p>定休日：水曜日</p>
+				</div>
+			</div>
+			<div id="contact_form">
+				<form action="post">
+					<dl class="form-area">
+						<div class="form-row">
+							<dt>
+								<span>お名前<span class="required">※</span></span>
+							</dt>
+							<dd>
+								<input class="input-text" type="text" name="name" placeholder="例：山田 太郎" required>
+							</dd>
+						</div>
+						<div class="form-row">
+							<dt>
+								<span>お名前(フリガナ)<span class="required">※</span></span>
+							</dt>
+							<dd>
+								<input class="input-text" type="text" name="kana" placeholder="例：ヤマダ タロウ" required>
+							</dd>
+						</div>
+						<div class="form-row">
+							<dt>
+								<span>メールアドレス<span class="required">※</span></span>
+							</dt>
+							<dd>
+								<input class="input-text" type="email" name="email" placeholder="例：user@example.jp"
+									required>
+							</dd>
+						</div>
+						<div class="form-row">
+							<dt>
+								お電話番号
+							</dt>
+							<dd>
+								<input class="input-text" type="tel" name="tel" placeholder="例：000-0000-0000">
+							</dd>
+						</div>
+						<div class="form-row">
+							<dt>
+								<span>お問い合わせ種別<span class="required">※</span></span>
+							</dt>
+							<dd>
+								<select class="genre" name="select-box" required>
+									<option value="">選択してください</option>
+									<option value="1">予約・貸切について</option>
+									<option value="2">メニュー・アレルギーについて</option>
+									<option value="3">テイクアウトについて</option>
+									<option value="4">取材・メディア掲載について</option>
+									<option value="5">その他</option>
+								</select>
+							</dd>
+						</div>
+						<div class="form-row">
+							<dt>
+								<span>お問い合わせ内容<span class="required">※</span></span>
+							</dt>
+							<dd>
+								<textarea placeholder="お問い合わせ内容を詳細にご記載ください。" class="messsage" name="message"
+									required></textarea>
+							</dd>
+						</div>
+					</dl>
+
+					<p class="attention">
+						<span class="required">※</span>は必須項目です。漏れのないようご記入いただき、「確認」ボタンを押してください。<br>
+						お預かりした個人情報の取り扱いについては、
+						<span class="policy"><a href="../html/policy.html" target="_blank">プライバシーポリシー</a></span>
+						をご確認ください。
+					</p>
+					<div class="button">
+						<button class="submit-button" type="submit">確認</button>
+					</div>
+
+					<!-- 確認用モーダル -->
+					<div id="confirmModal" class="modal">
+						<div class="modal-content">
+							<h2>入力内容の確認</h2>
+							<dl>
+								<div>
+									<dt>お名前</dt>
+									<dd id="confirm-name"></dd>
+								</div>
+								<div>
+									<dt>お名前(フリガナ)</dt>
+									<dd id="confirm-kana"></dd>
+								</div>
+								<div>
+									<dt>メールアドレス</dt>
+									<dd id="confirm-email"></dd>
+								</div>
+								<div>
+									<dt>お電話番号</dt>
+									<dd id="confirm-tel"></dd>
+								</div>
+								<div>
+									<dt>お問い合わせ種別</dt>
+									<dd id="confirm-genre"></dd>
+								</div>
+								<div>
+									<dt>お問い合わせ内容</dt>
+									<dd id="confirm-message"></dd>
+								</div>
+							</dl>
+							<div class="modal-buttons">
+								<button id="backButton" type="button">修正する</button>
+								<button id="sendButton" type="submit">送信する</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div id="footer_inner">
+			<div id="footer_main">
+				<div id="footer_info">
+					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<div id="address">
+						<p>〒000-0000</p>
+						<p>石川県金沢市〇〇町0-0-0</p>
+						<p>営業時間：17:00～24:00（23:00 L.O）</p>
+						<p>定休日：水曜日</p>
+						<p>Tel：000-000-0000</p>
+					</div>
+				</div>
+				<div id="footer_nav">
+					<ul>
+						<li><a href="index.html">TOP</a></li>
+						<li><a href="menu.html">メニュー</a></li>
+						<li><a href="shop.html">店舗情報</a></li>
+						<li><a href="">来店予約</a></li>
+						<li><a href="takeout.html">テイクアウト</a></li>
+						<li><a href="contact.html">お問い合わせ</a></li>
+						<li><a href="policy.html">プライバシーポリシー</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="footer_foot">
+				<small id="copyright">
+					Copyright &copy; 本格韓国料理 ソダム All Right Reserved.
+				</small>
+			</div>
+		</div>
+	</footer>
+	<script src="../js/hamburger.js"></script>
+	<script src="../js/contact.js"></script>
+</body>
+
+</html>

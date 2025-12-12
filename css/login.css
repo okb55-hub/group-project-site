@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* ==================================== */
+/* 1. 全体レイアウト (Container) */
+/* ==================================== */
+.login_container {
+    /* フォーム全体を中央に配置するためのラッパー */
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px 20px;
+}
+
+.login_form {
+    background-color: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 12px;
+    padding: 40px; /* 登録フォームより少しゆったりと */
+    text-align: center; /* 中央に配置される要素があるため */
+}
+
+.login_form h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: "Noto Serif JP", serif;
+    color: #E5E5E5;
+}
+
+/* 2. フォーム要素 (Form) */
+.login_form .form_group label {
+    display: block; /* ラベルをブロック要素にして、inputとの間にスペースを作る */
+    font-size: 14px;
+    font-weight: 600;
+    color: #E5E5E5;
+    margin-bottom: 8px;
+	font-family: "Noto Serif JP", serif;
+}
+
+.form_group input[type="email"],
+.form_group input[type="password"] { 
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    background-color: #0F0F0F; /* 背景色に合わせる */
+    color: #E5E5E5;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form_group input:focus {
+    border-color: #D62828; /* フォーカス時に赤に */
+    outline: none;
+    box-shadow: 0 0 0 1px #D62828;
+}
+
+.form_group {
+    margin-bottom: 25px;
+    text-align: left; /* ラベルと入力を左揃えに */
+}
+
+/* フォームの見た目自体は sign_up.css のものを適用 */
+/* label, input のCSSは sign_up.css からコピーするか、common.css に移動すると良いです */
+
+/* ==================================== */
+/* 3. ボタンとリンク */
+/* ==================================== */
+
+/* ログインボタン */
+.button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.submit-button {
+    width: 100%;
+    background: linear-gradient(135deg, #D62828 0%, #B91C1C 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+    letter-spacing: 0.08em;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+    transform: translateY(-2px);
+}
+
+/* 新規登録へのリンク */
+.to_signup {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+    color: #9CA3AF;
+    line-height: 1.6;
+	font-family: "Noto Serif JP", serif;
+}
+
+.to_signup a {
+    color: #D62828;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.to_signup a:hover {
+    color: #B91C1C;
+}
+
+/* エラーメッセージ */
+.error_message {
+    /* sign_up.css と統一 */
+    background-color: rgba(214, 40, 40, 0.1);
+    border: 1px solid #D62828;
+    color: #D62828;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ==================================== */
+/* 4. レスポンシブ調整 */
+/* ==================================== */
+@media (max-width: 480px) {
+    .login_container {
+        margin: 50px auto;
+        padding: 20px 10px;
+    }
+    .login_form {
+        padding: 25px;
+    }
+}

@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Zen Old Mincho", sans-serif;
+}
+
+/* title_section　ここから */
+.title_section {
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding-top: 50px;
+}
+
+.title_text {
+	max-width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 100px;
+	padding-bottom: 50px;
+}
+
+.title_text h1 {
+	font-size: 60px;
+}
+
+.title_text h1 span {
+	color: #D62828;
+}
+.title_text p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.title_img {
+	display: block;
+	width: 60%;
+	height: 300px;
+	background-image: url(../img/shop/Gemini_Generated_Image_bvoaoebvoaoebvoa.png);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 820px) {
+	.title_section {
+		height: auto;
+		padding-top: 40px;
+		padding-bottom: 20px;
+	}
+	.title_text {
+		margin-left: 40px;
+		max-width: 55%;
+		padding-bottom: 20px;
+	}
+
+	.title_text h1 {
+		font-size: 50px;
+	}
+	
+	.title_text p {
+		font-size: 22px;
+	}
+	
+	.title_img {
+		height: 260px;
+	}
+}
+
+@media screen and (max-width: 430px) {
+	.title_section {
+		flex-direction: column;
+		height: auto;
+		padding: 150px 0 20px 0;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 50px;
+		width: 100%;
+	}
+
+	.title_text {
+		margin-left: 0;
+		padding: 0 20px;
+	}
+
+	.title_text h1 {
+		font-size: 34px;
+	}
+
+	.title_text p {
+		font-size: 16px;
+	}
+
+	.title_img {
+		width: 100%;
+		height: 200px;
+		margin-left: 20px;
+	}
+}
+/* ここまで */
+
+/* main_section ここから */
+.main_section {
+	margin: 0 20px;
+}
+
+.h1_wrapper {
+	text-align: center;
+	margin: 70px 0;
+}
+.main_section h1 {
+	display: inline-block;
+	padding-bottom: 5px;
+	border-bottom: solid 2px #D62828;
+}
+
+/* section shop_info・shop_acces ここから */
+table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+th {
+	width: 40%;
+	padding-bottom: 20px;
+}
+
+td {
+	width: 60%;
+	padding-bottom: 20px;
+}
+
+iframe {
+	display: block;
+	width: 80%;
+	aspect-ratio: 16 / 9;
+	margin: 0 auto 50px auto;
+}
+
+@media (max-width: 820px) {
+	.main_section {
+		margin: 50px 20px;
+	}
+	.main_section h1 {
+		font-size: 28px;
+	}
+
+	iframe {
+		width: calc(100% - 40px);
+		margin: 0 20px 40px 20px;
+	}
+
+	th {
+		width: 30%;
+		font-size: 15px;
+	}
+	
+	td {
+		width: 70%;
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 430px) {
+	.main_section h1 {
+		font-size: 22px;
+	}
+
+	table {
+		width: 100%;
+		margin: 0;
+	}
+
+	th {
+		text-align: left;
+	}
+
+	iframe {
+		width: calc(100% - 40px);
+		aspect-ratio: 4 / 3;
+	}
+}
+
+/* section shop_info・shop_access ここまで */
+

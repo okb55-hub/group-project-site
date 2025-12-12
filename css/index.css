@@ -1,0 +1,525 @@
+@charset "UTF-8";
+
+/* ファーストビュー */
+main #fv_container {
+	height: 240vh;
+	position: relative;
+	overflow: hidden;
+}
+
+main #fv_container::before {
+	content: '';
+	width: 100%;
+	height: 240vh;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+main #fv_container .fv_img {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	animation: fade 24s infinite;
+	opacity: 0;
+	animation-fill-mode: both;
+	z-index: -1;
+}
+
+#img1 {
+	background-image: url(../img/index/PC/bibimbap.JPG);
+}
+
+#img2 {
+	background-image: url(../img/index/PC/jjigae2.JPG);
+}
+
+#img3 {
+	background-image: url(../img/index/PC/grill_meat.JPG);
+}
+
+#img4 {
+	background-image: url(../img/index/PC/kimchi.JPG);
+}
+
+main #fv_container .fv_img:nth-child(1) {
+	animation-delay: 0s;
+}
+main #fv_container .fv_img:nth-child(2) {
+	animation-delay: 6s;
+}
+main #fv_container .fv_img:nth-child(3) {
+	animation-delay: 12s;
+}
+main #fv_container .fv_img:nth-child(4) {
+	animation-delay: 18s;
+}
+@keyframes fade {
+	0% {opacity: 0;}
+	10% {opacity: 1;}
+	70% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+main #fv_catchphrase {
+	height: 100vh;
+	width: 100%;
+	position: relative;
+}
+
+main #fv_catchphrase h2 {
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-20%, -50%);
+	font-family: "Zen Old Mincho", sans-serif;
+	font-weight: 500;
+	line-height: 2;
+	font-size: 35px;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+	letter-spacing: 0.5em;
+}
+
+/* 予約・テイクアウトボタン */
+#takeout_reserve_btn {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	z-index: 120;
+	cursor: pointer;
+	border-radius: 50px;
+	background-color: #D62828;
+	width: 150px;
+	height: 80px;
+	transition: transform 0.2s ease;
+}
+
+#takeout_reserve_inner {
+	width: 150px;
+	height: 80px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+#takeout_reserve_inner span {
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+}
+
+#plus_btn {
+	width: 35px;
+	height: 35px;
+	transition: transform 0.3s ease;
+}
+
+#takeout_reserve_btn.active #plus_btn {
+	transform: rotate(45deg);
+}
+
+#btn_list {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+}
+
+#btn_list li {
+	position: absolute;
+	bottom: 40px;
+	right: 100px;
+	transform: translate(50%, 50%) scale(0);
+	opacity: 0;
+	transition: all 0.3s ease;
+	z-index: 99;
+}
+
+#takeout_reserve_btn.active #btn_list li {
+	opacity: 1;
+	transform: translate(50%, 50%) scale(1);
+}
+
+/* 予約ボタン位置 */
+#reserve_btn {
+	transition-delay: 0s;
+
+}
+
+#takeout_reserve_btn.active #reserve_btn {
+	transform: translate(-120px, -70px) scale(1);
+	transition-delay: 0.05s;
+}
+
+/* テイクアウトボタン位置 */
+#takeout_btn {
+	transition-delay: 0s;
+}
+
+#takeout_reserve_btn.active #takeout_btn {
+	transform: translate(-150px, 0) scale(1);
+	transition-delay: 0.1s;
+}
+
+#btn_list .click_btn {
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	border: none;
+	background-color: #D62828;
+	cursor: pointer;
+}
+
+#btn_list .click_btn:hover {
+	background-color: #b12727 !important;
+}
+
+#btn_list img {
+	width: 60%;
+}
+
+/* ファーストビュー - メッセージ */
+main #message {
+	position: relative;
+	height: 130vh;
+	width: 100%;
+}
+
+main #message_container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+	padding: 0 50px;
+	border: solid 1px #FFFFFF;
+}
+
+main #message_title h3 {
+	line-height: 1.8;
+	font-family: "Zen Old Mincho", sans-serif;
+	font-weight: 200;
+	font-size: 28px;
+	margin-top: 65px;
+	margin-right: 30px;
+}
+
+main #message_text {
+	display: grid;
+	gap: 40px;
+	margin: 45px 0 45px 30px;
+}
+
+main #message_text p {
+	line-height: 2;
+	font-family: "Zen Old Mincho", sans-serif;
+	font-weight: 200;
+	font-size: 16px;
+}
+
+/* お知らせ以降は黒背景 */
+#news, #menu, #info {
+	width: 100%;
+	background-color: #0F0F0F;
+}
+
+/* お知らせ */
+main #news {
+	width: 100%;
+	max-width: 100vw;
+	padding: 80px 0;
+}
+
+main #news_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+
+.section_title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.section_title p {
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+}
+
+.section_title h2 {
+	font-family: "Zen Old Mincho", sans-serif;
+	font-weight: 400;
+	font-size: 35px;
+}
+
+.section_title h2 span {
+	color: #D62828;
+}
+
+main #news_main {
+	width: 70vw;
+}
+
+main #news_main ul li {
+	width: 100%;
+	padding: 25px 50px;
+	cursor: pointer;
+	position: relative;
+}
+
+main #news_main ul li::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #FFFFFF;
+}
+
+main #news_main ul li::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background-color: #D62828;
+	transition: width 0.7s ease;
+	z-index: 1;
+}
+
+main #news_main ul li:hover::before {
+	width: 100%;
+}
+
+main #news_main ul li a {
+	display: flex;
+	gap: 80px;
+}
+
+main #news_main ul li time, main #news_main ul li p {
+	font-size: 15px;
+}
+
+/* メニュー */
+main #menu {
+	width: 100%;
+	max-width: 100vw;
+	padding: 80px 0;
+	position: relative;
+}
+
+main #smoke {
+	position: absolute;
+	top: -300px;
+	z-index: -1;
+}
+
+main #smoke img {
+	width: 100%;
+}
+
+main #menu_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+
+main #menu_container .section_title h2, main #menu_container .section_title h2 {
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+main #menu_main {
+	width: 100%;
+}
+
+#slider_wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.arrow {
+	position: absolute;
+	top: 90%;
+	transform: translateY(-90%);
+	z-index: 10;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	border: none;
+	background: rgba(255, 255, 255, 0.4);
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+#arrow_left {
+	left: 10px;
+}
+
+#arrow_right {
+	right: 10px;
+}
+
+#slider_inner {
+	display: flex;
+	width: max-content;
+	animation: scroll-left 20s linear infinite;
+}
+
+.menu_slider {
+	width: max-content;
+	display: flex;
+	padding: 20px 0;
+}
+
+.menu_item {
+	width: calc(100vw / 4);
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menu_item .item_img img {
+	aspect-ratio: 4 / 3;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.menu_item .item_name {
+	border-bottom: solid 1px #D62828;
+	width: 65%;
+	text-align: center;
+	padding: 15px 0;
+}
+
+
+.menu_item .item_name h3 {
+	font-family: "Zen Old Mincho", sans-serif;
+	font-size: 23px;
+}
+
+@keyframes scroll-left {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+#menu_foot {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 0 30px 0;
+}
+
+#menu_foot button, #info_text_inner button {
+	width: 210px;
+	border-radius: 20px;
+	border: solid 1px #FFFFFF;
+	background-color: #0F0F0F;
+	transition: 0.5s;
+	position: relative;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+#menu_foot button span, #info_text_inner button span {
+	line-height: 2.8;
+	transition: 0.5s;
+}
+
+#menu_foot button span::after, #info_text_inner button::after {
+	position: absolute;
+	top: 50%;
+	right: 2em;
+	content: '';
+	width: 0.5em;
+	height: 0.5em;
+	transform: translateY(-50%) rotate(45deg);
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+
+#menu_foot button:hover, #info_text_inner button:hover {
+	border-color: #D62828;
+}
+
+#menu_foot button span:hover, #info_text_inner button span:hover {
+	color: #D62828;
+}
+
+#menu_foot button span:hover::after, #info_text_inner button:hover::after {
+	border-top: 1px solid #D62828;
+	border-right: 1px solid #D62828;
+}
+
+/* 店舗案内 */
+main #info {
+	width: 100%;
+	max-width: 100%;
+	padding: 80px 0;
+}
+
+main #info_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+
+main #info_main {
+	display: flex;
+	gap: 40px;
+	flex-wrap: wrap;
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+main #info_map {
+	max-width: 450px;
+	width: 100%;
+}
+
+#info_map iframe {
+	aspect-ratio: 4 / 3;
+	width: 100%;
+	height: auto;
+}
+
+main #info_text {
+	flex: 1;
+	min-width: 260px;
+}
+
+main #info_text_inner {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 100px;
+}

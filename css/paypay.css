@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+*, ::before, ::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+button {
+	font-family: inherit;
+}
+
+header {
+	padding: 20px 20px;
+	border-bottom: solid 0.5px #949494;
+}
+
+header h1 {
+	color: #FF0033;
+}
+
+.paypay_container {
+	text-align: center;
+	padding: 40px;
+}
+
+.paypay_box {
+	background: #ffffff;
+	padding: 30px;
+	margin: 0 auto;
+	width: 90%;
+	max-width: 400px;
+	border-radius: 15px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.paypay_logo {
+	width: 140px;
+	margin-bottom: 20px;
+}
+
+.paypay_amount {
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+
+.paypay_amount span {
+	font-size: 32px;
+	font-weight: bold;
+	color: #e60012;
+}
+
+.pay_btn {
+	width: 100%;
+	padding: 15px;
+	background-color: #e60012;
+	color: #ffffff;
+	border: none;
+	border-radius: 8px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.pay_btn:disabled {
+	background-color: #aaa;
+}
+
+footer #footer_inner {
+	padding: 110px 0 20px 0;
+	text-align: center;
+	font-size: 13px;
+}
+

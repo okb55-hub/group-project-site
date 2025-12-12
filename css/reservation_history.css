@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* ==================================== */
+/* 1. 全体レイアウト */
+/* ==================================== */
+.mypage_container {
+    max-width: 800px; /* テーブルがあるので少し広めに */
+    margin: 80px auto;
+    padding: 30px 20px;
+}
+
+.mypage_container h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: "Noto Serif JP", serif;
+    color: #E5E5E5;
+    letter-spacing: 0.1em;
+}
+
+/* ==================================== */
+/* 2. 情報ブロック (共通) */
+/* ==================================== */
+.info_block {
+    background-color: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.info_block h2 {
+    font-size: 20px;
+    color: #D62828;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    font-family: "Noto Serif JP", serif;
+}
+
+/* ==================================== */
+/* 3. 予約履歴テーブル */
+/* ==================================== */
+.table_wrapper {
+    overflow-x: auto; /* スマホで横スクロール */
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap; /* 折り返し防止 */
+}
+
+th {
+    background-color: #0F0F0F;
+    color: #9CA3AF;
+    font-weight: normal;
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 2px solid #333;
+}
+
+td {
+    padding: 15px;
+    color: #E5E5E5;
+    border-bottom: 1px solid #333;
+    font-size: 15px;
+}
+
+/* 過去の予約（薄くする） */
+tr.past td {
+    color: #666;
+}
+
+/* ステータスバッジ */
+.status_badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status_badge.reserved {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981; /* 緑 */
+    border: 1px solid #10B981;
+}
+
+.status_badge.today {
+    background-color: rgba(214, 40, 40, 0.1);
+    color: #D62828; /* 赤（本日） */
+    border: 1px solid #D62828;
+}
+
+.status_badge.done {
+    background-color: #333;
+    color: #999; /* グレー（完了） */
+    border: 1px solid #555;
+}
+
+.no_history {
+    color: #9CA3AF;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ==================================== */
+/* 4. ボタンエリア */
+/* ==================================== */
+.mypage_area {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.mypage_btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background-color: transparent;
+    color: #9CA3AF;
+    border: 1px solid #555;
+    border-radius: 30px; /* 丸みのあるボタン */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.mypage_btn:hover {
+    background-color: #333;
+    color: #FFF;
+    border-color: #FFF;
+}
+
+.back_link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back_link a {
+    color: #9CA3AF;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.back_link a:hover {
+    color: #D62828;
+    transform: translateX(-4px);
+}
+
+/* ==================================== */
+/* 5. レスポンシブ (スマホ表示) */
+/* ==================================== */
+@media (max-width: 600px) {
+    .mypage_container {
+        padding: 20px 15px;
+    }
+    
+    .info_block {
+        padding: 20px;
+    }
+    
+    /* テーブルのフォント調整 */
+    th, td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}

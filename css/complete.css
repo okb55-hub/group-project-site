@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+/* 注文完了ページのスタイル */
+
+.complete_container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* 成功アイコン */
+.success_icon {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.success_icon i {
+    font-size: 5rem;
+    color: #4caf50;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* タイトル */
+.complete_container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.complete_message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* 注文詳細 */
+.order_details {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.order_details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d32f2f;
+    color: #333;
+}
+
+.order_details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #d32f2f;
+}
+
+/* セクション */
+.detail_section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.detail_section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* 詳細行 */
+.detail_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail_row:last-child {
+    border-bottom: none;
+}
+
+.detail_label {
+    font-weight: bold;
+    color: #666;
+    min-width: 150px;
+}
+
+.detail_value {
+    color: #333;
+    text-align: right;
+}
+
+.order_id {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* 合計行 */
+.total_row {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #d32f2f !important;
+    font-size: 1.2rem;
+}
+
+.total_row span {
+	color: #333;
+}
+
+.total_price strong {
+    color: #d32f2f;
+}
+
+/* 注意書きボックス */
+.notice_box {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.notice_box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #1976d2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notice_box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notice_box li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+}
+
+.notice_box li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2196f3;
+    font-weight: bold;
+}
+
+/* アクションボタン */
+.action_buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action_buttons .btn_primary,
+.action_buttons .btn_secondary {
+    flex: 1;
+    max-width: 300px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.action_buttons .btn_primary {
+    background: #d32f2f;
+    color: white;
+    border: none;
+}
+
+.action_buttons .btn_primary:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.action_buttons .btn_secondary {
+    background: #fff;
+    color: #333;
+    border: 2px solid #ddd;
+}
+
+.action_buttons .btn_secondary:hover {
+    border-color: #999;
+    background: #f5f5f5;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .success_icon i {
+        font-size: 4rem;
+    }
+
+    .complete_container h1 {
+        font-size: 1.5rem;
+    }
+
+    .complete_message {
+        font-size: 1rem;
+    }
+
+    .order_details {
+        padding: 20px;
+    }
+
+    .detail_row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .detail_label {
+        min-width: auto;
+    }
+
+    .detail_value {
+        text-align: left;
+    }
+
+    .action_buttons {
+        flex-direction: column;
+    }
+
+    .action_buttons .btn_primary,
+    .action_buttons .btn_secondary {
+        max-width: 100%;
+    }
+}

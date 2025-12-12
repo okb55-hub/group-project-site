@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+
+.h1_wrapper {
+	text-align: center;
+}
+
+.h1_wrapper h1 {
+	display: inline-block;
+	margin: 0 auto 100px auto;
+	border-bottom: solid 2px #D62828;
+}
+
+.cart_container_wrapper {
+	width: 90%;
+	margin: 0px auto;
+}
+
+.cart_container_wrapper h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.cart_item {
+    display: grid;
+    grid-template-columns: 150px 1fr 100px 80px 100px 80px;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+    width: 90%;          /* ← 横幅90% */
+    margin: 0 auto;      /* 中央寄せ */
+}
+
+/* 画像サイズ（横150px、高さは自動） */
+.ci_img img {
+    width: 150px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.ci_name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ci_price,
+.ci_subtotal {
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ci_quantity select {
+    padding: 6px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+/* 削除ボタン */
+.ci_delete .delete_btn {
+    background: none;       /* ボタンの背景消す */
+    border: none;           /* 枠消す */
+    padding: 0;             /* 余白なし */
+    cursor: pointer;        /* カーソルポインタ */
+    color: #D62828;         /* アイコンの色 */
+    display: flex;
+    align-items: center;
+    white-space: nowrap;    /* テキスト折り返し防止 */
+    min-width: 0;           /* 幅の制約を解除（前の60pxは不要） */
+}
+
+/* ホバー時に軽く反応（色 or 透明度） */
+.ci_delete .delete_btn:hover {
+    opacity: 0.7;
+}
+
+/* SVGアイコンのサイズと色 */
+.delete_btn svg {
+    width: 35px;
+    height: 35px;
+    display: block; /* ← これ大事！高さがちゃんと確保される */
+}
+/* PCレイアウトでは bottom_area をラップとして無効化 */
+.bottom_area {
+    grid-column: 6;      /* ← grid の6列目（右端）に配置 */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.all_sum {
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+	margin: 50px auto;
+	
+}
+.all_sum h2 {
+	font-size: 40px;
+}
+.all_sum p {
+	font-size: 40px;
+}
+
+.foot_nav {
+	text-align: center;
+}
+.foot_nav button {
+	width: 50%;
+	border-radius: 30px;
+	border: solid 1px #FFFFFF;
+	background-color: #0F0F0F;
+	transition: 0.5s;
+	position: relative;
+	padding-right: 10px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.foot_nav button span {
+	line-height: 2.8;
+	transition: 0.5s;
+}
+
+.backto_menu button span::after {
+	position: absolute;
+	top: 50%;
+	left: 2em;               /* 左側に配置 */
+	content: '';
+	width: 0.5em;
+	height: 0.5em;
+	transform: translateY(-50%) rotate(225deg); /* 矢印向きを右向きに */
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+.to_buy button span::after {
+	position: absolute;
+	top: 50%;
+	right: 2em;
+	content: '';
+	width: 0.5em;
+	height: 0.5em;
+	transform: translateY(-50%) rotate(45deg);
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+
+/* cart_item のレスポンシブここから*/
+@media (max-width: 820px) {
+	.cart_item {
+    display: grid;
+    grid-template-columns: 150px 1fr;   /* 左：画像 / 右：詳細 */
+    grid-template-areas:
+      "img info"
+      "bottom bottom";
+    row-gap: 10px;
+	 column-gap: 16px;
+    align-items: center;
+  }
+
+  /* 画像 */
+  .ci_img {
+    grid-area: img;
+  }
+
+  /* 上段（名前・価格・セレクトをまとめて info に流す） */
+  .ci_name,
+  .ci_price,
+  .ci_quantity {
+    grid-area: info;
+  }
+
+  /* 名前 → 価格 → セレクトが縦並び */
+  .ci_name { margin-bottom: 5px; }
+  .ci_price { margin-bottom: 5px; }
+
+  /* セレクトだけ右寄せ */
+  .ci_quantity {
+    text-align: right;
+  }
+
+  /* ▼ ここ大事！ bottom_area を bottom に割り当てる */
+  .bottom_area {
+    grid-area: bottom;
+    display: flex;               /* 小計 + 削除を横並び */
+    justify-content: flex-end;   /* 右寄せ */
+    gap: 10px;
+  }
+
+  /* 小計 */
+  .item_sum {
+    text-align: right;
+  }
+
+  /* 削除ボタン */
+  .ci_delete {
+    display: inline-block;
+  }
+}
+
+/* ボタンやテキストにマウスが乗ったとき */
+.foot_nav button:hover,
+.foot_nav button span:hover {
+    border-color: #D62828;
+    color: #D62828;
+}
+
+/* 擬似要素 ::after もボタンや span に hover したら赤くする */
+.to_buy button:hover span::after,
+.backto_menu button:hover span::after {
+    border-color: #D62828;
+}
+
+
+.backto_menu {
+	margin: 20px 0;
+}
+

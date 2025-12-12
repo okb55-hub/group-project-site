@@ -1,0 +1,196 @@
+@charset "UTF-8";
+/* 全体レイアウト */
+.done-container {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+/* 成功メッセージ */
+.success-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.success-icon {
+    /* 完了マーク (✓) のデザイン */
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #10B981; /* 成功を示す緑 */
+    color: #0F0F0F;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.success-header h1 {
+    font-size: 30px;
+    color: #D62828; /* アクセントカラーで強調 */
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+	font-family: "Noto Serif JP", serif;
+}
+
+.success-message {
+    font-size: 16px;
+    color:#ffffff;
+	font-family: "Noto Serif JP", serif;
+}
+
+/* 情報詳細 */
+.reservation-details, .customer-details, .error-notice {
+    background-color: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 24px;
+}
+
+.reservation-details h2, .customer-details h2 {
+    font-size: 18px;
+    color: #D62828;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2A2A2A;
+	font-family: "Noto Serif JP", serif;
+}
+
+/* 詳細アイテムのレイアウト */
+.detail-item {
+    display: flex;
+    justify-content: space-between; /* ラベルと値を左右に配置 */
+    padding: 8px 0;
+    border-bottom: 1px dashed #2A2A2A;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 15px;
+    color: #9CA3AF;
+    width: 150px; /* ラベル幅を固定して値を揃える */
+}
+
+.value {
+    font-size: 16px;
+    color: #E5E5E5;
+    font-weight: bold;
+    text-align: right;
+    flex-grow: 1;
+}
+
+/* 注意事項 */
+.notice-section {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+}
+
+.notice-section h3 {
+    color: #D62828;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #2A2A2A;
+    padding-bottom: 5px;
+	font-family: "Noto Serif JP", serif;
+}
+
+.notice-section ul {
+    list-style: disc;
+    list-style-position: inside;
+    padding-left: 5px;
+    font-size: 14px;
+    color: #E5E5E5;
+	font-family: "Noto Serif JP", serif;
+}
+
+.notice-section li {
+    line-height: 1.8;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.action-buttons a {
+    flex: 1;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* プライマリボタン (マイページ) */
+.btn-primary {
+    background: linear-gradient(135deg, #D62828 0%, #B91C1C 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+    transform: translateY(-2px);
+}
+
+/* セカンダリボタン (トップへ) */
+.btn-secondary {
+    background-color: #333333;
+    color: #FFFFFF;
+    border: 1px solid #555555;
+}
+
+.btn-secondary:hover {
+    background-color: #555555;
+}
+
+/* エラー通知 */
+.error-notice {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #444;
+}
+
+.error-notice .error {
+    color: #E5E5E5;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+    .success-header h1 {
+        font-size: 24px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .label {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .value {
+        width: 100%;
+        text-align: left;
+    }
+}
