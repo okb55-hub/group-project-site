@@ -226,7 +226,7 @@ $formatted_date = $date->format('Y年n月j日');
 				<!-- 水曜日の場合のオーバーレイ -->
 				<?php if ($is_wednesday): ?>
 					<div class="initial-overlay">
-						<p class="overlay-text">水曜日は定休日です。ご予約は承っておりません。</p>
+						<p class="overlay-text">水曜日は定休日です。日付を変更して再度検索してください。</p>
 					</div>
 				<?php endif; ?>
 
@@ -324,6 +324,34 @@ $formatted_date = $date->format('Y年n月j日');
 		</div>
 	</footer>
 	<script src="../js/reserve_common.js"></script>
+	<script>
+		document.getElementById('reserve_date').addEventListener('change', function(e) {
+  const selectedDate = new Date(e.target.value);
+  const dayOfWeek = selectedDate.getDay();
+  
+  if (dayOfWeek === 3) {
+    // 水曜日の場合、バリデーションエラーを設定
+    e.target.setCustomValidity('水曜日は定休日です');
+  } else {
+    // それ以外はエラーをクリア
+    e.target.setCustomValidity('');
+  }
+});
+
+// フォーム送信時にも再チェック
+document.querySelector('form').addEventListener('submit', function(e) {
+  const dateInput = document.getElementById('reserve_date');
+  const selectedDate = new Date(dateInput.value);
+  const dayOfWeek = selectedDate.getDay();
+  
+  if (dayOfWeek === 3) {
+    dateInput.setCustomValidity('水曜日は定休日です');
+    e.preventDefault(); // 送信を防ぐ
+  } else {
+    dateInput.setCustomValidity('');
+  }
+});
+	</script>
 </body>
 
 </html>

@@ -262,6 +262,12 @@ font-weight: 500;
 
 
 @media (max-width: 820px) {
+    
+    /* --- ページ全体とセクションの余白調整 --- */
+    /* main_sectionに左右の余白を追加 */
+    .main_section {
+        padding: 0 15px; /* 左右に15pxの余白を設ける */
+    }
 	/* 日付・人数選択フォーム縦並びに変更 */
 	.date_num_form {
 		flex-direction: column;
@@ -292,12 +298,6 @@ font-weight: 500;
 /* ==================================== */
 
 @media (max-width: 480px) {
-
-    /* --- ページ全体とセクションの余白調整 --- */
-    /* main_sectionに左右の余白を追加 */
-    .main_section {
-        padding: 0 15px; /* 左右に15pxの余白を設ける */
-    }
 
     /* フォームとテーブルの最大幅を解除 (paddingで調整) */
     .reserve_form,
