@@ -6,7 +6,7 @@
  */
 function getDb(): PDO {
     try {
-        $dsn = 'mysql:dbname=group_work; host=127.0.0.1; charset=utf8';
+        $dsn = 'mysql:dbname=your_database_name_here; host=127.0.0.1; charset=utf8';
         $user = 'your_username_here';
         $password = 'your_password_here';
 
