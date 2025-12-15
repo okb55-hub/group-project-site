@@ -1,0 +1,21 @@
+# 秘密情報
+php/DbManager.php
+stripe_config.php
+discord_notify.php
+.env
+
+# Composer
+/vendor/
+
+# ログ
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

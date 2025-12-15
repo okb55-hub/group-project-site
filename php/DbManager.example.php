@@ -7,8 +7,8 @@
 function getDb(): PDO {
     try {
         $dsn = 'mysql:dbname=group_work; host=127.0.0.1; charset=utf8';
-        $user = 'root';
-        $password = '12345';
+        $user = 'your_username_here';
+        $password = 'your_password_here';
 
         $db = new PDO($dsn, $user, $password);
         $db->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, true);
