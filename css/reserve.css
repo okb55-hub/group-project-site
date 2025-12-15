@@ -6,153 +6,159 @@
 } */
 
 .sp_br {
-	display: none;
+    display: none;
 }
 
 /* title_section　ここから */
 .title_section {
-	height: 400px;
-	background-image: url(../img/menu/bibimbap-1738580_1280.jpg);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	margin-bottom: 50px
+    height: 400px;
+    background-image: url(../img/menu/bibimbap-1738580_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 50px
 }
 
 .title_text {
-	line-height: 400px;
+    line-height: 400px;
 }
+
 /* ここまで */
 /* -----main_section ここから----- */
 .main_section {
     margin-top: 110px;
 }
+
 .menu_top_text {
-	text-align: center;
+    text-align: center;
 }
+
 /*  日付・人数選択フォームここから  */
 .reserve_form {
-	background-color: #f5f5f5;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-	max-width: 900px;
-	margin: 30px auto;
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
+    margin: 30px auto;
 }
 
 .date_num_form {
-	display: flex;
-	flex-wrap: nowrap;
-	gap: 20px;
-	align-items: flex-end;
-	/* font-family: "Zen Old Mincho", sans-serif; */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: flex-end;
+    /* font-family: "Zen Old Mincho", sans-serif; */
 }
 
 .form_item {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .form_item label {
-	font-size: 1.1em;
-	font-weight: bold;
-	color: #0F0F0F;
-	margin-bottom: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0F0F0F;
+    margin-bottom: 5px;
 }
 
 .form_item input[type="date"],
 .form_item select {
-	padding: 10px;
-	border: 2px solid #D62828;
-	border-radius: 5px;
-	font-size: 1em;
-	color: #0F0F0F;
-	background-color: #FFFFFF;
-	width: 100%;
-	cursor: pointer;
+    padding: 10px;
+    border: 2px solid #D62828;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #0F0F0F;
+    background-color: #FFFFFF;
+    width: 100%;
+    cursor: pointer;
 }
 
 .form_submit {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .form_submit input[type="submit"] {
-	background-color: #D62828;
-	color: #FFFFFF;
-	border: none;
-	padding: 12px 30px;
-	font-size: 1.1em;
-	font-weight: bold;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.2s;
-	height: 100%;
-	min-height: 44px;
+    background-color: #D62828;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 100%;
+    min-height: 44px;
 }
 
 .form_submit input[type="submit"]:hover {
-	background-color: #a81f1f;
+    background-color: #a81f1f;
 }
+
 /*  日付・人数選択フォームここまで  */
 .table_container {
     position: relative;
-    max-width: 900px; /* フォームと幅を合わせる */
-    margin: 30px auto 50px auto; 
+    max-width: 900px;
+    /* フォームと幅を合わせる */
+    margin: 30px auto 50px auto;
 }
 
 /* 初回表示用のオーバーレイ */
 .initial-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	z-index: 10;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* オーバーレイ内メッセージ */
 .overlay-text {
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #333;
-	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-	padding: 20px;
-	background-color: rgba(255, 255, 255, 0.9);
-	border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
 }
 
 .table_container h2 {
     text-align: center;
     font-size: 1.8em;
     margin-bottom: 20px;
-    border-bottom: 3px solid #D62828; 
+    border-bottom: 3px solid #D62828;
     padding-bottom: 5px;
 }
 
 /* テーブル全体 */
 .table_wrapper {
     overflow-x: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-    border-radius: 10px; 
-    border: 1px solid #ddd; 
-    background-color: #fff; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse; 
-    min-width: 600px; /* モバイルでの最小幅 */
+    border-collapse: collapse;
+    min-width: 600px;
+    /* モバイルでの最小幅 */
 }
 
 
 table th {
-    background-color: #333; 
+    background-color: #333;
     color: #fff;
     padding: 15px 5px;
     font-size: 0.9em;
@@ -162,35 +168,35 @@ table th {
 }
 
 table th.seat-type {
-    background-color: #D62828; 
+    background-color: #D62828;
     font-weight: bold;
     color: #fff;
     border-right: 1px solid #a81f1f;
     padding: 15px 10px;
 
-	position: sticky; 
-    left: 0; 
+    position: sticky;
+    left: 0;
     z-index: 5;
 }
 
 table th.seat-type img {
-	display: block;
-	width:80px;
-	border-radius: 10px;
-	margin: 0 auto 5px;
+    display: block;
+    width: 80px;
+    border-radius: 10px;
+    margin: 0 auto 5px;
 }
 
 
 table td {
     border: 1px solid #eee;
-    padding: 0; 
-    height: 60px; 
+    padding: 0;
+    height: 60px;
     text-align: center;
     vertical-align: middle;
 }
 
 table tr:nth-child(even) td {
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
 }
 
 .seat-button {
@@ -206,27 +212,29 @@ table tr:nth-child(even) td {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s, transform 0.1s; 
-	flex-direction: column;
+    transition: background-color 0.2s, transform 0.1s;
+    flex-direction: column;
 }
 
 /* available */
 .seat-button.available {
     background-color: #D1FAE5;
-	color: #10B981;
-    border: 1px solid #10B981; 
+    color: #10B981;
+    border: 1px solid #10B981;
 }
+
 .seat-button.available:hover {
-    background-color: #10B981; 
+    background-color: #10B981;
     color: #fff;
 }
 
 /* few */
 .seat-button.few {
-    background-color: #FEF3C7;  
+    background-color: #FEF3C7;
     border: 1px solid #F59E0B;
-	color: #F59E0B;
+    color: #F59E0B;
 }
+
 .seat-button.few:hover {
     background-color: #F59E0B;
     color: #fff;
@@ -248,43 +256,55 @@ table tr:nth-child(even) td {
 
 /* ボタン・セルの中身 */
 .seat_symbol {
-display: block;
-font-size: 1.2rem;
+    display: block;
+    font-size: 1.2rem;
 }
 
 .remain_seat {
-display: block;
-font-family: sans-serif;
-font-weight: 500;
+    display: block;
+    font-family: sans-serif;
+    font-weight: 500;
 }
 
 /* -----main_section----- ここまで */
 
 
 @media (max-width: 820px) {
-	/* 日付・人数選択フォーム縦並びに変更 */
-	.date_num_form {
-		flex-direction: column;
-		align-items: stretch;
-		gap: 15px;
-	}
 
-	.form_item {
-		width: 100%;
-	}
+    /* --- ページ全体とセクションの余白調整 --- */
+    /* main_sectionに左右の余白を追加 */
+    .main_section {
+        padding: 0 15px;
+        /* 左右に15pxの余白を設ける */
+    }
 
-	.form_item label {
-		font-size: 1em;
-	}
+    /* 日付・人数選択フォーム縦並びに変更 */
+    .date_num_form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
 
-	.form_submit {
-		width: 100%;
-	}
+    .form_item {
+        width: 100%;
+    }
 
-	.form_submit input[type="submit"] {
-		width: 100%;
-		height: auto;
-	}
+    .form_item label {
+        font-size: 1em;
+    }
+
+    .form_submit {
+        width: 100%;
+    }
+
+    .form_submit input[type="submit"] {
+        width: 100%;
+        height: auto;
+    }
+
+    .sp_br {
+        display: block;
+    }
 }
 
 /* ==================================== */
@@ -293,18 +313,13 @@ font-weight: 500;
 
 @media (max-width: 480px) {
 
-    /* --- ページ全体とセクションの余白調整 --- */
-    /* main_sectionに左右の余白を追加 */
-    .main_section {
-        padding: 0 15px; /* 左右に15pxの余白を設ける */
-    }
-
     /* フォームとテーブルの最大幅を解除 (paddingで調整) */
     .reserve_form,
     .table_container {
         max-width: 100%;
         /* margin: 30px auto; はそのまま維持 */
-        padding: 20px; /* フォームの内部パディングも少し減らす */
+        padding: 20px;
+        /* フォームの内部パディングも少し減らす */
     }
 
     /* 予約情報のリード文 */
@@ -313,18 +328,21 @@ font-weight: 500;
         text-align: left;
     }
 
-	.tel_number {
-		/* 1. ブロック要素に変更し、親要素の幅いっぱいに広げる */
-    display: block; 
-    
-    /* 2. ブロック要素内のテキストを中央寄せにする */
-    text-align: center;
-    
-    /* 3. その他（デザイン調整） */
-    font-size: 1.1em; /* 少し大きく */
-    font-weight: bold; /* 強調 */
-    margin-top: 10px; /* 上に少し隙間を作る */
-	}
+    .tel_number {
+        /* 1. ブロック要素に変更し、親要素の幅いっぱいに広げる */
+        display: block;
+
+        /* 2. ブロック要素内のテキストを中央寄せにする */
+        text-align: center;
+
+        /* 3. その他（デザイン調整） */
+        font-size: 1.1em;
+        /* 少し大きく */
+        font-weight: bold;
+        /* 強調 */
+        margin-top: 10px;
+        /* 上に少し隙間を作る */
+    }
 
     /* --- フォームの調整 --- */
     /* フォームの縦並びは既に設定済みなのでOK */
@@ -336,19 +354,19 @@ font-weight: 500;
         padding: 10px 20px;
         font-size: 1em;
     }
-    
+
     /* --- テーブルの調整 (横スクロール対応) --- */
-    
+
     /* h2のタイトル調整 */
     .table_container h2 {
         font-size: 1.5em;
         margin-bottom: 15px;
     }
 
-	.h2_num_people {
-		font-size: 0.9em;
-		font-weight: 300;
-	}
+    .h2_num_people {
+        font-size: 0.9em;
+        font-weight: 300;
+    }
 
     /* 初回オーバーレイの文字を調整 */
     .overlay-text {
@@ -358,55 +376,66 @@ font-weight: 500;
 
     /* テーブルの最小幅設定 (横スクロールさせるための重要な設定) */
     .table_wrapper {
-        min-width: 100%; /* 親要素幅に合わせる */
+        min-width: 100%;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
+
+    .table_wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
     table {
-        min-width: 700px; /* 最小幅を少し広げて、ボタンが縦長になるのを防ぐ */
+        min-width: 700px;
+        /* 最小幅を少し広げて、ボタンが縦長になるのを防ぐ */
     }
 
     /* ヘッダーセルの調整 */
     table th {
-        padding: 12px 3px; /* 詰め気味に */
+        padding: 12px 3px;
+        /* 詰め気味に */
         font-size: 0.8em;
     }
-    
+
     /* 席種セルの調整 */
     table th.seat-type {
         font-size: 0.8em;
         padding: 10px 5px;
         /* 幅を固定して横スクロール時に見切れにくくする */
-        width: 80px; 
+        width: 80px;
     }
 
     /* 席種アイコンの調整（既存のコードを上書き） */
     table th.seat-type img {
-        width: 50px; 
+        width: 50px;
         /* height: auto; 縦長にならないようにautoに */
-        margin: 0 auto 3px; /* 余白を調整 */
+        margin: 0 auto 3px;
+        /* 余白を調整 */
     }
 
     /* --- データセルとボタンの調整 --- */
     table td {
-        height: 50px; /* セルの高さを少し下げる */
+        height: 50px;
+        /* セルの高さを少し下げる */
         padding: 0;
     }
-    
+
     .seat-button,
     .full {
-        width: 95%; /* セル内での幅を少し広げる */
+        width: 95%;
+        /* セル内での幅を少し広げる */
         padding: 5px 3px;
     }
 
     /* ボタン・セルの中身の文字サイズを調整 */
     .seat_symbol {
-        font-size: 1.1rem; /* 記号を少し小さく */
+        font-size: 1.1rem;
+        /* 記号を少し小さく */
     }
 
     .remain_seat {
-        font-size: 0.75rem; /* 残席数を小さく */
+        font-size: 0.75rem;
+        /* 残席数を小さく */
     }
 
-	.sp_br {
-	display: block;
-}
 }

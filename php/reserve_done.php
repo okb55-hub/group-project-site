@@ -149,7 +149,7 @@ try {
     <section class="error-notice">
         <p class="error">
             ※予約は正常に完了していますが、詳細情報の取得に失敗しました。<br>
-            お手数ですが、マイページより予約内容をご確認ください。
+            お手数ですが、予約履歴より予約内容をご確認ください。
         </p>
     </section>
 <?php endif; ?>
@@ -159,13 +159,13 @@ try {
         <h3>ご来店に際してのお願い</h3>
         <ul>
             <li>ご予約の時間に遅れる場合は、お電話にて直接店舗までご連絡をお願いいたします。</li>
-            <li>予約内容の確認はマイページから可能です</li>
+            <li>予約内容の確認・キャンセルは予約履歴から可能です</li>
         </ul>
     </section>
 
     <!-- アクションボタン -->
     <div class="action-buttons">
-        <a href="mypage.php" class="btn-primary">マイページで確認</a>
+        <a href="reservation_history.php" class="btn-primary">予約履歴を確認</a>
         <a href="reserve.php" class="btn-secondary">トップページへ</a>
     </div>
 

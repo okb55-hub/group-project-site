@@ -15,7 +15,6 @@ a {
 }
 
 body {
-	/* ややこしいからいったん消す */
 	font-family: "Zen Old Mincho", sans-serif;
 	background-color: #0F0F0F;
 	color: #FFFFFF;
@@ -122,7 +121,7 @@ header, footer {
 }
 
 /* ユーザー情報 */
-.user_info {
+.header_user_info {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -135,7 +134,7 @@ header, footer {
     color: #D62828;
 }
 
-.user_info.guest .user_icon {
+.guest .user_icon {
     color: #666;
 }
 
@@ -164,16 +163,6 @@ header, footer {
     transition: color 0.3s;
     position: relative;
 }
-
-/* .nav_link::before {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%; 
-    height: 0.8px;
-    background-color: #0F0F0F; 
-} */
 
 .nav_link::after {
     content: '';
@@ -256,9 +245,6 @@ header, footer {
     transform: rotate(-45deg);
 }
 
-
-
-
 /* モバイルメニュー */
 .mobile_menu {
 	display: block;
@@ -295,22 +281,48 @@ header, footer {
     padding: 12px;
 }
 
-.mobile_menu .user_info {
+.mobile_user_info {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 12px;
     background: #F5F5F5;
+    color: #0F0F0F;
     border-radius: 6px;
+    padding: 10px;
 }
+.mobile_menu .nav_link::after {
+    bottom: 0px;
+}
+
 
 .mobile_menu .divider {
     width: 100%;
     height: 1px;
 }
 
+
+.mobile_menu_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.mobile_menu_overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ======= 予約システム共通ヘッダーの設定ここまで ======= */
 
 /* レスポンシブ */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
 	/* 共通ヘッダーここから */
     .reserve_header {
         padding: 12px 20px;
@@ -340,95 +352,21 @@ header, footer {
     .mobile_menu_inner {
         padding: 20px;
     }
+
 }
 
-@media (max-width: 480px) {
-    /* PC版ナビを非表示 */
-    .header_nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .mobile_menu {
-        display: block;
-    }
-
-    .mobile_menu_inner {
-        padding: 20px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =================いったん置いておく=================== */
-/* footer */
+/* =================フッター=================== */
 footer {
-    /* ページの最後に配置されるフッターの基本的なスタイル */
-    padding: 20px 0; /* 上下の余白 */
-    background-color: #FAFAFA; /* 背景色（ヘッダーと色を合わせるなど） */
-    border-top: 1px solid #E0E0E0; /* 上に境界線があると区切りが明確に */
-    text-align: center; /* 中央寄せを確実に */
-}
-
-/* フッター内部の配置（不要な場合もありますが、中央寄せを確実にするため） */
-#footer_inner {
-    max-width: 1400px; /* メインコンテンツの幅に合わせる */
-    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #FAFAFA;
+    border-top: 1px solid #E0E0E0;
+    text-align: center;
 }
 
 /* 著作権表示のスタイル */
 #copyright {
-    display: block; /* 中央寄せを有効にするためにブロック要素に */
-    font-size: 0.8rem; /* 文字を小さく */
-    color: #666; /* 目立ちすぎない色 */
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
     line-height: 1.5;
 }
-
-
-
-
-/* レスポンシブデザイン */
-/* タブレット */
-@media (max-width: 820px) {
-	footer #footer_inner {
-		padding: 60px 0 20px 0;
-	}
-
-
-}
-
-/* スマートフォン */
-@media (max-width: 480px) {
-	footer #footer_inner {
-		padding: 40px 20px 20px 20px;
-	}
-
-
-}
-

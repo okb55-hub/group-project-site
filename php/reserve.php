@@ -66,17 +66,6 @@ elseif (isset($_SESSION['search_date']) && isset($_SESSION['search_people'])) {
 	$num_people = 1; // 仮人数
 }
 
-// 曜日番号（0:日〜6:土）を取得
-$w = date('w', strtotime($reserve_date));
-
-if ($w == 3) {
-	$is_wednesday = true;
-} else {
-	$is_wednesday = false;
-}
-
-
-
 // 2.それぞれの席のすでに入っている予約を取得
 // カウンター席
 $stmt = $db->prepare("
@@ -108,8 +97,6 @@ $stmt = $db->prepare("
 $stmt->execute(['date' => $reserve_date]);
 $zashiki_reservations = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 
-
-// 残席を計算
 // 残席を計算
 foreach ($time_slots as $index => $slot) {
 	$slot_id = $slot['slot_id'];
@@ -139,18 +126,31 @@ function getSeatStatus($remaining, $num_people)
 	}
 }
 
-// 日付を画面表示の形に整える
+// DateTimeオブジェクト作成
 $date = new DateTime($reserve_date);
-$formatted_date = $date->format('Y年n月j日');
+
+// 曜日番号（0:日〜6:土）を取得
+$w = (int)$date->format('w');
+// 曜日の日本語配列
+$week_days = ['日', '月', '火', '水', '木', '金', '土'];
+$week_str = $week_days[$w];
+// 画面表示用の日付文字列を作成：例「2025年10月10日（金）」
+$formatted_date = $date->format('Y年n月j日') . "({$week_str})";
+// 水曜日判定
+if ($w == 3) {
+    $is_wednesday = true;
+} else {
+    $is_wednesday = false;
+}
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ja">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>来店予約 - 本格韓国料理 ソダム</title>
 	<link rel="stylesheet" href="./../css/reserve_common.css">
 	<link rel="stylesheet" href="./../css/reserve.css">
 
@@ -226,7 +226,7 @@ $formatted_date = $date->format('Y年n月j日');
 				<!-- 水曜日の場合のオーバーレイ -->
 				<?php if ($is_wednesday): ?>
 					<div class="initial-overlay">
-						<p class="overlay-text">水曜日は定休日です。ご予約は承っておりません。</p>
+						<p class="overlay-text">水曜日は定休日です。日付を変更して再度検索してください。</p>
 					</div>
 				<?php endif; ?>
 
@@ -316,14 +316,11 @@ $formatted_date = $date->format('Y年n月j日');
 
 			</div>
 	</main>
-	<footer>
-		<div id="footer_inner">
-			<small id="copyright">
-				&copy; 本格韓国料理 ソダム All Right Reserved.
-			</small>
-		</div>
-	</footer>
+	<?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 	<script src="../js/reserve_common.js"></script>
+	<script src="../js/reserve.js"></script>
 </body>
 
 </html>
