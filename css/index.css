@@ -233,9 +233,84 @@ main #message_text p {
 }
 
 /* お知らせ以降は黒背景 */
-#news, #menu, #info {
+#commitment ,#news, #menu, #info {
 	width: 100%;
 	background-color: #0F0F0F;
+}
+
+.section_title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.section_title h2 {
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	font-size: 30px;
+	line-height: 1.2em;
+	font-weight: 300;
+}
+
+.section_title p {
+	margin-top: 10px;
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.section_title p span {
+	color: #D62828;
+}
+
+/* こだわり */
+#commitment_inner {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 50px 80px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	background-color: antiquewhite;
+	color: #0F0F0F;
+}
+
+#commitment_main_sections {
+	width: 100%;
+	display: flex;
+	gap: 40px;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.commitment_section_container {
+	flex: 1;
+}
+
+.commitment_section_container h3 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.commitment_section_container div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.commitment_img {
+	width: 250px;
+}
+
+.commitment_img img {
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+}
+
+.commitment_section_container div p {
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 /* お知らせ */
@@ -250,27 +325,6 @@ main #news_container {
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
-}
-
-.section_title {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.section_title p {
-	writing-mode: vertical-rl;
-	text-orientation: upright;
-}
-
-.section_title h2 {
-	font-family: "Zen Old Mincho", sans-serif;
-	font-weight: 400;
-	font-size: 35px;
-}
-
-.section_title h2 span {
-	color: #D62828;
 }
 
 main #news_main {
@@ -329,8 +383,8 @@ main #menu {
 
 main #smoke {
 	position: absolute;
-	top: -300px;
-	z-index: -1;
+	top: -100px;
+	z-index: 0;
 }
 
 main #smoke img {
@@ -338,6 +392,8 @@ main #smoke img {
 }
 
 main #menu_container {
+	position: relative;
+	z-index: 10;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
