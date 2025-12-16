@@ -181,8 +181,7 @@ table th.seat-type {
 
 table th.seat-type img {
     display: block;
-    width: 80px;
-    border-radius: 10px;
+    width: 200px;
     margin: 0 auto 5px;
 }
 

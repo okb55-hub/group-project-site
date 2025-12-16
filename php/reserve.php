@@ -277,7 +277,7 @@ try {
 
 						<!-- カウンター席 -->
 						<tr>
-							<th class="seat-type"> <img src="../img/reserve/counter.png" alt="カウンター席">カウンター</th>
+							<th class="seat-type"> <img src="../img/reserve/counter.jpg" alt="カウンター席">カウンター</th>
 							<?php foreach ($time_slots as $slot): ?>
 								<?php $status = getSeatStatus($slot['counter_remaining'], $num_people); ?>
 								<td>
@@ -301,7 +301,7 @@ try {
 
 						<!-- テーブル席 -->
 						<tr>
-							<th class="seat-type"> <img src="../img/reserve/table.jpg" alt="テーブル席">テーブル</th>
+							<th class="seat-type"> <img src="../img/reserve/table.png" alt="テーブル席">テーブル</th>
 							<?php foreach ($time_slots as $slot): ?>
 								<?php $status = getSeatStatus($slot['table_remaining'], $num_people); ?>
 								<td>
