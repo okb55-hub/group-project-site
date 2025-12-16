@@ -243,7 +243,7 @@ unset($_SESSION['cart']);
 	<footer>
 		<div id="footer_inner">
 			<div id="footer_main">
-				<div>
+				<div id="footer_info">
 					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>

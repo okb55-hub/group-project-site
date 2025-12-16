@@ -152,7 +152,7 @@ $total = 0;
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
