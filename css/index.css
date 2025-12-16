@@ -299,7 +299,7 @@ main #commitment {
 }
 
 .commitment_section_container {
-	margin: 0 40px;
+	margin: 0 60px;
 }
 
 .commitment_section_container h3 {
@@ -307,25 +307,45 @@ main #commitment {
 	margin-bottom: 20px;
 }
 
-.commitment_section_container div {
+.commitment_img_text {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 10px;
+	gap: 20px;
 }
 
 .commitment_img {
-	width: 250px;
+	flex: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.commitment_text {
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .commitment_img img {
-	width: 100%;
+	width: 80%;
 	height: auto;
 	border-radius: 50%;
 }
 
-.commitment_section_container div p {
+.commitment_text div {
 	font-family: "Noto Sans JP", sans-serif;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.text_point {
+	padding: 5px 0;
+}
+
+.text_point span {
+	padding: 0 5px;
+	border-bottom: solid 1px #D62828;
 }
 
 /* お知らせ */
