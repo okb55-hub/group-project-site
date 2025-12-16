@@ -16,7 +16,7 @@ main #fv_container::before {
 	top: 0;
 	left: 0;
 	display: block;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(106, 106, 106, 0.2);
 }
 
 main #fv_container .fv_img {
@@ -33,19 +33,19 @@ main #fv_container .fv_img {
 }
 
 #img1 {
-	background-image: url(../img/index/PC/bibimbap.JPG);
+	background-image: url(../img/index/hero_slide_1.png);
 }
 
 #img2 {
-	background-image: url(../img/index/PC/jjigae2.JPG);
+	background-image: url(../img/index/hero_slide_2.png);
 }
 
 #img3 {
-	background-image: url(../img/index/PC/grill_meat.JPG);
+	background-image: url(../img/index/hero_slide_3.png);
 }
 
 #img4 {
-	background-image: url(../img/index/PC/kimchi.JPG);
+	background-image: url(../img/index/hero_slide_4.JPG);
 }
 
 main #fv_container .fv_img:nth-child(1) {

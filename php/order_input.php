@@ -40,7 +40,7 @@ foreach ($cart as $id => $qty) {
 </head>
 <body>
 	<header>
-		<a href="index.html"><img id="header_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<button id="hamburger">
 			<span></span>
 			<span></span>
