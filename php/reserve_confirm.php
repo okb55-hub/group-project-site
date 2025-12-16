@@ -130,6 +130,9 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
 		rel="stylesheet">
 </head>
 <body>
+    <?php
+	require_once __DIR__ . "/reserve_logoheader.php";
+	?>
 
 <main class="confirm-container">
 

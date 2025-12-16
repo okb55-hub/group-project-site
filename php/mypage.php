@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'] ?? null;
 $error = '';
 $user = null;
-$display_name = "ゲスト";
+$display_name = "取得できませんでした";
 $is_logged_in = false;
 $is_Error = false;
 

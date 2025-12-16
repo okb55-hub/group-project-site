@@ -14,8 +14,24 @@ $error = '';
 $future_reservations = [];
 $past_reservations = [];
 $seat_label = [];
+$display_name = "取得できませんでした";
+$is_logged_in = false;
+$is_Error = false;
+
 try {
     $db = getDb();
+
+    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
+		// ユーザーIDがある場合、DBから名前を取得
+		$user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
+		$user_stmt->execute(['user_id' => $_SESSION['user_id']]);
+		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($user_data) {
+			$display_name = $user_data['name'];
+			$is_logged_in = true;
+		}
+	}
 
     // ▼ 予約履歴を取得（未来・過去すべて）
     $sql = "
@@ -72,6 +88,9 @@ try {
 
 <!DOCTYPE html>
 <html lang="ja">
+<?php
+	require_once __DIR__ . "/reserve_header.php";
+	?>
 
 <head>
     <meta charset="UTF-8">

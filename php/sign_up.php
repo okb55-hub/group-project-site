@@ -132,6 +132,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+	<?php
+	require_once __DIR__ . "/reserve_logoheader.php";
+	?>
 
 	<main>
 

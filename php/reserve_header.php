@@ -77,7 +77,7 @@
         <?php endif; ?>
 
         <div class="divider"></div>
-        <a href="https://example.com" target="_blank" class="store_link">
+        <a href="../html/index.html" target="_blank" class="store_link">
             店舗サイトへ
             <svg class="external_icon" viewBox="0 0 24 24">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

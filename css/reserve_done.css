@@ -31,13 +31,11 @@
     color: #D62828; /* アクセントカラーで強調 */
     margin-bottom: 8px;
     letter-spacing: 0.1em;
-	font-family: "Noto Serif JP", serif;
 }
 
 .success-message {
     font-size: 16px;
     color:#ffffff;
-	font-family: "Noto Serif JP", serif;
 }
 
 /* 情報詳細 */
@@ -55,7 +53,6 @@
     margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid #2A2A2A;
-	font-family: "Noto Serif JP", serif;
 }
 
 /* 詳細アイテムのレイアウト */
@@ -64,6 +61,7 @@
     justify-content: space-between; /* ラベルと値を左右に配置 */
     padding: 8px 0;
     border-bottom: 1px dashed #2A2A2A;
+    font-family: sans-serif;
 }
 
 .detail-item:last-child {
@@ -76,7 +74,7 @@
     width: 150px; /* ラベル幅を固定して値を揃える */
 }
 
-.value {
+span.value {
     font-size: 16px;
     color: #E5E5E5;
     font-weight: bold;
@@ -98,7 +96,6 @@
     margin-bottom: 10px;
     border-bottom: 1px dotted #2A2A2A;
     padding-bottom: 5px;
-	font-family: "Noto Serif JP", serif;
 }
 
 .notice-section ul {
@@ -107,7 +104,6 @@
     padding-left: 5px;
     font-size: 14px;
     color: #E5E5E5;
-	font-family: "Noto Serif JP", serif;
 }
 
 .notice-section li {

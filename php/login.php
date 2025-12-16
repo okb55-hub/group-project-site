@@ -80,6 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    <?php
+	require_once __DIR__ . "/reserve_logoheader.php";
+	?>
     <div class="login_container">
         <form action="login.php" method="post" class="login_form">
 

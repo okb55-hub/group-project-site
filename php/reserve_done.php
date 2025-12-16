@@ -9,8 +9,13 @@ if (!isset($_SESSION['reservation'], $_SESSION['user_id'])) {
 }
 
 $res = $_SESSION['reservation'];
-$user_id     = $_SESSION['user_id'];
 $reserve_id = null; // 予約IDを保存用
+$user_id = $_SESSION['user_id'] ?? null;
+$error = '';
+$user = null;
+$display_name = "取得できませんでした";
+$is_logged_in = false;
+$is_Error = false;
 
 try {
     $db = getDb();
@@ -104,6 +109,9 @@ try {
 		rel="stylesheet">
 </head>
 <body>
+<?php
+	require_once __DIR__ . "/reserve_header.php";
+	?>
 
 <main class="done-container">
     
