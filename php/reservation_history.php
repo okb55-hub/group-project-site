@@ -79,7 +79,13 @@ try {
     <title>予約履歴</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reservation_history.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
@@ -174,6 +180,9 @@ try {
             <a href="reserve.php">← トップページへ戻る</a>
         </div>
     </div>
+    <?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 
 </body>
 

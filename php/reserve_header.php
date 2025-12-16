@@ -35,10 +35,10 @@
             <?php endif; ?>
             <?php if ($is_logged_in): ?>
                 <a href="reservation_history.php" class="nav_link">予約履歴</a>
-                <a href="logout.php" class="action_btn logout_btn">ログアウト</a>
+                <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
             <?php else: ?>
                 <a href="login.php" class="nav_link">ログイン</a>
-                <a href="sign_up.php" class="action_btn">新規登録</a>
+                <a href="sign_up.php" id="action_btn">新規登録</a>
             <?php endif; ?>
         </nav>
 
@@ -87,10 +87,10 @@
         </a>
         <?php if ($is_logged_in): ?>
             <a href="reservation_history.php" class="nav_link">予約履歴</a>
-            <a href="logout.php" class="action_btn logout_btn">ログアウト</a>
+            <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
         <?php else: ?>
             <a href="login.php" class="nav_link">ログイン</a>
-            <a href="sign_up.php" class="action_btn">新規登録</a>
+            <a href="sign_up.php" id="action_btn">新規登録</a>
         <?php endif; ?>
     </div>
 </div>

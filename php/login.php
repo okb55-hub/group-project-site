@@ -69,6 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>ログイン画面</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/login.css">
+
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
@@ -99,6 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="sign_up.php">新規登録はこちら</a>
         </p>
     </div>
+    <?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 </body>
 
 </html>
