@@ -151,6 +151,18 @@ tr.past td {
     transform: translateX(-4px);
 }
 
+/* エラーメッセージ */
+.error_message {
+    background-color: rgba(214, 40, 40, 0.1);
+    border: 1px solid #D62828;
+    color: #D62828;
+    padding: 12px 5px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+        }
+
 /* ==================================== */
 /* 5. レスポンシブ (スマホ表示) */
 /* ==================================== */
