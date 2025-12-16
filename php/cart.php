@@ -4,8 +4,8 @@ $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 
 // 商品データ（仮にID, 名前, 価格, 画像パスを配列にしておく）
 $products = [
-	1 => ["name" => "サムギョプサル弁当", "price" => 900, "img" => "../img/takeout/Gemini_Generated_Image_uov7puov7puov7pu-removebg-preview.png"],
-	2 => ["name" => "ビビンバ丼", "price" => 900, "img" => "../img/takeout/bibimbap-4887417_1280-removebg-preview.png"],
+	1 => ["name" => "サムギョプサル弁当", "price" => 900, "img" => "../img/takeout/takeout_sambox.png"],
+	2 => ["name" => "ビビンバ丼", "price" => 900, "img" => "../img/takeout/takeout_bibinbap.png"],
 	3 => ["name" => "特製キンパ", "price" => 800, "img" => "../img/takeout/menu6.png"],
 	4 => ["name" => "サムゲタンスープ", "price" => 1000, "img" => "../img/takeout/menu3.png"],
 	5 => ["name" => "チジミ", "price" => 700, "img" => "../img/takeout/menu5.png"],
@@ -16,6 +16,7 @@ $products = [
 $cart = $_SESSION['cart'] ?? [];
 $cart_count = count($cart);
 $total = 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -124,28 +125,30 @@ $total = 0;
 		</div>
 
 		<?php if ($cart_count > 0): ?>
-			<div class="all_sum">
-				<h2>合計金額</h2>
-				<p>￥<?= $total ?></p>
-			</div>
-			<div class="foot_nav">
-				<div class="backto_menu">
-					<button>
-						<a href="takeout.php">
-							<span>メニューに戻る</span>
-						</a>
-					</button>
-					</div>
-					<div class="to_buy">
-					<button>
-						<a href="order_input.php">
-							<span>購入画面へ</span>
-						</a>
-					</button>
-					</div>
-				</div>
-		<?php else: ?>
-		<?php endif; ?>
+  <div class="all_sum">
+    <h2>合計金額</h2>
+    <p>￥<?= $total ?></p>
+  </div>
+<?php endif; ?>
+
+<div class="foot_nav">
+  <!-- 常に表示 -->
+  <div class="backto_menu">
+    <a href="takeout.php" class="btn">
+      <span>メニューに戻る</span>
+    </a>
+  </div>
+
+  <!-- カートに商品があるときだけ表示 -->
+  <?php if ($cart_count > 0): ?>
+    <div class="to_buy">
+      <a href="order_input.php" class="btn">
+        <span>購入画面へ</span>
+      </a>
+    </div>
+  <?php endif; ?>
+</div>
+
 
 	</main>
 	<footer>

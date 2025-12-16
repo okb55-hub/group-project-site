@@ -109,7 +109,7 @@ if (!empty($_SESSION['cart'])) {
 			</div>
 			<div class="takeout_container">
 				<div class="takeout_item" data-id="1">
-					<img src="../img/takeout/Gemini_Generated_Image_uov7puov7puov7pu-removebg-preview.png" alt="">
+					<img src="../img/takeout/takeout_sambox.png" alt="">
 					<div class="takeout_item_text">
 						<p>サムギョプサル弁当</p>
 						<p>￥900</p>
@@ -117,7 +117,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-sam">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="2">
-					<img src="../img/takeout/bibimbap-4887417_1280-removebg-preview.png" alt="">
+					<img src="../img/takeout/takeout_bibinbap.png" alt="">
 					<div class="takeout_item_text">
 						<p>ビビンバ丼</p>
 						<p>￥900</p>
@@ -162,7 +162,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/Gemini_Generated_Image_uov7puov7puov7pu-removebg-preview.png"
+							<img src="../img/takeout/takeout_sambox.png"
 								alt="">
 							<div class="modal-content-container-info">
 								<h2>サムギョプサル弁当</h2>
@@ -181,7 +181,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/bibimbap-4887417_1280-removebg-preview.png" alt="">
+							<img src="../img/takeout/takeout_bibinbap.png" alt="">
 							<div class="modal-content-container-info">
 								<h2>ビビンバ丼</h2>
 								<p>彩り豊かなナムルと特製コチュジャンをたっぷりと。素材の風味を生かしながら丁寧に仕上げた、体にも優しい本場の味です。混ぜるほどに深まる旨みをご堪能ください。</p>
@@ -266,11 +266,9 @@ if (!empty($_SESSION['cart'])) {
 		</div>
 		<div class="foot_contain">
 				<div class="to_cartbtn">
-					<button>
-						<a href="cart.php">
+						<a href="cart.php" class="btn">
 							<span>カートを確認する</span>
 						</a>
-					</button>
 				</div>
 		</div>
 	</main>
