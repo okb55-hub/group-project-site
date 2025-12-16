@@ -180,7 +180,7 @@ header, footer {
 }
 
 /* 新規登録ボタン */
-.action_btn {
+#action_btn {
     padding: 8px 16px;
     background: #D62828;
     border: 1px solid #D62828;
@@ -193,7 +193,7 @@ header, footer {
     display: inline-block;
 }
 
-.action_btn:hover {
+#action_btn:hover {
     background: #B91C1C;
     border-color: #B91C1C;
 }
@@ -276,7 +276,7 @@ header, footer {
 
 .mobile_menu .store_link,
 .mobile_menu .nav_link,
-.mobile_menu .action_btn {
+.mobile_menu #action_btn {
     text-align: center;
     padding: 12px;
 }

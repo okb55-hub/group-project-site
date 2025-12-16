@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-/* ややこしいからいったん消す */
-/* body {
-	font-family: "Zen Old Mincho", sans-serif;
-} */
-
 .sp_br {
     display: none;
 }
@@ -48,7 +43,6 @@
     flex-wrap: nowrap;
     gap: 20px;
     align-items: flex-end;
-    /* font-family: "Zen Old Mincho", sans-serif; */
 }
 
 .form_item {
