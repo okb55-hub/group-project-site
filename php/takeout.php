@@ -56,7 +56,7 @@ if (!empty($_SESSION['cart'])) {
 
 <body>
 		<header>
-		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+		<a href="../html/index.html id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<div id="header_icons">
 
 			<a href="cart.php" class="icon_btn cart_icon">
@@ -71,12 +71,13 @@ if (!empty($_SESSION['cart'])) {
 		</button>
 		<nav id="nav_list">
 			<ul>
-				<li><a href="index.html">TOP</a></li>
-				<li><a href="menu.html">メニュー</a></li>
-				<li><a href="shop.html">店舗情報</a></li>
-				<li><a href="">来店予約</a></li>
-				<li><a href="takeout.html">テイクアウト</a></li>
-				<li><a href="contact.html">お問い合わせ</a></li>
+				<li><a href="../html/index.html">TOP</a></li>
+				<li><a href="../html/menu.html">メニュー</a></li>
+				<li><a href="../html/shop.html">店舗情報</a></li>
+				<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
+				<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
+				<li><a href="../html/contact.html">お問い合わせ</a></li>
+				<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -278,7 +279,7 @@ if (!empty($_SESSION['cart'])) {
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
@@ -289,13 +290,13 @@ if (!empty($_SESSION['cart'])) {
 				</div>
 				<div id="footer_nav">
 					<ul>
-						<li><a href="index.html">TOP</a></li>
-						<li><a href="menu.html">メニュー</a></li>
-						<li><a href="shop.html">店舗情報</a></li>
-						<li><a href="">来店予約</a></li>
-						<li><a href="takeout.html">テイクアウト</a></li>
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="policy.html">プライバシーポリシー</a></li>
+						<li><a href="../html/index.html">TOP</a></li>
+						<li><a href="../html/menu.html">メニュー</a></li>
+						<li><a href="../html/shop.html">店舗情報</a></li>
+						<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
+						<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
+						<li><a href="../html/contact.html">お問い合わせ</a></li>
+						<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 					</ul>
 				</div>
 			</div>
