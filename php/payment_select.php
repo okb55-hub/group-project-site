@@ -12,6 +12,7 @@ $order = $_SESSION['order'];
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +27,10 @@ $order = $_SESSION['order'];
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 	<header>
-		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+		<a href="../html/index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<button id="hamburger">
 			<span></span>
 			<span></span>
@@ -36,24 +38,18 @@ $order = $_SESSION['order'];
 		</button>
 		<nav id="nav_list">
 			<ul>
-				<li><a href="index.html">TOP</a></li>
-				<li><a href="menu.html">メニュー</a></li>
-				<li><a href="shop.html">店舗情報</a></li>
+				<li><a href="../html/index.html">TOP</a></li>
+				<li><a href="../html/menu.html">メニュー</a></li>
+				<li><a href="../html/shop.html">店舗情報</a></li>
 				<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 				<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-				<li><a href="contact.html">お問い合わせ</a></li>
+				<li><a href="../html/contact.html">お問い合わせ</a></li>
+				<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main>
-		<div class="title_section">
-			<div class="title_text">
-				<h1><span>O</span>rder</h1>
-				<p>ご注文情報入力</p>
-			</div>
-		</div>
-
 		<div class="payment_container">
 			<h1>決済方法を選択してください</h1>
 
@@ -108,7 +104,7 @@ $order = $_SESSION['order'];
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div>
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
@@ -119,13 +115,13 @@ $order = $_SESSION['order'];
 				</div>
 				<div id="footer_nav">
 					<ul>
-						<li><a href="index.html">TOP</a></li>
-						<li><a href="menu.html">メニュー</a></li>
-						<li><a href="information.html">店舗情報</a></li>
+						<li><a href="../html/index.html">TOP</a></li>
+						<li><a href="../html/menu.html">メニュー</a></li>
+						<li><a href="../html/shop.html">店舗情報</a></li>
 						<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 						<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="policy.html">プライバシーポリシー</a></li>
+						<li><a href="../html/contact.html">お問い合わせ</a></li>
+						<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 					</ul>
 				</div>
 			</div>
@@ -138,4 +134,5 @@ $order = $_SESSION['order'];
 	</footer>
 	<script src="../js/hamburger.js"></script>
 </body>
+
 </html>
