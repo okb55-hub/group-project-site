@@ -56,7 +56,7 @@ if (!empty($_SESSION['cart'])) {
 
 <body>
 		<header>
-		<a href="../html/index.html id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+		<a href="../html/index.html" id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<div id="header_icons">
 
 			<a href="cart.php" class="icon_btn cart_icon">

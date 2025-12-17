@@ -2,15 +2,14 @@
 
 body {
     font-family: "Noto Sans JP", sans-serif;
-    ;
 }
 
 /* 注文ページのスタイル */
 
 .order_container {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
+    margin: 0 auto 50px auto;
+    padding: 200px 20px 0 20px;
 }
 
 .order_container h1 {
@@ -18,8 +17,9 @@ body {
     font-size: 2rem;
     width: fit-content;
     margin: 0 auto 30px;
-    border-bottom: solid 2px #D62828;
+    border-bottom: solid 1px #D62828;
     font-family: "Zen Old Mincho", sans-serif;
+    font-weight: 400;
 }
 
 /* エラーメッセージ */
@@ -39,7 +39,7 @@ body {
 
 /* お客様情報フォーム */
 .customer_info {
-    background: #fff;
+    background: #ffffff;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -49,7 +49,9 @@ body {
     font-size: 1.5rem;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 1.5px solid #e0e0e0;
+    color: #313131;
+    font-weight: 400;
 }
 
 .form_group {
@@ -60,7 +62,8 @@ body {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #333;
+    color: #333333;
+    font-weight: 400;
 }
 
 .required {
@@ -71,7 +74,7 @@ body {
 .form_note {
     display: block;
     margin-top: 5px;
-    color: #666;
+    color: #a1a1a1;
     font-size: 0.85rem;
 }
 
@@ -86,6 +89,7 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     transition: border-color 0.3s;
+    cursor: pointer;
 }
 
 .form_group input:focus,
@@ -105,7 +109,7 @@ body {
     display: flex;
     align-items: center;
     padding: 12px;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
@@ -138,10 +142,10 @@ body {
 .btn_primary,
 .btn_secondary {
     flex: 1;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 400;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
@@ -154,20 +158,20 @@ body {
 }
 
 .btn_primary {
-    background: #d32f2f;
+    background: #D62828;
     color: white;
 }
 
 .btn_primary:hover {
-    background: #b71c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #d62828ad;
+    /* transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
 }
 
 .btn_secondary {
     background: #fff;
     color: #333;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 .btn_secondary:hover {
@@ -225,6 +229,10 @@ body {
     /* もともとcontentにあった余白をここに移動 */
 }
 
+.modal_scroll_area::-webkit-scrollbar {
+    display: none;
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-50px);
@@ -242,7 +250,7 @@ body {
     right: 15px;
     top: 15px;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 500;
     color: #333;
     cursor: pointer;
     transition: color 0.3s;
@@ -254,12 +262,13 @@ body {
 
 .modal_confirm_content h2 {
     font-size: 1.8rem;
+    font-weight: 400;
     margin-bottom: 25px;
     color: #333;
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 2px solid #d32f2f;
+    border-bottom: 1px solid #d32f2f;
     padding-bottom: 15px;
 }
 
@@ -278,6 +287,7 @@ body {
 .modal_section h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
+    font-weight: 500;
     color: #d32f2f;
 }
 
@@ -309,7 +319,7 @@ body {
 }
 
 .modal_item_name {
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 5px;
     color: #333;
 }
@@ -322,9 +332,10 @@ body {
 .modal_total {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 2px solid #d32f2f;
+    border-top: 1px solid #d32f2f;
     text-align: right;
     font-size: 1.3rem;
+    font-weight: 300;
     color: #d32f2f;
 }
 
@@ -351,11 +362,13 @@ body {
     font-weight: bold;
     width: 35%;
     color: #555;
+    font-weight: 400;
 }
 
 .modal_info_table td {
     padding: 12px;
     color: #333;
+    font-weight: 400;
 }
 
 /* モーダルアクション */
@@ -378,26 +391,32 @@ body {
 }
 
 /* レスポンシブ */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .modal_confirm_content {
         margin: 10px;
         padding: 20px;
         width: calc(100% - 20px);
-        max-height: 90vh;
+        max-height: 80vh;
+    }
+
+    .modal_scroll_area {
+        max-height: 75vh;
+        padding: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .modal_section {
+        padding: 10px;
     }
 
     .modal_confirm_content h2 {
         font-size: 1.4rem;
     }
 
-    .modal_item {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .modal_item img {
-        margin-right: 0;
-        margin-bottom: 10px;
+        width: 80px;
+        height: auto;
     }
 
     .modal_info_table th,

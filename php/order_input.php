@@ -42,7 +42,7 @@ foreach ($cart as $id => $qty) {
 
 <body>
 	<header>
-		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+		<a href="../html/index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<button id="hamburger">
 			<span></span>
 			<span></span>
@@ -50,24 +50,18 @@ foreach ($cart as $id => $qty) {
 		</button>
 		<nav id="nav_list">
 			<ul>
-				<li><a href="index.html">TOP</a></li>
-				<li><a href="menu.html">メニュー</a></li>
-				<li><a href="shop.html">店舗情報</a></li>
+				<li><a href="../html/index.html">TOP</a></li>
+				<li><a href="../html/menu.html">メニュー</a></li>
+				<li><a href="../html/shop.html">店舗情報</a></li>
 				<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 				<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-				<li><a href="contact.html">お問い合わせ</a></li>
+				<li><a href="../html/contact.html">お問い合わせ</a></li>
+				<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main>
-		<div class="title_section">
-			<div class="title_text">
-				<h1><span>O</span>rder</h1>
-				<p>ご注文情報入力</p>
-			</div>
-		</div>
-
 		<div class="order_container">
 			<h1>ご注文情報の入力</h1>
 			<div id="error_messages" class="error_messages" style="display: none;"></div>
@@ -218,7 +212,7 @@ foreach ($cart as $id => $qty) {
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
@@ -229,13 +223,13 @@ foreach ($cart as $id => $qty) {
 				</div>
 				<div id="footer_nav">
 					<ul>
-						<li><a href="index.html">TOP</a></li>
-						<li><a href="menu.html">メニュー</a></li>
-						<li><a href="information.html">店舗情報</a></li>
+						<li><a href="../html/index.html">TOP</a></li>
+						<li><a href="../html/menu.html">メニュー</a></li>
+						<li><a href="../html/shop.html">店舗情報</a></li>
 						<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 						<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="policy.html">プライバシーポリシー</a></li>
+						<li><a href="../html/contact.html">お問い合わせ</a></li>
+						<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 					</ul>
 				</div>
 			</div>
