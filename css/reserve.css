@@ -260,6 +260,17 @@ table tr:nth-child(even) td {
     font-weight: 500;
 }
 
+.error_message {
+    background-color: rgba(214, 40, 40, 0.1);
+    border: 1px solid #D62828;
+    color: #D62828;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+        }
+
 /* -----main_section----- ここまで */
 
 
