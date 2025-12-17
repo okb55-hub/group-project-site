@@ -1,32 +1,39 @@
 @charset "UTF-8";
-*, ::before, ::after {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-ul, ol {
-	list-style: none;
+ul,
+ol {
+    list-style: none;
 }
 
 a {
-	text-decoration: none;
-	color: #FFFFFF;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 body {
-	/* ややこしいからいったん消す */
-	font-family: "Zen Old Mincho", sans-serif;
-	background-color: #0F0F0F;
-	color: #FFFFFF;
+    font-family: "Zen Old Mincho", sans-serif;
+    background-color: #0F0F0F;
+    color: #FFFFFF;
 }
 
-button, input, textarea, select {
-	font-family: inherit;
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
 }
 
-header, footer {
-	background-color: #0F0F0F;
+header,
+footer {
+    background-color: #0F0F0F;
 }
 
 /* ======= 予約システム共通ヘッダーの設定ここから ======= */
@@ -39,7 +46,7 @@ header, footer {
     padding: 16px 40px;
     background: #FAFAFA;
     border: 1.5px solid #D62828;
-    box-shadow: 
+    box-shadow:
         inset 0 0 0 3px #FAFAFA,
         inset 0 0 0 4.5px #D62828;
 }
@@ -122,7 +129,7 @@ header, footer {
 }
 
 /* ユーザー情報 */
-.user_info {
+.header_user_info {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -135,7 +142,7 @@ header, footer {
     color: #D62828;
 }
 
-.user_info.guest .user_icon {
+.guest .user_icon {
     color: #666;
 }
 
@@ -152,7 +159,7 @@ header, footer {
 
 .honorific {
     font-weight: 400;
-	font-size: 12px;
+    font-size: 12px;
 }
 
 /* ナビリンク */
@@ -165,22 +172,12 @@ header, footer {
     position: relative;
 }
 
-/* .nav_link::before {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%; 
-    height: 0.8px;
-    background-color: #0F0F0F; 
-} */
-
 .nav_link::after {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 0; 
+    width: 0;
     height: 0.8px;
     background-color: #D62828;
     transition: width 0.3s;
@@ -191,7 +188,7 @@ header, footer {
 }
 
 /* 新規登録ボタン */
-.action_btn {
+#action_btn {
     padding: 8px 16px;
     background: #D62828;
     border: 1px solid #D62828;
@@ -204,7 +201,7 @@ header, footer {
     display: inline-block;
 }
 
-.action_btn:hover {
+#action_btn:hover {
     background: #B91C1C;
     border-color: #B91C1C;
 }
@@ -215,7 +212,8 @@ header, footer {
     height: 30px;
     position: relative;
     display: none;
-    align-items: center;  /* 中央揃え */
+    align-items: center;
+    /* 中央揃え */
     justify-content: center;
     border: none;
     background: none;
@@ -234,9 +232,11 @@ header, footer {
 .hamburger span:nth-child(1) {
     top: 7px;
 }
+
 .hamburger span:nth-child(2) {
     top: 14px;
 }
+
 .hamburger span:nth-child(3) {
     top: 21px;
 }
@@ -256,12 +256,9 @@ header, footer {
     transform: rotate(-45deg);
 }
 
-
-
-
 /* モバイルメニュー */
 .mobile_menu {
-	display: block;
+    display: block;
     max-height: 0;
     overflow: hidden;
     position: fixed;
@@ -275,8 +272,8 @@ header, footer {
 
 .mobile_menu.active {
     max-height: 400px;
-	    border: 1.5px solid #D62828;
-    box-shadow: 
+    border: 1.5px solid #D62828;
+    box-shadow:
         inset 0 0 0 3px #FAFAFA,
         inset 0 0 0 4.5px #D62828;
 }
@@ -290,28 +287,108 @@ header, footer {
 
 .mobile_menu .store_link,
 .mobile_menu .nav_link,
-.mobile_menu .action_btn {
+.mobile_menu #action_btn {
     text-align: center;
     padding: 12px;
 }
 
-.mobile_menu .user_info {
+.mobile_user_info {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 12px;
     background: #F5F5F5;
+    color: #0F0F0F;
     border-radius: 6px;
+    padding: 10px;
 }
+
+.mobile_menu .nav_link::after {
+    bottom: 0px;
+}
+
 
 .mobile_menu .divider {
     width: 100%;
     height: 1px;
 }
 
+
+.mobile_menu_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.mobile_menu_overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ======= 予約システム共通ヘッダーの設定ここまで ======= */
 
+/* ======= 予約システム ロゴのみのヘッダーの設定ここから ======= */
+.logo_header {
+    position: fixed;
+    top: 4px;
+    left: 4px;
+    right: 0;
+    z-index: 1000;
+    padding: 10px;
+    background: #FAFAFA;
+    width: 18rem;
+    border: 1.5px solid #D62828;
+    box-shadow:
+        inset 0 0 0 3px #FAFAFA,
+        inset 0 0 0 4.5px #D62828;
+    cursor: pointer;
+}
+
+.logo_header:hover {
+    opacity: 0.8;
+}
+
+.logoheader_inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logoheader_logo img {
+    height: 5rem;
+}
+
+.logoheader_system_label {
+    font-size: 12px;
+    color: #6B7280;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.logoheader_logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* 他の要素より手前に来るようにする */
+    cursor: pointer;
+}
+
+/* ======= 予約システム ロゴのみのヘッダーの設定ここまで ======= */
+
 /* レスポンシブ */
-@media (max-width: 768px) {
-	/* 共通ヘッダーここから */
+@media (max-width: 820px) {
+
+    /* 共通ヘッダーここから */
     .reserve_header {
         padding: 12px 20px;
     }
@@ -323,7 +400,6 @@ header, footer {
     .system_label {
         font-size: 10px;
     }
-	/* 共通ヘッダーここまで */
 
     .header_nav {
         display: none;
@@ -340,95 +416,35 @@ header, footer {
     .mobile_menu_inner {
         padding: 20px;
     }
+
+    /* 共通ヘッダーここまで */
+    /* ロゴのみヘッダーここから */
+    .logo_header {
+        padding: 12px 20px;
+    }
+
+    .logoheader_logo {
+        font-size: 18px;
+    }
+
+    .logoheader_system_label {
+        font-size: 10px;
+    }
+
 }
 
-@media (max-width: 480px) {
-    /* PC版ナビを非表示 */
-    .header_nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .mobile_menu {
-        display: block;
-    }
-
-    .mobile_menu_inner {
-        padding: 20px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =================いったん置いておく=================== */
-/* footer */
+/* =================フッター=================== */
 footer {
-    /* ページの最後に配置されるフッターの基本的なスタイル */
-    padding: 20px 0; /* 上下の余白 */
-    background-color: #FAFAFA; /* 背景色（ヘッダーと色を合わせるなど） */
-    border-top: 1px solid #E0E0E0; /* 上に境界線があると区切りが明確に */
-    text-align: center; /* 中央寄せを確実に */
-}
-
-/* フッター内部の配置（不要な場合もありますが、中央寄せを確実にするため） */
-#footer_inner {
-    max-width: 1400px; /* メインコンテンツの幅に合わせる */
-    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #FAFAFA;
+    border-top: 1px solid #E0E0E0;
+    text-align: center;
 }
 
 /* 著作権表示のスタイル */
 #copyright {
-    display: block; /* 中央寄せを有効にするためにブロック要素に */
-    font-size: 0.8rem; /* 文字を小さく */
-    color: #666; /* 目立ちすぎない色 */
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
     line-height: 1.5;
 }
-
-
-
-
-/* レスポンシブデザイン */
-/* タブレット */
-@media (max-width: 820px) {
-	footer #footer_inner {
-		padding: 60px 0 20px 0;
-	}
-
-
-}
-
-/* スマートフォン */
-@media (max-width: 480px) {
-	footer #footer_inner {
-		padding: 40px 20px 20px 20px;
-	}
-
-
-}
-

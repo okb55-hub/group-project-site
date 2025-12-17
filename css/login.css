@@ -70,6 +70,7 @@
 .button {
     margin-top: 30px;
     text-align: center;
+    font-family: sans-serif;
 }
 
 .submit-button {
@@ -114,7 +115,6 @@
 
 /* エラーメッセージ */
 .error_message {
-    /* sign_up.css と統一 */
     background-color: rgba(214, 40, 40, 0.1);
     border: 1px solid #D62828;
     color: #D62828;
@@ -123,7 +123,7 @@
     margin-bottom: 20px;
     text-align: center;
     font-size: 14px;
-}
+        }
 
 /* ==================================== */
 /* 4. レスポンシブ調整 */

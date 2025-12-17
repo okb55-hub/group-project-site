@@ -19,6 +19,11 @@ $num_people   = $res['num_people'];
 $slot_id      = $res['slot_id'];
 $seat_type    = $res['seat_type'];
 
+// 初期化 (エラーメッセージ用)
+$error = '';
+$slot = null;
+$user = null;
+
 try{
     $db = getDb();
 
@@ -29,6 +34,7 @@ $slot = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$slot) {
     // 不正な slot_id
+    $_SESSION['error_message'] = "選択された予約時間帯は無効です。";
     header('Location: reserve.php');
     exit;
 }
@@ -79,12 +85,28 @@ $stmt = $db->prepare("SELECT name, email, tel FROM users WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+//  ユーザー情報が存在しない場合（データ不整合など）
+    if (!$user) {
+         error_log("データ不整合エラー [reserve_confirm.php]: user_id ({$user_id}) がDBに見つかりません。");
+         $_SESSION['error_message'] = "お客様の登録情報に問題があります。";
+         header('Location: reserve.php');
+         exit;
+    }
+
 // 表示用の日付整形
 $formatted_date = date("Y年n月j日", strtotime($reserve_date));
 $formatted_time = substr($slot_time, 0, 5); // HH:MM
 
-}catch (PDOException $e) {
-    $_SESSION['error_message'] = "エラーが発生しました。";
+}catch (Exception $e) {
+    // ログ記録
+    if ($e instanceof PDOException) {
+        error_log("DB接続エラー [reserve_confirm.php]: " . $e->getMessage());
+    } else {
+        error_log("その他のエラー [reserve_confirm.php]: " . $e->getMessage());
+    }
+    
+    // エラーメッセージをセッションに格納し、リダイレクト
+    $_SESSION['error_message'] = "システムエラーが発生しました。時間をおいて再度お試しください。";
     header('Location: reserve.php');
     exit;
 }
@@ -98,8 +120,19 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
     <title>予約内容の確認</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reserve_confirm.css">
+
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 <body>
+    <?php
+	require_once __DIR__ . "/reserve_logoheader.php";
+	?>
 
 <main class="confirm-container">
 
@@ -147,6 +180,8 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
         <a href="reserve.php?return=1">← 予約画面に戻る</a>
     </div>
 </main>
-
+<?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 </body>
 </html>
