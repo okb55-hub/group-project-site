@@ -49,7 +49,6 @@ try {
 	$is_first_view = true;   // 初回かどうか
 	$reserve_date = null;    // 選択された日付
 	$num_people = 1;         // 選択された人数
-	$is_wednesday = false;   // 水曜日かどうか
 
 	if (!isset($_GET['return'])) {
 		// 戻るボタンが押されたとき以外は日付と人数のセッション初期化
@@ -65,7 +64,10 @@ try {
 		$num_people = (int)$_POST['num_people'];
 
 		// 当日以前の日付が入っていた場合
-		$current_date = date('Y-m-d');
+		$check_date = new DateTime($reserve_date);
+        $w = (int)$check_date->format('w'); // 曜日番号取得
+        $current_date = date('Y-m-d');
+		
         if ($reserve_date <= $current_date) {
             $_SESSION['error_message'] = 'ご予約は明日以降の日付でお願いいたします。';
             // リダイレクトにより、以降の処理（DBアクセスやセッションへの不正保存）を中断
@@ -157,12 +159,7 @@ try {
 	$week_str = $week_days[$w];
 	// 画面表示用の日付文字列を作成：例「2025年10月10日（金）」
 	$formatted_date = $date->format('Y年n月j日') . "({$week_str})";
-	// 水曜日判定
-	if ($w == 3) {
-		$is_wednesday = true;
-	} else {
-		$is_wednesday = false;
-	}
+
 } catch (Exception $e) {
 
 	if ($e instanceof PDOException) {
@@ -175,7 +172,6 @@ try {
 	$formatted_date = date('Y年n月j日', strtotime('+1 day')) . "（-）";
 	$num_people = 1;
 	$is_first_view = false;
-	$is_wednesday = false;
 }
 
 
@@ -265,10 +261,6 @@ try {
 				<?php elseif (!$is_Error && $is_first_view): ?><!-- 初回表示の際のオーバーレイ -->
 					<div class="initial-overlay">
 						<p class="overlay-text">まずは来店希望日と人数をお選びください</p>
-					</div>
-				<?php elseif (!$is_Error && !$is_first_view && $is_wednesday): ?><!-- 水曜日の際のオーバーレイ -->
-					<div class="initial-overlay">
-						<p class="overlay-text">水曜日は定休日です。日付を変更して再度検索してください。</p>
 					</div>
 				<?php endif; ?>
 

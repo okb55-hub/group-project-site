@@ -322,9 +322,7 @@ table tr:nth-child(even) td {
     .reserve_form,
     .table_container {
         max-width: 100%;
-        /* margin: 30px auto; はそのまま維持 */
         padding: 20px;
-        /* フォームの内部パディングも少し減らす */
     }
 
     /* 予約情報のリード文 */
