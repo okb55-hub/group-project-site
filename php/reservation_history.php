@@ -3,10 +3,10 @@ require_once __DIR__ . "/init.php";
 require_once __DIR__ . "/DbManager.php";
 
 // ログインしていなければログインページへ
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 
 // 変数の初期値設定
 $user_id = $_SESSION['user_id'] ?? null;
@@ -88,9 +88,6 @@ try {
 
 <!DOCTYPE html>
 <html lang="ja">
-<?php
-	require_once __DIR__ . "/reserve_header.php";
-	?>
 
 <head>
     <meta charset="UTF-8">
@@ -108,6 +105,9 @@ try {
 </head>
 
 <body>
+    <?php
+	require_once __DIR__ . "/reserve_header.php";
+	?>
     <div class="mypage_container">
         <h1>予約履歴</h1>
 

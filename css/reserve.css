@@ -442,3 +442,199 @@ table tr:nth-child(even) td {
     }
 
 }
+
+
+
+
+/* 一旦追加 */
+/* 1. お席案内セクション */
+.seat_intro {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+.seat_intro h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #FAFAFA;
+}
+.seat_intro_flex {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.seat_card {
+    flex: 1;
+    background: #1A1A1A;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+.seat_card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; /* 画像を枠に合わせて切り抜く */
+}
+.seat_card p {
+    padding: 10px;
+    font-size: 0.9rem;
+}
+.seat_card p span {
+    display: block;
+    font-size: 0.75rem;
+    color: #AAA;
+}
+
+/* 2. テーブルのガタつき防止 */
+.table_wrapper {
+    background-color: #1A1A1A; /* 背景を少し明るい黒に */
+    border: none;
+}
+
+table {
+    table-layout: fixed; /* これで列幅が均等に固定されます */
+    width: 100%;
+    border-spacing: 0;
+}
+
+table th.seat-type {
+    width: 120px; /* 席タイプの列幅だけ固定 */
+    background-color: #D62828;
+}
+
+table td {
+    height: 80px; /* 高さをしっかり固定 */
+    padding: 5px;
+}
+
+/* 3. ボタンのデザインを洗練させる */
+.seat-button, .full {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+/* 空席：品のあるエメラルド */
+.seat-button.available {
+    background-color: transparent;
+    border: 1px solid #10B981;
+    color: #10B981;
+}
+.seat-button.available:hover {
+    background-color: #10B981;
+    color: #000;
+}
+
+/* 満席：シンプルに馴染ませる */
+.full {
+    background-color: #2A2A2A;
+    border: 1px solid #333;
+    color: #555;
+}
+
+
+
+/* 席案内セクション全体 */
+.seat_intro {
+    max-width: 1000px; /* 少し広めに */
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.intro_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.intro_header h3 {
+    font-size: 1.4rem;
+    color: #FAFAFA;
+}
+
+.total_seats {
+    font-size: 0.9rem;
+    color: #D62828;
+    font-weight: bold;
+}
+
+/* カードのレイアウト */
+.seat_intro_flex {
+    display: flex;
+    gap: 25px;
+}
+
+.seat_card {
+    flex: 1;
+    background: #1A1A1A;
+    border-radius: 12px; /* 角を少し丸く */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #333;
+}
+
+/* ★ホバーでカード全体を少し浮かせる */
+/* .seat_card:hover {
+    transform: translateY(-5px);
+    border-color: #D62828;
+} */
+
+/* ★画像ホバー拡大の仕掛け */
+.card_img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden; /* はみ出した画像を隠す */
+}
+
+.card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* ゆっくり拡大 */
+}
+
+.seat_card:hover .card_img img {
+    transform: scale(1.1); /* 1.1倍に拡大 */
+}
+
+/* カード内のテキスト */
+.card_body {
+    padding: 15px;
+    text-align: left;
+}
+
+.card_body h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #FAFAFA;
+}
+
+.capacity {
+    font-size: 0.85rem;
+    color: #D62828; /* アクセントカラー */
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.desc {
+    font-size: 0.75rem;
+    color: #CCC;
+    line-height: 1.4;
+}
+
+/* スマホ対応：横並びを縦並びに */
+@media (max-width: 768px) {
+    .seat_intro_flex {
+        flex-direction: column;
+    }
+    .card_img {
+        height: 180px;
+    }
+}

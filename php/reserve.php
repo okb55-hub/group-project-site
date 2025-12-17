@@ -18,7 +18,6 @@ function getSeatStatus($remaining, $num_people)
 	}
 }
 
-
 try {
 
 	$db = getDb();
@@ -34,7 +33,6 @@ try {
 			$is_logged_in = true;
 		}
 	}
-
 
 	/* 空席確認のための処理 */
 	// 明日の日付取得（input[date]のmin用）
@@ -175,7 +173,6 @@ try {
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -277,7 +274,7 @@ try {
 
 						<!-- カウンター席 -->
 						<tr>
-							<th class="seat-type"> <img src="../img/reserve/counter.jpg" alt="カウンター席">カウンター</th>
+							<th class="seat-type">カウンター</th>
 							<?php foreach ($time_slots as $slot): ?>
 								<?php $status = getSeatStatus($slot['counter_remaining'], $num_people); ?>
 								<td>
@@ -285,6 +282,7 @@ try {
 										<!-- 満席の場合はセル表示 -->
 										<div class="full">
 											<span class="seat_symbol"><?= $status['symbol'] ?></span><span class="remain_seat"><?= $status['text'] ?></span>
+										</div>
 										<?php else: ?>
 											<!-- 空席の場合はボタン表示 -->
 											<form method="POST" action="reserve_process.php" style="margin: 0;">
@@ -301,7 +299,7 @@ try {
 
 						<!-- テーブル席 -->
 						<tr>
-							<th class="seat-type"> <img src="../img/reserve/table.png" alt="テーブル席">テーブル</th>
+							<th class="seat-type">テーブル</th>
 							<?php foreach ($time_slots as $slot): ?>
 								<?php $status = getSeatStatus($slot['table_remaining'], $num_people); ?>
 								<td>
@@ -324,7 +322,7 @@ try {
 
 						<!-- 座敷 -->
 						<tr>
-							<th class="seat-type"><img src="../img/reserve/zashiki.png" alt="座敷">座敷</th>
+							<th class="seat-type">座敷</th>
 							<?php foreach ($time_slots as $slot): ?>
 								<?php $status = getSeatStatus($slot['zashiki_remaining'], $num_people); ?>
 								<td>
@@ -349,6 +347,46 @@ try {
 
 
 			</div>
+			
+			<section class="seat_intro">
+    <div class="intro_header">
+        <h3>お席のご案内</h3>
+        <p class="total_seats">総席数 46席</p>
+    </div>
+    <div class="seat_intro_flex">
+        <div class="seat_card">
+            <div class="card_img">
+                <img src="../img/reserve/counter.jpg" alt="カウンター">
+            </div>
+            <div class="card_body">
+                <h4>カウンター席</h4>
+                <p class="capacity">全6席</p>
+                <p class="desc">お一人様やカップルに最適です。</p>
+            </div>
+        </div>
+        <div class="seat_card">
+            <div class="card_img">
+                <img src="../img/reserve/table.png" alt="テーブル">
+            </div>
+            <div class="card_body">
+                <h4>テーブル席</h4>
+                <p class="capacity">4名様用 × 8卓</p>
+                <p class="desc">ご家族やご友人とゆったりお食事を。</p>
+            </div>
+        </div>
+        <div class="seat_card">
+            <div class="card_img">
+                <img src="../img/reserve/zashiki.png" alt="座敷">
+            </div>
+            <div class="card_body">
+                <h4>お座敷</h4>
+                <p class="capacity">最大24名様（8名用×3部屋）</p>
+                <p class="desc">宴会や小さなお子様連れも安心です。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 	</main>
 	<?php
 	require_once __DIR__ . "/reserve_footer.php";
