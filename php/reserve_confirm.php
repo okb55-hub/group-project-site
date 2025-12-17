@@ -120,8 +120,19 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
     <title>予約内容の確認</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reserve_confirm.css">
+
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 <body>
+    <?php
+	require_once __DIR__ . "/reserve_logoheader.php";
+	?>
 
 <main class="confirm-container">
 
@@ -169,6 +180,8 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
         <a href="reserve.php?return=1">← 予約画面に戻る</a>
     </div>
 </main>
-
+<?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 </body>
 </html>

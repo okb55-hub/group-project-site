@@ -9,8 +9,13 @@ if (!isset($_SESSION['reservation'], $_SESSION['user_id'])) {
 }
 
 $res = $_SESSION['reservation'];
-$user_id     = $_SESSION['user_id'];
 $reserve_id = null; // 予約IDを保存用
+$user_id = $_SESSION['user_id'] ?? null;
+$error = '';
+$user = null;
+$display_name = "取得できませんでした";
+$is_logged_in = false;
+$is_Error = false;
 
 try {
     $db = getDb();
@@ -94,8 +99,19 @@ try {
     <title>予約完了</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="./../css/reserve_done.css">
+
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 <body>
+<?php
+	require_once __DIR__ . "/reserve_header.php";
+	?>
 
 <main class="done-container">
     
@@ -170,6 +186,8 @@ try {
     </div>
 
 </main>
-
+<?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 </body>
 </html>

@@ -14,8 +14,24 @@ $error = '';
 $future_reservations = [];
 $past_reservations = [];
 $seat_label = [];
+$display_name = "取得できませんでした";
+$is_logged_in = false;
+$is_Error = false;
+
 try {
     $db = getDb();
+
+    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
+		// ユーザーIDがある場合、DBから名前を取得
+		$user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
+		$user_stmt->execute(['user_id' => $_SESSION['user_id']]);
+		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($user_data) {
+			$display_name = $user_data['name'];
+			$is_logged_in = true;
+		}
+	}
 
     // ▼ 予約履歴を取得（未来・過去すべて）
     $sql = "
@@ -72,6 +88,9 @@ try {
 
 <!DOCTYPE html>
 <html lang="ja">
+<?php
+	require_once __DIR__ . "/reserve_header.php";
+	?>
 
 <head>
     <meta charset="UTF-8">
@@ -79,7 +98,13 @@ try {
     <title>予約履歴</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reservation_history.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
@@ -174,6 +199,9 @@ try {
             <a href="reserve.php">← トップページへ戻る</a>
         </div>
     </div>
+    <?php
+	require_once __DIR__ . "/reserve_footer.php";
+	?>
 
 </body>
 

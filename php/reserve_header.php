@@ -35,10 +35,10 @@
             <?php endif; ?>
             <?php if ($is_logged_in): ?>
                 <a href="reservation_history.php" class="nav_link">予約履歴</a>
-                <a href="logout.php" class="action_btn logout_btn">ログアウト</a>
+                <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
             <?php else: ?>
                 <a href="login.php" class="nav_link">ログイン</a>
-                <a href="sign_up.php" class="action_btn">新規登録</a>
+                <a href="sign_up.php" id="action_btn">新規登録</a>
             <?php endif; ?>
         </nav>
 
@@ -77,7 +77,7 @@
         <?php endif; ?>
 
         <div class="divider"></div>
-        <a href="https://example.com" target="_blank" class="store_link">
+        <a href="../html/index.html" target="_blank" class="store_link">
             店舗サイトへ
             <svg class="external_icon" viewBox="0 0 24 24">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -87,10 +87,10 @@
         </a>
         <?php if ($is_logged_in): ?>
             <a href="reservation_history.php" class="nav_link">予約履歴</a>
-            <a href="logout.php" class="action_btn logout_btn">ログアウト</a>
+            <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
         <?php else: ?>
             <a href="login.php" class="nav_link">ログイン</a>
-            <a href="sign_up.php" class="action_btn">新規登録</a>
+            <a href="sign_up.php" id="action_btn">新規登録</a>
         <?php endif; ?>
     </div>
 </div>
