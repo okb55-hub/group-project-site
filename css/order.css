@@ -11,8 +11,9 @@
 .order_container h1 {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 30px;
-    color: #333;
+    width: fit-content;
+    margin: 0 auto 30px;
+    border-bottom: solid 2px #D62828;
 }
 
 /* エラーメッセージ */
@@ -190,14 +191,20 @@
     position: relative;
     background-color: #fff;
     margin: 5% auto;
-    padding: 30px;
     width: 90%;
     max-width: 700px;
     max-height: 85vh;
-    overflow-y: auto;
+    overflow: hidden;
+    padding: 0;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     animation: slideDown 0.3s;
+}
+
+.modal_scroll_area {
+    max-height: 85vh;    /* 親と同じ高さを指定 */
+    overflow-y: auto;    /* ここでスクロールさせる */
+    padding: 40px;       /* もともとcontentにあった余白をここに移動 */
 }
 
 @keyframes slideDown {
@@ -213,17 +220,17 @@
 
 .modal_close {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 15px;
+    top: 15px;
     font-size: 28px;
     font-weight: bold;
-    color: #999;
+    color: #333;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .modal_close:hover {
-    color: #333;
+    color: #d32f2f;
 }
 
 .modal_confirm_content h2 {

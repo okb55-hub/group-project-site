@@ -6,10 +6,10 @@ $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 $products = [
 	1 => ["name" => "サムギョプサル弁当", "price" => 900, "img" => "../img/takeout/takeout_sambox.png"],
 	2 => ["name" => "ビビンバ丼", "price" => 900, "img" => "../img/takeout/takeout_bibinbap.png"],
-	3 => ["name" => "特製キンパ", "price" => 800, "img" => "../img/takeout/menu6.png"],
-	4 => ["name" => "サムゲタンスープ", "price" => 1000, "img" => "../img/takeout/menu3.png"],
-	5 => ["name" => "チジミ", "price" => 700, "img" => "../img/takeout/menu5.png"],
-	6 => ["name" => "ヤンニョムチキン", "price" => 600, "img" => "../img/takeout/menu2.png"],
+	3 => ["name" => "特製キンパ", "price" => 800, "img" => "../img/takeout/takeout_kimpa.png"],
+	4 => ["name" => "サムゲタンスープ", "price" => 1000, "img" => "../img/takeout/takeout_samgyetang.png"],
+	5 => ["name" => "チヂミ", "price" => 700, "img" => "../img/takeout/takeout_chidimi.png"],
+	6 => ["name" => "ヤンニョムチキン", "price" => 600, "img" => "../img/takeout/takeout_yangnyeom.png"],
 ];
 
 // カートの中身取得
