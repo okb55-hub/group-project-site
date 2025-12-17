@@ -225,7 +225,7 @@ try {
 							<div class="form_item">
 								<label for="reserve_date">来店日</label>
 								<!-- 一旦日付のminを消す -->
-								<input type="date" name="reserve_date" id="reserve_date"  value="<?= htmlspecialchars($reserve_date) ?>">
+								<input type="date" name="reserve_date" id="reserve_date"  value="<?= e($reserve_date) ?>">
 
 							</div>
 							<div class="form_item">
