@@ -7,11 +7,18 @@ const reserveForm = document.querySelector('form');
 function validateDate() {
 	const val = dateInput.value;
 	if (!val) return;
+
 	const selectedDate = new Date(val);
 	const dayOfWeek = selectedDate.getDay();
+	// 今日の日付（時刻を00:00:00にリセット）
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
 	if (dayOfWeek === 3) {
 		dateInput.setCustomValidity('水曜日は定休日です。他の日付を選択してください。');
-	} else {
+	} else if (selectedDate <= today) {
+        dateInput.setCustomValidity('ご予約は明日以降の日付でお願いいたします。');
+    } else {
 		dateInput.setCustomValidity('');
 	}
 }

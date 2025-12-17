@@ -64,10 +64,18 @@ try {
 		$reserve_date = $_POST['reserve_date'];
 		$num_people = (int)$_POST['num_people'];
 
+		// 当日以前の日付が入っていた場合
 		$current_date = date('Y-m-d');
         if ($reserve_date <= $current_date) {
             $_SESSION['error_message'] = 'ご予約は明日以降の日付でお願いいたします。';
             // リダイレクトにより、以降の処理（DBアクセスやセッションへの不正保存）を中断
+            header('Location: reserve.php');
+            exit; 
+        }
+
+		// 水曜日の日付がはいっていた場合
+		if ($w == 3) {
+            $_SESSION['error_message'] = '水曜日は定休日です。ほかの日付を選択して下さい。';
             header('Location: reserve.php');
             exit; 
         }
