@@ -1,4 +1,21 @@
 'use strict';
+// スライドショー
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.fv_img');
+  let current = 0;
+
+  const interval = window.matchMedia('(max-width: 768px)').matches
+    ? 4800   // スマホ
+    : 7500;  // PC
+
+  slides[current].classList.add('active');
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, interval);
+});
 
 // テイクアウトボタン　トグル処理
 const toggleBtn = document.getElementById('takeout_reserve_btn');

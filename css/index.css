@@ -16,7 +16,7 @@ main #fv_container::before {
 	top: 0;
 	left: 0;
 	display: block;
-	background-color: rgba(106, 106, 106, 0.2);
+	background-color: rgba(52, 52, 52, 0.285);
 }
 
 main #fv_container .fv_img {
@@ -27,9 +27,17 @@ main #fv_container .fv_img {
 	height: 100vh;
 	background-size: cover;
 	background-position: center center;
-	animation: fade 24s infinite;
 	opacity: 0;
+	transform: scale(1);
+	transition: 
+		opacity 1.2s ease,
+		transform 8s linear;
 	z-index: -1;
+}
+
+main #fv_container .fv_img.active {
+	opacity: 1;
+	transform: scale(1.07);
 }
 
 #img1 {
@@ -46,26 +54,6 @@ main #fv_container .fv_img {
 
 #img4 {
 	background-image: url(../img/index/hero_slide_4.JPG);
-}
-
-main #fv_container .fv_img:nth-child(1) {
-	animation-delay: 0s;
-}
-main #fv_container .fv_img:nth-child(2) {
-	animation-delay: -6s;
-}
-main #fv_container .fv_img:nth-child(3) {
-	animation-delay: -12s;
-}
-main #fv_container .fv_img:nth-child(4) {
-	animation-delay: -18s;
-}
-@keyframes fade {
-	0% {opacity: 0;}
-	8% {opacity: 1;}
-	42% {opacity: 1;}
-	50% {opacity: 0;}
-	100% {opacity: 0;}
 }
 
 main #fv_catchphrase {
@@ -232,6 +220,182 @@ main #message_text p {
 	font-size: 16px;
 }
 
+@media (max-width: 820px) {
+	main #fv_container {
+		height: 200vh;
+		overflow: hidden;
+	}
+
+	main #fv_container::before {
+		height: 200vh;
+	}
+
+	main #fv_container .fv_img {
+		height: 100vh;
+		object-fit: cover;
+		background-size: cover;
+		background-position: center center;
+		transition:
+		opacity 1s ease,
+		transform 6s linear;
+	}
+	main #fv_container .fv_img.active {
+		transform: scale(1.035);
+	}
+
+	main #fv_catchphrase h2 {
+		font-size: 28px;
+	}
+
+	/* ファーストビュー - メッセージ */
+
+	main #message {
+		height: 90vh;
+	}
+
+	main #message_title h3 {
+		font-size: 24px;
+		margin-top: 50px;
+		margin-right: 20px;
+	}
+
+	main #message_text {
+		gap: 30px;
+		margin: 35px 0 35px 20px;
+	}
+
+	main #message_text p {
+		font-size: 15px;
+	}
+
+	/* 予約・テイクアウトボタン */
+	#takeout_reserve_btn {
+		width: 130px;
+		height: 70px;
+		right: 20px;
+		bottom: 20px;
+	}
+
+	#takeout_reserve_inner {
+		width: 130px;
+		height: 70px;
+	}
+
+	#takeout_reserve_inner span {
+		font-size: 13px;
+	}
+
+	#plus_btn {
+		width: 30px;
+		height: 30px;
+	}
+
+	#btn_list .click_btn {
+		width: 55px;
+		height: 55px;
+	}
+
+	#takeout_reserve_btn.active #reserve_btn {
+		transform: translate(-60px, -65px) scale(1);
+	}
+
+	#takeout_reserve_btn.active #takeout_btn {
+		transform: translate(-100px, 0) scale(1);
+	}
+}
+
+@media (max-width: 480px) {
+	main #fv_container {
+		height: 180vh;
+		overflow: hidden;
+	}
+
+	main #fv_container::before {
+		height: 180vh;
+	}
+
+	main #fv_container .fv_img {
+		height: 100vh;
+		transition:
+		opacity 1s ease,
+		transform 5s linear;
+	}
+	main #fv_container .fv_img.active {
+		transform: scale(1.02);
+	}
+
+
+	main #fv_catchphrase h2 {
+		font-size: 22px;
+		letter-spacing: 0.3em;
+		line-height: 2.2;
+	}
+
+	/* メッセージ */
+	main #message {
+		height: 70vh;
+	}
+
+	main #message_container {
+		width: 90%;
+		flex-direction: column;
+		writing-mode: horizontal-tb;
+        gap: 20px;
+        padding: 0 25px;
+    }
+    
+    main #message_title h3 {
+        font-size: 20px;
+		margin: 25px 10px 0 10px;
+    }
+    
+    main #message_text {
+        gap: 15px;
+        margin: 0 0 25px 0;
+    }
+    
+    main #message_text p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+    
+    /* 予約・テイクアウトボタン */
+    #takeout_reserve_btn {
+        width: 110px;
+        height: 60px;
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    #takeout_reserve_inner {
+        width: 110px;
+        height: 60px;
+    }
+    
+    #takeout_reserve_inner span {
+        font-size: 11px;
+    }
+    
+    #plus_btn {
+        width: 25px;
+        height: 25px;
+    }
+    
+    #btn_list .click_btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    #takeout_reserve_btn.active #reserve_btn {
+        transform: translate(-40px, -60px) scale(1);
+    }
+    
+    #takeout_reserve_btn.active #takeout_btn {
+        transform: translate(-80px, 0) scale(1);
+    }
+}
+
+
 /* お知らせ以降は黒背景 */
 #commitment ,#news, #menu, #info {
 	width: 100%;
@@ -244,12 +408,18 @@ main #message_text p {
 	align-items: center;
 }
 
+.section_icon {
+	width: 40px;
+	height: auto;
+	margin-bottom: 10px;
+}
+
 .section_title h2 {
 	writing-mode: vertical-rl;
 	text-orientation: upright;
 	font-size: 30px;
 	line-height: 1.2em;
-	font-weight: 300;
+	font-weight: 200;
 }
 
 .section_title p {
@@ -279,16 +449,22 @@ main #commitment {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 50px 0;
+	padding: 30px 0;
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
-	background-color: antiquewhite;
-	color: #0F0F0F;
+	color: #ffffff;
 }
 
 #commitment_main_head {
 	margin: 0 40px;
+}
+
+#commitment_main_head p {
+	font-weight: 200;
+	font-size: 15px;
+	padding: 0 30px;
+	line-height: 1.8em;
 }
 
 #commitment_main_sections {
@@ -300,11 +476,20 @@ main #commitment {
 
 .commitment_section_container {
 	margin: 0 60px;
+	border: solid 1px #ffffff;
+	padding: 35px 30px 30px 30px;
 }
 
 .commitment_section_container h3 {
 	text-align: center;
 	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.commitment_section_container h3 span {
+	padding: 5px 20px;
+	background-color: #ffffff13;
 }
 
 .commitment_img_text {
@@ -334,6 +519,9 @@ main #commitment {
 
 .commitment_text div {
 	font-family: "Noto Sans JP", sans-serif;
+	font-size: 14px;
+	font-weight: 200;
+	line-height: 1.8em;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -346,6 +534,120 @@ main #commitment {
 .text_point span {
 	padding: 0 5px;
 	border-bottom: solid 1px #D62828;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+
+@media (max-width: 820px) {
+		/* こだわり */
+
+	main #commitment {
+		padding: 100px 0 60px 0;
+	}
+
+	#commitment_inner {
+		width: 90%;
+		gap: 35px;
+	}
+
+	#commitment_main_head {
+		margin: 0 20px;
+	}
+
+	#commitment_main_head p {
+		font-size: 14px;
+		padding: 0;
+	}
+
+	.commitment_section_container {
+		margin: 0 30px;
+		padding: 30px 20px 25px 20px;
+	}
+
+	.commitment_section_container h3 {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.commitment_img_text {
+		gap: 30px;
+	}
+
+	.commitment_text div {
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 480px) {
+	main #commitment {
+        padding: 80px 0 50px 0;
+    }
+    
+    #commitment_container {
+        gap: 30px;
+    }
+    
+    #commitment_inner {
+        width: 95%;
+        gap: 25px;
+        padding: 20px 0;
+    }
+    
+    #commitment_main_head {
+        margin: 0 10px;
+    }
+    
+    #commitment_main_head p {
+        font-size: 13px;
+        padding: 0 10px;
+        line-height: 1.9;
+    }
+    
+    #commitment_main_sections {
+        gap: 30px;
+    }
+    
+    .commitment_section_container {
+        margin: 0 15px;
+        padding: 25px 15px 20px 15px;
+    }
+    
+    .commitment_section_container h3 {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .commitment_section_container h3 span {
+        padding: 4px 15px;
+    }
+    
+    .commitment_img_text {
+		flex-direction: column;
+        gap: 15px;
+    }
+    
+    .commitment_img img {
+        width: 55%;
+    }
+    
+    .commitment_text {
+        gap: 8px;
+    }
+    
+    .commitment_text div {
+        font-size: 12px;
+        line-height: 1.7em;
+        gap: 3px;
+    }
+    
+    .text_point {
+        padding: 4px 0;
+    }
+    
+    .text_point span {
+        font-size: 13px;
+    }
 }
 
 /* お知らせ */
@@ -363,7 +665,7 @@ main #news_container {
 }
 
 main #news_main {
-	width: 70vw;
+	width: 70%;
 }
 
 main #news_main ul li {
@@ -371,6 +673,8 @@ main #news_main ul li {
 	padding: 25px 50px;
 	cursor: pointer;
 	position: relative;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
 }
 
 main #news_main ul li::after {
@@ -401,12 +705,68 @@ main #news_main ul li:hover::before {
 
 main #news_main ul li a {
 	display: flex;
-	gap: 80px;
+	gap: 90px;
 }
 
 main #news_main ul li time, main #news_main ul li p {
 	font-size: 15px;
 }
+
+@media (max-width: 820px) {
+ 	main #news {
+        padding: 60px 0;
+    }
+    
+    main #news_main {
+        width: 85%;
+    }
+    
+    main #news_main ul li {
+        padding: 20px 30px;
+    }
+    
+    main #news_main ul li a {
+        gap: 50px;
+    }
+    
+    main #news_main ul li time,
+    main #news_main ul li p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+	main #news {
+        padding: 50px 0;
+    }
+    
+    main #news_container {
+        gap: 30px;
+    }
+    
+    main #news_main {
+        width: 92%;
+    }
+    
+    main #news_main ul li {
+        padding: 15px 10px;
+    }
+    
+    main #news_main ul li a {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    main #news_main ul li time,
+    main #news_main ul li p {
+        font-size: 12px;
+    }
+    
+    main #news_main ul li time {
+        font-weight: 300;
+    }
+}
+
 
 /* メニュー */
 main #menu {
@@ -441,6 +801,7 @@ main #menu_container .section_title h2, main #menu_container .section_title h2 {
 
 main #menu_main {
 	width: 100%;
+	margin-top: 20px;
 }
 
 #slider_wrapper {
@@ -486,7 +847,8 @@ main #menu_main {
 
 .menu_item .item_name h3 {
 	font-family: "Zen Old Mincho", sans-serif;
-	font-size: 23px;
+	font-size: 20px;
+	font-weight: 400;
 }
 
 @keyframes scroll-left {
@@ -505,7 +867,7 @@ main #menu_main {
 	padding: 50px 0 30px 0;
 }
 
-#menu_foot button, #info_text_inner button {
+#menu_foot button, #info_button {
 	width: 210px;
 	border-radius: 20px;
 	border: solid 1px #FFFFFF;
@@ -514,14 +876,20 @@ main #menu_main {
 	position: relative;
 	padding-right: 10px;
 	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: border-color .5s ease;
 }
 
-#menu_foot button span, #info_text_inner button span {
+#menu_foot button span, #info_button span {
 	line-height: 2.8;
-	transition: 0.5s;
+	font-weight: 400;
+	font-family: "Noto Sans JP", sans-serif;
+	position: relative;
+	z-index: 1;
 }
 
-#menu_foot button span::after, #info_text_inner button::after {
+#menu_foot button::after, #info_button::after {
 	position: absolute;
 	top: 50%;
 	right: 2em;
@@ -531,19 +899,109 @@ main #menu_main {
 	transform: translateY(-50%) rotate(45deg);
 	border-top: 1px solid #FFFFFF;
 	border-right: 1px solid #FFFFFF;
+	z-index: 1;
 }
 
-#menu_foot button:hover, #info_text_inner button:hover {
+#menu_foot button::before, #info_button::before {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	content: '';
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #D62828;
+	transition: left .4s ease;
+	z-index: 0;
+}
+
+#menu_foot button:hover, #info_button:hover {
 	border-color: #D62828;
 }
 
-#menu_foot button span:hover, #info_text_inner button span:hover {
-	color: #D62828;
+#menu_foot button:hover::before, #info_button:hover::before {
+	left: 0;
 }
 
-#menu_foot button span:hover::after, #info_text_inner button:hover::after {
-	border-top: 1px solid #D62828;
-	border-right: 1px solid #D62828;
+@media (max-width: 820px) {
+	main #menu {
+        padding: 60px 0;
+    }
+
+	main #smoke {
+		top: 50px;
+	}
+    
+    .menu_item {
+        width: calc(100vw / 3);
+    }
+    
+    .menu_item .item_name h3 {
+        font-size: 18px;
+    }
+    
+    #menu_foot {
+        padding: 40px 0 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+	main #menu {
+        padding: 50px 0;
+    }
+    
+    main #menu_container {
+        gap: 30px;
+    }
+    
+    main #smoke {
+        top: 250px;
+    }
+    
+    #slider_inner {
+        animation: scroll-left 25s linear infinite;
+    }
+    
+    .menu_slider {
+        padding: 15px 0;
+    }
+    
+    .menu_item {
+        width: calc(100vw / 2);
+    }
+    
+    .menu_item .item_name {
+        width: 75%;
+        padding: 12px 0;
+    }
+    
+    .menu_item .item_name h3 {
+        font-size: 16px;
+    }
+    
+    #menu_foot {
+        padding: 35px 0 15px 0;
+    }
+    
+    #menu_foot button,
+    #info_button {
+        width: 190px;
+        border-radius: 18px;
+    }
+    
+    #menu_foot button span,
+    #info_button span {
+        font-size: 14px;
+        line-height: 2.5;
+    }
+    
+    #menu_foot button::after,
+    #info_button::after {
+        right: 1.5em;
+        width: 0.45em;
+        height: 0.45em;
+    }
 }
 
 /* 店舗案内 */
@@ -562,20 +1020,19 @@ main #info_container {
 
 main #info_main {
 	display: flex;
+	flex-direction: column-reverse;
 	gap: 40px;
-	flex-wrap: wrap;
-	max-width: 1100px;
-	width: 100%;
-	margin: 0 auto;
+	width: 80%;
+	margin: 10px auto 0 auto;
+	padding: 0 30px;
 }
 
 main #info_map {
-	max-width: 450px;
 	width: 100%;
 }
 
 #info_map iframe {
-	aspect-ratio: 4 / 3;
+	aspect-ratio: 16 / 9;
 	width: 100%;
 	height: auto;
 }
@@ -591,4 +1048,75 @@ main #info_text_inner {
 	flex-direction: column;
 	align-items: center;
 	gap: 100px;
+}
+
+main #info_text_inner p {
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+	font-size: 14px;
+	line-height: 1.8em;
+	padding: 0 20px;
+}
+
+#info_button {
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+@media (max-width: 820px) {
+	main #info {
+        padding: 60px 0;
+    }
+    
+    main #info_main {
+        width: 90%;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    main #info_text_inner {
+        width: 95%;
+        gap: 60px;
+    }
+    
+    main #info_text_inner p {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    
+    #info_button {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+	main #info {
+        padding: 50px 0;
+    }
+    
+    main #info_container {
+        gap: 30px;
+    }
+    
+    main #info_main {
+        width: 95%;
+        gap: 25px;
+        padding: 0 10px;
+    }
+    
+    main #info_text_inner {
+        width: 100%;
+        gap: 40px;
+    }
+    
+    main #info_text_inner p {
+        font-size: 12px;
+        padding: 0 5px;
+        line-height: 1.9;
+    }
+    
+    #info_button {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
 }
