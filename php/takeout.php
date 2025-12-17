@@ -110,7 +110,7 @@ if (!empty($_SESSION['cart'])) {
 			</div>
 			<div class="takeout_container">
 				<div class="takeout_item" data-id="1">
-					<img src="../img/takeout/takeout_sambox.png" alt="">
+					<img src="../img/takeout/takeout_sambox.png" alt="サムギョプサル弁当">
 					<div class="takeout_item_text">
 						<p>サムギョプサル弁当</p>
 						<p>￥900</p>
@@ -118,7 +118,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-sam">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="2">
-					<img src="../img/takeout/takeout_bibinbap.png" alt="">
+					<img src="../img/takeout/takeout_bibinbap.png" alt="ビビンバ丼">
 					<div class="takeout_item_text">
 						<p>ビビンバ丼</p>
 						<p>￥900</p>
@@ -126,7 +126,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-bibin">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="3">
-					<img src="../img/takeout/menu6.png" alt="">
+					<img src="../img/takeout/takeout_kimpa.png" alt="特製キンパ">
 					<div class="takeout_item_text">
 						<p>特製キンパ</p>
 						<p>￥800</p>
@@ -134,7 +134,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-kimpa">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="4">
-					<img src="../img/takeout/menu3.png" alt="">
+					<img src="../img/takeout/takeout_samgyetang.png" alt="サムゲタンスープ">
 					<div class="takeout_item_text">
 						<p>サムゲタンスープ</p>
 						<p>￥1000</p>
@@ -142,7 +142,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-samgetan">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="5">
-					<img src="../img/takeout/menu5.png" alt="">
+					<img src="../img/takeout/takeout_chidimi.png" alt="チヂミ">
 					<div class="takeout_item_text">
 						<p>チヂミ</p>
 						<p>￥700</p>
@@ -150,7 +150,7 @@ if (!empty($_SESSION['cart'])) {
 					<button class="open-modal" data-target="modal-chijimi">詳細</button>
 				</div>
 				<div class="takeout_item" data-id="6">
-					<img src="../img/takeout/menu2.png" alt="">
+					<img src="../img/takeout/takeout_yangnyeom.png" alt="ヤンニョムチキン">
 					<div class="takeout_item_text">
 						<p>ヤンニョムチキン</p>
 						<p>￥600</p>
@@ -163,8 +163,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/takeout_sambox.png"
-								alt="">
+							<img src="../img/takeout/takeout_sambox.png" alt="サムギョプサル弁当">
 							<div class="modal-content-container-info">
 								<h2>サムギョプサル弁当</h2>
 								<p>本場韓国で親しまれるサムギョプサルを、香ばしくジューシーに焼き上げました。野菜と一緒に味わうことで、肉本来の旨みがより引き立ちます。お店の味をそのまま、贅沢に楽しめる一品です。
@@ -182,7 +181,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/takeout_bibinbap.png" alt="">
+							<img src="../img/takeout/takeout_bibinbap.png" alt="ビビンバ丼">
 							<div class="modal-content-container-info">
 								<h2>ビビンバ丼</h2>
 								<p>彩り豊かなナムルと特製コチュジャンをたっぷりと。素材の風味を生かしながら丁寧に仕上げた、体にも優しい本場の味です。混ぜるほどに深まる旨みをご堪能ください。</p>
@@ -199,7 +198,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/menu6.png" alt="">
+							<img src="../img/takeout/takeout_kimpa.png" alt="特製キンパ">
 							<div class="modal-content-container-info">
 								<h2>特製キンパ</h2>
 								<p>毎日丁寧に巻き上げる、ソダム自慢の手作りキンパ。具材のバランスにこだわり、どこを食べても美味しさが続くよう仕上げました。お子様から大人まで楽しめる、人気の定番メニューです。
@@ -217,7 +216,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/menu3.png" alt="">
+							<img src="../img/takeout/takeout_samgyetang.png" alt="サムゲタンスープ">
 							<div class="modal-content-container-info">
 								<h2>サムゲタンスープ</h2>
 								<p>韓国伝統の滋味深いスープを、食べやすく優しい味わいに。鶏の旨みと漢方食材の香りがじんわりと広がり、心も体も温まります。疲れた日にもそっと寄り添う、癒しの一杯です。</p>
@@ -234,7 +233,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/menu5.png" alt="">
+							<img src="../img/takeout/takeout_chidimi.png" alt="チヂミ">
 							<div class="modal-content-container-info">
 								<h2>チヂミ</h2>
 								<p>外はカリッと、中はふわり。素材の香りを引き立てる自家製の生地で焼き上げた、風味豊かな一枚です。特製のタレが、さらに旨みを深めてくれます。</p>
@@ -251,7 +250,7 @@ if (!empty($_SESSION['cart'])) {
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-content-container">
-							<img src="../img/takeout/menu2.png" alt="">
+							<img src="../img/takeout/takeout_yangnyeom.png" alt="ヤンニョムチキン">
 							<div class="modal-content-container-info">
 								<h2>ヤンニョムチキン</h2>
 								<p>甘辛い特製ヤンニョムソースを絡めた、やみつき必至の人気メニュー。カリッと揚げたチキンに、コクと旨みがしっかり染みわたります。ひと口食べれば止まらなくなる、本場屋台の味です。

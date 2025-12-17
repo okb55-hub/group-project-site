@@ -3,12 +3,12 @@ session_start();
 
 // 商品データ
 $products = [
-	1 => ["name" => "サムギョプサル弁当", "price" => 900, "img" => "../img/takeout/Gemini_Generated_Image_uov7puov7puov7pu-removebg-preview.png"],
-	2 => ["name" => "ビビンバ丼", "price" => 900, "img" => "../img/takeout/bibimbap-4887417_1280-removebg-preview.png"],
-	3 => ["name" => "特製キンパ", "price" => 800, "img" => "../img/takeout/menu6.png"],
-	4 => ["name" => "サムゲタンスープ", "price" => 1000, "img" => "../img/takeout/menu3.png"],
-	5 => ["name" => "チジミ", "price" => 700, "img" => "../img/takeout/menu5.png"],
-	6 => ["name" => "ヤンニョムチキン", "price" => 600, "img" => "../img/takeout/alaundra-alford-BmRbJBoudDw-unsplash-removebg-preview.png"],
+	1 => ["name" => "サムギョプサル弁当", "price" => 900, "img" => "../img/takeout/takeout_sambox.png"],
+	2 => ["name" => "ビビンバ丼", "price" => 900, "img" => "../img/takeout/takeout_bibinbap.png"],
+	3 => ["name" => "特製キンパ", "price" => 800, "img" => "../img/takeout/takeout_kimpa.png"],
+	4 => ["name" => "サムゲタンスープ", "price" => 1000, "img" => "../img/takeout/takeout_samgyetang.png"],
+	5 => ["name" => "チヂミ", "price" => 700, "img" => "../img/takeout/takeout_chidimi.png"],
+	6 => ["name" => "ヤンニョムチキン", "price" => 600, "img" => "../img/takeout/takeout_yangnyeom.png"],
 ];
 
 // カート情報
@@ -24,6 +24,7 @@ foreach ($cart as $id => $qty) {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +39,7 @@ foreach ($cart as $id => $qty) {
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 	<header>
 		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
@@ -110,7 +112,7 @@ foreach ($cart as $id => $qty) {
 							?>
 						</select>
 						<small class="form_note">営業時間：17:00～24：00（定休日：水曜日）<br>
-						営業時間外のテイクアウトについては、電話にてお問い合わせください。
+							営業時間外のテイクアウトについては、電話にてお問い合わせください。
 						</small>
 					</div>
 
@@ -129,7 +131,7 @@ foreach ($cart as $id => $qty) {
 					</div>
 
 					<div class="form_actions">
-						<a href="cart.php" class="btn_secondary"><i class="fa-solid fa-arrow-left">カートに戻る</i></a>
+						<a href="cart.php" class="btn_secondary"><i class="fa-solid fa-arrow-left"></i>カートに戻る</a>
 						<button type="button" id="confirm_btn" class="btn_primary">確認する <i class="fa-solid fa-arrow-right"></i></button>
 					</div>
 				</form>
@@ -141,71 +143,73 @@ foreach ($cart as $id => $qty) {
 	<div id="confirm_modal" class="modal_confirm">
 		<div class="modal_confirm_content">
 			<span class="modal_close">&times;</span>
-			<h2><i class="fa-solid fa-clipboard-check"></i> ご注文内容の確認</h2>
+			<div class="modal_scroll_area">
+				<h2><i class="fa-solid fa-clipboard-check"></i> ご注文内容の確認</h2>
 
-			<div class="modal_section">
-				<h3>注文商品</h3>
-				<div class="modal_items">
-					<?php foreach ($cart as $id => $qty) :
-						$product = $products[$id];
-						$subtotal = $product['price'] * $qty;
-					?>
+				<div class="modal_section">
+					<h3>注文商品</h3>
+					<div class="modal_items">
+						<?php foreach ($cart as $id => $qty) :
+							$product = $products[$id];
+							$subtotal = $product['price'] * $qty;
+						?>
 
-					<div class="modal_item">
-						<img src="<?= $product['img'] ?>" alt="<?= $product['name'] ?>">
-						<div class="modal_item_details">
-							<p class="modal_item_name"><?= $product['name'] ?></p>
-							<p class="modal_item_price">￥<?= $product['price'] ?> × <?= $qty ?>個 = ￥<?= $subtotal ?></p>
-						</div>
+							<div class="modal_item">
+								<img src="<?= $product['img'] ?>" alt="<?= $product['name'] ?>">
+								<div class="modal_item_details">
+									<p class="modal_item_name"><?= $product['name'] ?></p>
+									<p class="modal_item_price">￥<?= $product['price'] ?> × <?= $qty ?>個 = ￥<?= $subtotal ?></p>
+								</div>
+							</div>
+
+						<?php endforeach; ?>
 					</div>
-
-					<?php endforeach; ?>
+					<div class="modal_total">
+						<strong>合計金額：￥<?= $total ?></strong>
+					</div>
 				</div>
-				<div class="modal_total">
-					<strong>合計金額：￥<?= $total ?></strong>
+
+				<div class="modal_section">
+					<h3>お客様情報</h3>
+					<table class="modal_info_table">
+						<tr>
+							<th>お名前</th>
+							<td id="confirm_name"></td>
+						</tr>
+						<tr>
+							<th>電話番号</th>
+							<td id="confirm_tel"></td>
+						</tr>
+						<tr>
+							<th>メールアドレス</th>
+							<td id="confirm_email"></td>
+						</tr>
+						<tr>
+							<th>受け取り日時</th>
+							<td id="confirm_datetime"></td>
+						</tr>
+						<tr>
+							<th>決済方法</th>
+							<td id="confirm_payment"></td>
+						</tr>
+					</table>
 				</div>
-			</div>
 
-			<div class="modal_section">
-				<h3>お客様情報</h3>
-				<table class="modal_info_table">
-					<tr>
-						<th>お名前</th>
-						<td id="confirm_name"></td>
-					</tr>
-					<tr>
-						<th>電話番号</th>
-						<td id="confirm_tel"></td>
-					</tr>
-					<tr>
-						<th>メールアドレス</th>
-						<td id="confirm_email"></td>
-					</tr>
-					<tr>
-						<th>受け取り日時</th>
-						<td id="confirm_datetime"></td>
-					</tr>
-					<tr>
-						<th>決済方法</th>
-						<td id="confirm_payment"></td>
-					</tr>
-				</table>
-			</div>
-
-			<div class="modal_actions">
-				<button type="button" class="btn_secondary modal_edit_btn">修正する</button>
-				<form id="order_submit_form" action="order_process.php" method="post">
-					<input type="hidden" name="name" id="hidden_name">
-					<input type="hidden" name="tel" id="hidden_tel">
-					<input type="hidden" name="email" id="hidden_email">
-					<input type="hidden" name="pickup_date" id="hidden_pickup_date">
-					<input type="hidden" name="pickup_time" id="hidden_pickup_time">
-					<input type="hidden" name="payment_method" id="hidden_payment_method">
-					<button type="submit" class="btn_primary btn_submit">
-						<span id="submit_text">注文を確定する</span>
-						<i class="fa-solid fa-check"></i>
-					</button>
-				</form>
+				<div class="modal_actions">
+					<button type="button" class="btn_secondary modal_edit_btn">修正する</button>
+					<form id="order_submit_form" action="order_process.php" method="post">
+						<input type="hidden" name="name" id="hidden_name">
+						<input type="hidden" name="tel" id="hidden_tel">
+						<input type="hidden" name="email" id="hidden_email">
+						<input type="hidden" name="pickup_date" id="hidden_pickup_date">
+						<input type="hidden" name="pickup_time" id="hidden_pickup_time">
+						<input type="hidden" name="payment_method" id="hidden_payment_method">
+						<button type="submit" class="btn_primary btn_submit">
+							<span id="submit_text">注文を確定する</span>
+							<i class="fa-solid fa-check"></i>
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -214,7 +218,7 @@ foreach ($cart as $id => $qty) {
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
@@ -245,4 +249,5 @@ foreach ($cart as $id => $qty) {
 	<script src="../js/hamburger.js"></script>
 	<script src="../js/order.js"></script>
 </body>
+
 </html>
