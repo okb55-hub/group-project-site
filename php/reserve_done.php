@@ -11,14 +11,27 @@ if (!isset($_SESSION['reservation'], $_SESSION['user_id'])) {
 $res = $_SESSION['reservation'];
 $reserve_id = null; // 予約IDを保存用
 $user_id = $_SESSION['user_id'] ?? null;
-$error = '';
 $user = null;
-$display_name = "取得できませんでした";
+$display_name = "ゲスト";
 $is_logged_in = false;
-$is_Error = false;
+$seat_type_jp = '';
 
 try {
     $db = getDb();
+
+
+		// 1．ユーザー情報の取得（ヘッダー・予約完了後のお客様情報用）
+		$user_stmt = $db->prepare("SELECT name, email, tel FROM users WHERE user_id = :user_id");
+		$user_stmt->execute(['user_id' => $user_id]);
+		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($user_data) {
+			$display_name = $user_data['name'];
+			$is_logged_in = true;
+		}
+
+
+    // 2.予約登録のための処理（トランザクション）
     $db->beginTransaction();
 
     $stmt = $db->prepare("
@@ -38,35 +51,13 @@ try {
 
     // 今回INSERTした予約IDを取得
     $reserve_id = $db->lastInsertId();
-
     $db->commit();
-unset($db);
-    unset($_SESSION['reservation']);
 
-} catch (Exception $e) {
-    $db->rollBack();
-     $_SESSION['error_message'] = "予約に失敗しました。もう一度お試しください。";
-    header('Location: reserve_confirm.php');
-    exit;
-}
-
-// --- DBから今予約した情報を取得（表示用） ---
-$reservation = null;
-try {
-    $db = getDb();
-    $stmt = $db->prepare("
-        SELECT 
-            r.reserve_id,
-            r.reserve_date,
-            r.num_people,
-            r.seat_type,
-            t.slot_time,
-            u.name,
-            u.email,
-            u.tel
+// 3．完了後の予約情報用のデータ取得
+$stmt = $db->prepare("
+        SELECT r.*, t.slot_time 
         FROM reservations r
         JOIN time_slots t ON r.slot_id = t.slot_id
-        JOIN users u ON r.user_id = u.user_id
         WHERE r.reserve_id = ?
     ");
     $stmt->execute([$reserve_id]);
@@ -82,14 +73,18 @@ try {
             'zashiki' => '座敷'
         ][$reservation['seat_type']];
     }
-
-    if (!$reservation) {
-        $reservation = null;
-    }
+     unset($_SESSION['reservation']);
 
 } catch (Exception $e) {
-    $reservation = null;
+    if (isset($db) && $db->inTransaction()) {
+        $db->rollBack();
+    }
+    error_log("エラー [reserve_confirm.php]: " . $e->getMessage());
+     $_SESSION['error_message'] = "予約に失敗しました。再度お試しいただくか、お電話での予約をお願いします。";
+    header('Location: reserve.php');
+    exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +118,7 @@ try {
     </div>
 
     <!-- 予約内容 -->
-    <?php if ($reservation): ?>
+    <?php if ($reservation && $user_data): ?>
     <section class="reservation-details">
         <h2>ご予約内容</h2>
         <div class="detail-item">
@@ -149,15 +144,15 @@ try {
         <h2>お客様情報</h2>
         <div class="detail-item">
             <span class="label">お名前</span>
-            <span class="value"><?= e($reservation['name']) ?></span>
+            <span class="value"><?= e($user_data['name']) ?></span>
         </div>
         <div class="detail-item">
             <span class="label">メールアドレス</span>
-            <span class="value"><?= e($reservation['email']) ?></span>
+            <span class="value"><?= e($user_data['email']) ?></span>
         </div>
         <div class="detail-item">
             <span class="label">電話番号</span>
-            <span class="value"><?= e($reservation['tel']) ?></span>
+            <span class="value"><?= e($user_data['tel']) ?></span>
         </div>
     </section>
 

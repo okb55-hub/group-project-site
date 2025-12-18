@@ -3,10 +3,10 @@ require_once __DIR__ . "/init.php";
 require_once __DIR__ . "/DbManager.php";
 
 // ログインしていなければログインページへ
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: login.php");
-//     exit;
-// }
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 
 // 変数の初期値設定
 $user_id = $_SESSION['user_id'] ?? null;
@@ -14,7 +14,7 @@ $error = '';
 $future_reservations = [];
 $past_reservations = [];
 $seat_label = [];
-$display_name = "取得できませんでした";
+$display_name = "ゲスト";
 $is_logged_in = false;
 $is_Error = false;
 
@@ -22,16 +22,16 @@ try {
     $db = getDb();
 
     if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
-		// ユーザーIDがある場合、DBから名前を取得
-		$user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
-		$user_stmt->execute(['user_id' => $_SESSION['user_id']]);
-		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+        // ユーザーIDがある場合、DBから名前を取得
+        $user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
+        $user_stmt->execute(['user_id' => $_SESSION['user_id']]);
+        $user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
 
-		if ($user_data) {
-			$display_name = $user_data['name'];
-			$is_logged_in = true;
-		}
-	}
+        if ($user_data) {
+            $display_name = $user_data['name'];
+            $is_logged_in = true;
+        }
+    }
 
     // ▼ 予約履歴を取得（未来・過去すべて）
     $sql = "
@@ -88,9 +88,6 @@ try {
 
 <!DOCTYPE html>
 <html lang="ja">
-<?php
-	require_once __DIR__ . "/reserve_header.php";
-	?>
 
 <head>
     <meta charset="UTF-8">
@@ -98,111 +95,115 @@ try {
     <title>予約履歴</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reservation_history.css">
-    	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="mypage_container">
-        <h1>予約履歴</h1>
-
-        <?php if ($error): ?>
-            <p class="error_message"><?= $error ?></p>
-        <?php endif; ?>
-
-        <?php if (!$error): ?>
-            <section class="info_block reservation_history">
-                <h2>今後の予約</h2>
-
-                <?php if (empty($future_reservations)): ?>
-                    <p class="no_history">今後の予約はありません。</p>
-                <?php else: ?>
-                    <div class="table_wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>日付</th>
-                                    <th>時間</th>
-                                    <th>人数</th>
-                                    <th>席タイプ</th>
-                                    <th>ステータス</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($future_reservations as $r): ?>
-                                    <tr class="future">
-                                        <td data-label="日付"><?= date('Y年n月j日', strtotime($r['reserve_date'])) ?></td>
-                                        <td data-label="時間"><?= e(substr($r['slot_time'], 0, 5)) ?></td>
-                                        <td data-label="人数"><?= e($r['num_people']) ?>名</td>
-                                        <td data-label="席タイプ"><?= e($seat_label[$r['seat_type']]) ?></td>
-                                        <td data-label="ステータス">
-                                            <span class="status_badge <?= e($r['status_class']) ?>">
-                                                <?= e($r['status_text']) ?>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php endif; ?>
-            </section>
-
-            <section class="info_block reservation_history">
-                <h2>来店履歴</h2>
-
-                <?php if (empty($past_reservations)): ?>
-                    <p class="no_history">来店履歴はありません。</p>
-                <?php else: ?>
-                    <div class="table_wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>日付</th>
-                                    <th>時間</th>
-                                    <th>人数</th>
-                                    <th>席タイプ</th>
-                                    <th>ステータス</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($past_reservations as $r): ?>
-                                    <tr class="past">
-                                        <td data-label="日付"><?= date('Y年n月j日', strtotime($r['reserve_date'])) ?></td>
-                                        <td data-label="時間"><?= e(substr($r['slot_time'], 0, 5)) ?></td>
-                                        <td data-label="人数"><?= e($r['num_people']) ?>名</td>
-                                        <td data-label="席タイプ"><?= e($seat_label[$r['seat_type']]) ?></td>
-                                        <td data-label="ステータス">
-                                            <span class="status_badge <?= e($r['status_class']) ?>">
-                                                <?= e($r['status_text']) ?>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php endif; ?>
-            </section>
-        <?php endif; ?>
-
-        <div class="mypage_area">
-            <a href="mypage.php" class="btn mypage_btn">マイページ</a>
-        </div>
-
-        <div class="back_link">
-            <a href="reserve.php">← トップページへ戻る</a>
-        </div>
-    </div>
     <?php
-	require_once __DIR__ . "/reserve_footer.php";
-	?>
+    require_once __DIR__ . "/reserve_header.php";
+    ?>
+    <main>
+        <div class="mypage_container">
+            <h1>予約履歴</h1>
 
+            <?php if ($error): ?>
+                <p class="error_message"><?= $error ?></p>
+            <?php endif; ?>
+
+            <?php if (!$error): ?>
+                <section class="info_block reservation_history">
+                    <h2>今後の予約</h2>
+
+                    <?php if (empty($future_reservations)): ?>
+                        <p class="no_history">今後の予約はありません。</p>
+                    <?php else: ?>
+                        <div class="table_wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>日付</th>
+                                        <th>時間</th>
+                                        <th>人数</th>
+                                        <th>席タイプ</th>
+                                        <th>ステータス</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($future_reservations as $r): ?>
+                                        <tr class="future">
+                                            <td data-label="日付"><?= date('Y年n月j日', strtotime($r['reserve_date'])) ?></td>
+                                            <td data-label="時間"><?= e(substr($r['slot_time'], 0, 5)) ?></td>
+                                            <td data-label="人数"><?= e($r['num_people']) ?>名</td>
+                                            <td data-label="席タイプ"><?= e($seat_label[$r['seat_type']]) ?></td>
+                                            <td data-label="ステータス">
+                                                <span class="status_badge <?= e($r['status_class']) ?>">
+                                                    <?= e($r['status_text']) ?>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </section>
+
+                <section class="info_block reservation_history">
+                    <h2>来店履歴</h2>
+
+                    <?php if (empty($past_reservations)): ?>
+                        <p class="no_history">来店履歴はありません。</p>
+                    <?php else: ?>
+                        <div class="table_wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>日付</th>
+                                        <th>時間</th>
+                                        <th>人数</th>
+                                        <th>席タイプ</th>
+                                        <th>ステータス</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($past_reservations as $r): ?>
+                                        <tr class="past">
+                                            <td data-label="日付"><?= date('Y年n月j日', strtotime($r['reserve_date'])) ?></td>
+                                            <td data-label="時間"><?= e(substr($r['slot_time'], 0, 5)) ?></td>
+                                            <td data-label="人数"><?= e($r['num_people']) ?>名</td>
+                                            <td data-label="席タイプ"><?= e($seat_label[$r['seat_type']]) ?></td>
+                                            <td data-label="ステータス">
+                                                <span class="status_badge <?= e($r['status_class']) ?>">
+                                                    <?= e($r['status_text']) ?>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </section>
+            <?php endif; ?>
+
+            <div class="mypage_area">
+                <a href="mypage.php" class="btn mypage_btn">マイページ</a>
+            </div>
+
+            <div class="back_link">
+                <a href="reserve.php">← トップページへ戻る</a>
+            </div>
+        </div>
+    </main>
+    <?php
+    require_once __DIR__ . "/reserve_footer.php";
+    ?>
+<script src="../js/reserve_common.js"></script>
 </body>
-
 </html>

@@ -22,10 +22,12 @@ document.querySelectorAll(".item_quantity").forEach(select => {
                 subtotalElement.textContent = `￥${data.subtotal}`;
 
                 // 合計金額を更新
-                document.querySelector(".all_sum p").textContent = `￥${data.total}`;
+                document.getElementById("total_price").textContent = `￥${data.total}`;
 
                 // バッジ更新
                 document.getElementById("cart_count").textContent = data.cart_count;
+                // 合計点数の更新
+                document.getElementById("total_items").textContent = data.total_items;
             }
         })
         .catch(err => {
@@ -68,7 +70,10 @@ document.querySelectorAll(".delete_btn").forEach(btn => {
                     document.getElementById("cart_count").textContent = data.cart_count;
 
                     // 合計金額を更新
-                    document.querySelector(".all_sum p").textContent = `￥${data.total}`;
+                    document.getElementById("total_price").textContent = `￥${data.total}`;
+
+                    // 合計点数を表示
+                    document.getElementById("total_items").textContent = data.total_items;
 
                     // 0になったら文言表示
                     if (data.cart_count == 0) {
