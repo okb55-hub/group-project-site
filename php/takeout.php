@@ -55,10 +55,10 @@ if (!empty($_SESSION['cart'])) {
 </head>
 
 <body>
+	<header>
 		<header>
 		<a href="../html/index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<div id="header_icons">
-
 			<a href="cart.php" class="icon_btn cart_icon">
 				<i class="fa-solid fa-bag-shopping"></i>
 				<span id="cart_count"><?= $cart_count ?></span>
@@ -258,20 +258,29 @@ if (!empty($_SESSION['cart'])) {
 		<div class="order_notice">
     		<h3>ご注文時の注意事項</h3>
     		<ul>
+<<<<<<< HEAD
+       			<li>下記メニューより商品をお選びいただき、カート画面へ進んでご注文をお願いいたします。</li>
+				<li>営業時間は17:00～24:00、テイクアウトの最終受付は22:30です。（定休日：水曜日）</li>
+				<li>営業時間外のテイクアウト、またはお受け取り時間の変更・キャンセルにつきましては、お電話にてご相談ください。</li>
+				<li>お支払い方法：店頭支払い（現金）／事前決済（クレジットカード・PayPay）</li>
+				<li>店内で複数の食材を扱っているため、アレルギー対応は致しかねます。</li>
+				<li>商品の特性上、お受け取り後の返品・交換はお受けできません。</li>
+=======
 				<li>カートアイコンの数字は、選択した商品の種類数です。数量の変更はカート画面で行えます。</li>
   <li>営業時間は17:00～24:00、テイクアウトの最終受付は22:30です。（定休日：水曜日）</li>
   <li>営業時間外のテイクアウト、またはお受け取り時間の変更・キャンセルにつきましては、お電話にてご相談ください。</li>
   <li>お支払い方法：店頭支払い（現金）／事前決済（クレジットカード・PayPay）</li>
   <li>店内で複数の食材を扱っているため、アレルギー対応は致しかねます。</li>
   <li>商品の特性上、お受け取り後の返品・交換はお受けできません。</li>
+>>>>>>> main
    			 </ul>
 			</div>
 		<div class="foot_contain">
-				<div class="to_cartbtn">
-						<a href="cart.php" class="btn">
-							<span>カートを確認する</span>
-						</a>
-				</div>
+			<div class="to_cartbtn">
+					<a href="cart.php" class="btn">
+						<span>カートを確認する</span>
+					</a>
+			</div>
 		</div>
 	</main>
 	<footer>
