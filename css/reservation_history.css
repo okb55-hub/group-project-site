@@ -15,7 +15,7 @@ main {
     justify-content: center; 
 }
 .mypage_container {
-    max-width: 800px; /* テーブルがあるので少し広めに */
+    max-width: 800px;
     padding: 100px 20px 10px;
     width: 90%;
     margin: 0 auto;
@@ -204,25 +204,23 @@ tr.past td {
         display: block;
     }
 
-    /* 2. PC用のヘッダー（項目名）を隠す */
     thead tr {
         display: none;
     }
 
-    /* 3. 1件の予約を「一つのカード」に見せる */
+    /*  1件の予約ごとにカード表示 */
     tr {
         margin-bottom: 15px;
         border: 1px solid #333;
         border-radius: 8px;
         padding: 10px;
-        background-color: #111; /* 背景より少し明るい黒にするとカード感が出る */
+        background-color: #111;
     }
 
-    /* 4. 各行（日付、時間など）を横に並べる設定 */
     td {
         border-bottom: 1px solid #222;
         position: relative;
-        padding-left: 45% !important; /* 左側に項目名を入れるスペースを作る */
+        padding-left: 45%;
         text-align: left;
         min-height: 40px;
         display: flex;
@@ -233,13 +231,12 @@ tr.past td {
         border-bottom: none;
     }
 
-    /* 5. HTMLに書いた data-label を使って項目名を表示する */
     td::before {
-        content: attr(data-label); /* ここで「日付」などの文字を出す */
+        content: attr(data-label);
         position: absolute;
         left: 10px;
         width: 40%;
-        color: #9CA3AF; /* 項目名は少し薄い色にする */
+        color: #9CA3AF;
         font-weight: bold;
         font-size: 12px;
     }

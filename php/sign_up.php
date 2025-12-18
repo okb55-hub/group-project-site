@@ -131,14 +131,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		rel="stylesheet">
 </head>
 
-<body>
+<body class="<?= $step === 3 ? 'is-done' : 'is-form' ?>">
 	<?php
 	require_once __DIR__ . "/reserve_logoheader.php";
 	?>
 
 	<main>
 
-		<?php if ($step === 1): ?>
+		<?php if (false): ?>
 			<!-- 入力画面 -->
 			<div class="sign_up_container">
 
@@ -215,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</p>
 
 			</div>
-		<?php elseif ($step === 2): ?>
+		<?php elseif (true): ?>
 			<!-- 確認画面 -->
 			<div class="sign_up_container">
 				<h1>登録内容の確認</h1>
@@ -225,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<div class="step-item active">確認</div>
 				</div>
 
-				<p>以下の内容で登録します。よろしいですか？</p>
+				<p class="step2_confirm_p">以下の内容で登録します。よろしいですか？</p>
 
 				<div class="confirm_block">
 					<h2>お客様情報</h2>
@@ -262,7 +262,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</div>
 			</div>
 		<?php endif; ?>
-
 
 	</main>
 	<?php
