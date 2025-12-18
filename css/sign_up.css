@@ -28,7 +28,6 @@ body.is-form .sign_up_container {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    border-radius: 16px;
 }
 
 /* 3の時のコンテナ */
@@ -58,7 +57,7 @@ main {
 }
 .sign_up_container h1 {
     font-family: "Zen Old Mincho", sans-serif;
-        text-align: center;
+    text-align: center;
     color: #FAFAFA;
     font-size: 1.6rem;
     padding-bottom: 15px;
@@ -70,6 +69,8 @@ h2 {
     max-width: 500px;
     margin: 0 auto;
     padding: 40px 20px;
+    width: 100%;
+    border-radius: 16px;
 }
 
 /* 導入文 */
@@ -286,7 +287,6 @@ h2 {
     font-size: 16px;
     color: #E5E5E5;
     padding-top: 20px;
-
 }
 
 .confirm_block {
@@ -295,7 +295,6 @@ h2 {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 24px;
-
 }
 
 .confirm_block h2 {
@@ -310,17 +309,44 @@ h2 {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
+/* --- 確認画面のブロック全体 --- */
+.confirm_block h2 {
+    font-size: 18px;
+    color: #D62828;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2A2A2A;
+    font-family: "Zen Old Mincho", sans-serif;
+}
+
+/* --- 各行の設定（Flexboxで整列） --- */
 .confirm_detail p {
-    font-size: 15px;
-    line-height: 2;
-    color: #E5E5E5;
-    padding-left: 8px;
-    border-bottom: 1px dashed #2A2A2A;
-    padding: 10px 8px;
+    display: flex;
+    align-items: center; /* 複数行になっても上が揃う */
+    border-bottom: 1px dashed #333;
+    padding: 15px 8px;
+    margin: 0;
 }
 
 .confirm_detail p:last-child {
     border-bottom: none;
+}
+
+/* --- 左側：項目名（幅を固定してガタつきを防ぐ） --- */
+.confirm_detail .label {
+    flex: 0 0 180px;
+    color: #9CA3AF;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* --- 右側：入力された値 --- */
+.confirm_detail .value {
+    flex: 1;
+    color: #FAFAFA;        /* パッと目立つ白 */
+    font-weight: 500;
+    word-break: break-all;
+    font-size: 1.2rem;
 }
 
 /* 戻るボタン */
@@ -421,21 +447,13 @@ h2 {
     background-color: #555555;
 }
 
-/* レスポンシブ対応 (モバイル表示) */
-@media (max-width: 480px) {
-    .success-header h1 {
-        font-size: 24px;
-    }
 
-    .action-buttons {
-        flex-direction: column;
-        gap: 15px;
+@media (max-width: 630px) {
+    .sign_up_container {
+        max-width: 90%;
     }
 }
 
-/* ==================================== */
-/* 6. レスポンシブ調整 */
-/* ==================================== */
 @media (max-width: 480px) {
     .sign_up_container {
         margin: 0 auto;
@@ -455,9 +473,38 @@ h2 {
         padding: 25px;
     }
 
+    /* ステップ2ここから */
+    .confirm_detail p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .confirm_detail .label {
+        flex: none;
+        width: 100%;
+        font-size: 13px;
+    }
+    .confirm_detail .value {
+        padding-left: 5px;
+
+        width: 100%;
+        text-align: left; /* ★ここを左寄せにする */
+        padding-left: 10px; /* ★少しだけ右にズラす */
+        font-size: 1.1rem;
+    }
+
     .submit-button,
     .back-button {
         font-size: 16px;
         padding: 14px 20px;
+    }
+
+        .success-header h1 {
+        font-size: 24px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 15px;
     }
 }

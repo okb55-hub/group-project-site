@@ -18,7 +18,7 @@
     height: 60px;
     margin: 0 auto 15px;
     border-radius: 50%;
-    background-color: #10B981; /* 成功を示す緑 */
+    background-color: #10B981;
     color: #0F0F0F;
     font-size: 40px;
     line-height: 60px;
@@ -27,8 +27,9 @@
 }
 
 .success-header h1 {
+    font-family: "Zen Old Mincho", sans-serif;
     font-size: 30px;
-    color: #D62828; /* アクセントカラーで強調 */
+    color: #D62828;
     margin-bottom: 8px;
     letter-spacing: 0.1em;
 }
