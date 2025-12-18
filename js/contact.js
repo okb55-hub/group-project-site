@@ -44,8 +44,8 @@ modal.addEventListener("click", function (e) {
 
 // トップへ戻るボタン
 backToTop.addEventListener("click", function () {
-    thanksPage.style.display = "none";
-    window.scrollTo(0, 0);
+    // ページを今のURLで読み込み直す（これで勝手に一番上に戻り、表示も元通りになります）
+    location.reload();
 });
 
 // 送信完了画面を表示する処理
@@ -62,11 +62,3 @@ sendButton.addEventListener("click", function (e) {
     thanksPage.style.display = "block";
     window.scrollTo(0, 0);
 });
-
-// ★修正：送信ボタンの外に書く！
-// トップに戻るボタン（index.htmlへ遷移）
-if (backToTop) {
-    backToTop.addEventListener("click", function () {
-        location.href = "../html/index.html"; 
-    });
-}
