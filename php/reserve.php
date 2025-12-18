@@ -205,7 +205,7 @@ try {
 		<div class="main_section">
 			<div class="menu_top">
 				<div class="menu_top_text">
-					<h2>ご来店予約について</h2>
+					<h1>ご来店予約について</h1>
 					<p>当店では、ネット予約を24時間受け付けております。 <br>
 						ご希望の日付・人数・時間をご入力のうえ、送信してください。<br>
 						※団体（16名以上）のご予約はお電話のみ承っております。<br>
@@ -226,7 +226,7 @@ try {
 							<div class="form_item">
 								<label for="reserve_date">来店日</label>
 								<!-- 一旦日付のminを消す -->
-								<input type="date" name="reserve_date" id="reserve_date"  value="<?= e($reserve_date) ?>">
+								<input type="date" name="reserve_date" id="reserve_date" min="<?= $tomorrow ?>" value="<?= e($reserve_date) ?>">
 
 							</div>
 							<div class="form_item">
@@ -284,9 +284,8 @@ try {
 											<span class="seat_symbol"><?= $status['symbol'] ?></span><span class="remain_seat"><?= $status['text'] ?></span>
 										</div>
 										<?php else: ?>
-											<!-- 空席の場合はボタン表示 -->
 											<form method="POST" action="reserve_process.php" style="margin: 0;">
-												<input type="hidden" name="slot_id" value="<?= $slot['slot_id'] ?>">
+											<input type="hidden" name="slot_id" value="<?= $slot['slot_id'] ?>">
 												<input type="hidden" name="seat_type" value="counter">
 												<button type="submit" class="seat-button <?= $status['class'] ?>">
 													<span class="seat_symbol"><?= $status['symbol'] ?></span><span class="remain_seat"><?= $status['text'] ?></span>
@@ -361,7 +360,7 @@ try {
             <div class="card_body">
                 <h4>カウンター席</h4>
                 <p class="capacity">全6席</p>
-                <p class="desc">お一人様やカップルに最適です。</p>
+                <p class="desc">お一人様や少人数でのご利用におすすめです。</p>
             </div>
         </div>
         <div class="seat_card">
@@ -370,8 +369,8 @@ try {
             </div>
             <div class="card_body">
                 <h4>テーブル席</h4>
-                <p class="capacity">4名様用 × 8卓</p>
-                <p class="desc">ご家族やご友人とゆったりお食事を。</p>
+                <p class="capacity">4名掛け × 8卓</p>
+                <p class="desc">ご家族やグループで、ゆっくり食事を楽しめます。</p>
             </div>
         </div>
         <div class="seat_card">
@@ -380,8 +379,8 @@ try {
             </div>
             <div class="card_body">
                 <h4>お座敷</h4>
-                <p class="capacity">最大24名様（8名用×3部屋）</p>
-                <p class="desc">宴会や小さなお子様連れも安心です。</p>
+				<p class="capacity">8名掛け × 3部屋&nbsp;(最大24名様)</p>
+                <p class="desc">つなげてご利用いただくことで、宴会も可能です。</p>
             </div>
         </div>
     </div>
