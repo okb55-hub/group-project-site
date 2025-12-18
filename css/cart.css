@@ -279,7 +279,8 @@
 	display: flex;
 	flex-direction: row;
 	text-align: center;
-	margin: 40px auto;
+	margin: 50px auto;
+	gap: 50px;
 }
 .all_sum_details {
 	width: 50%;
@@ -295,20 +296,20 @@
 
 }
 .all_sum h2 {
-	font-size: 40px;
-	width: 50%;
+	font-size: 30px;
+	width: 60%;
 	font-weight: 100;
 }
 .all_sum p {
-	font-size: 40px;
-	width: 50%;
+	font-size: 30px;
+	width: 40%;
 	font-weight: 100;
-	border-bottom:solid 1px #D62828;
-}/* スマホ版 (820px以下) */
+}
+/* スマホ版 (820px以下) */
 @media (max-width: 820px) {
     .all_sum {
         flex-direction: column;
-        width: 95%;
+        width: 90%;
         gap: 15px; /* 行間の隙間 */
         align-items: stretch; /* 横幅いっぱいに広げる */
     }
