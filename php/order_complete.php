@@ -69,43 +69,6 @@ foreach ($order['items'] as $item) {
 	$message .= "{$item['name']} × {$item['quantity']}個 - ￥" . number_format($item['subtotal']) . "\n";
 }
 
-$message .= "
-合計金額：￥" . number_format($order['total']) . "
-
-【お客様情報】
-お名前: {$order['name']}
-電話番号: {$order['tel']}
-メールアドレス: {$order['email']}
-
-【受け取り情報】
-受け取り日時: {$order['pickup_date']} {$order['pickup_time']}
-決済方法: {$payment_method_name}
-
-━━━━━━━━━━━━━━━━━━━━
-
-ご来店を心よりお待ちしております。
-
-※このメールは自動送信です。ご不明な点がございましたらお電話にてお問い合わせください。
-
-本格韓国料理 ソダム
-〒000-0000
-石川県金沢市〇〇町0-0-0
-営業時間：17:00～24:00（23:00 L.O）
-定休日：水曜日
-Tel：000-000-0000
-";
-
-
-$headers = 
-	"From: noreply@sodam-restaurant.com\r\n" .
-	"Content-Type: text/plain; charset=UTF-8\r\n" .
-	"Content-Transfer-Encoding: 8bit\r\n" . 
-	"X-Mailer: PHP 8\r\n";
-
-
-// メール送信ここまで（SendGridで時間あればつくる）
-// mb_send_mail($to, $subject, $message,$headers);
-
 // Discordで店側に通知を送る
 require_once 'discord_notify.php';
 $discord_result = sendDiscordNotification($order);
@@ -122,7 +85,7 @@ unset($_SESSION['cart']);
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>注文完了 - 本格韓国料理 ソダム</title>
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/complete.css">
