@@ -85,33 +85,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php
     require_once __DIR__ . "/reserve_logoheader.php";
     ?>
-    <div class="login_container">
-        <form action="login.php" method="post" class="login_form">
 
-            <!-- エラーがある場合ここに表示 -->
-            <?php if ($error): ?>
-                <p class="error_message"><?= $error ?></p>
-            <?php endif; ?>
+    <main>
+
+        <div class="login_container">
+            <h1>ログイン</h1>
+            <form action="login.php" method="post" class="login_form">
+
+                <!-- エラーがある場合ここに表示 -->
+                <?php if ($error): ?>
+                    <p class="error_message"><?= $error ?></p>
+                <?php endif; ?>
 
 
-            <div class="form_group">
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email" value="<?= e($email ?? '') ?>" required>
-            </div>
+                <div class="form_group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" value="<?= e($email ?? '') ?>" required>
+                </div>
 
-            <div class="form_group">
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+                <div class="form_group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-            <div class="button">
-                <button class="submit-button" type="submit" name="confirm">ログイン</button>
-            </div>
-        </form>
-        <p class="to_signup">アカウントをお持ちでない方は<br>
-            <a href="sign_up.php">新規登録はこちら</a>
-        </p>
-    </div>
+                <div class="button">
+                    <button class="submit-button" type="submit" name="confirm">ログイン</button>
+                </div>
+            </form>
+            <p class="to_signup">アカウントをお持ちでない方は<br>
+                <a href="sign_up.php">新規登録はこちら</a>
+            </p>
+        </div>
+    </main>
     <?php
     require_once __DIR__ . "/reserve_footer.php";
     ?>

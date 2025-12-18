@@ -4,24 +4,19 @@
     display: none;
 }
 
-/* title_section　ここから */
+/* -----main_section ここから----- */
 .title_section {
     height: 400px;
     background-image: url(../img/menu/bibimbap-1738580_1280.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    margin-top: 110px;
 }
 
 .title_text {
     line-height: 400px;
-}
-
-/* ここまで */
-/* -----main_section ここから----- */
-.main_section {
-    margin-top: 110px;
 }
 
 .menu_top_text {
@@ -97,7 +92,6 @@
 .table_container {
     position: relative;
     max-width: 900px;
-    /* フォームと幅を合わせる */
     margin: 30px auto 50px auto;
 }
 
