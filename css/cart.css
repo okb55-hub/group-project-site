@@ -1,6 +1,172 @@
 @charset "UTF-8";
 
 
+#header_icons {
+	position: fixed;
+	top: 20px;
+	right: 100px;
+	/* ハンバーガーの左側に配置 */
+	display: flex;
+	gap: 15px;
+	z-index: 130;
+}
+
+/* 個別アイコンの共通デザイン */
+#header_icons .icon_btn i {
+	font-size: 50px;
+	color: #fff;
+	transition: all 0.4s;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* カートアイコンのバッジ */
+#header_icons .cart_icon {
+	position: relative;
+}
+
+#cart_count {
+	position: absolute;
+	top: -8px;
+	right: -14px;
+	background: #D62828;
+	color: #fff;
+	font-size: 14px;
+	padding: 7px 14px;
+	border-radius: 50%;
+}
+
+.icon_btn:hover i {
+	transform: scale(1.2);
+}
+
+@media (max-width: 820px) {
+
+#header_icons .icon_btn i {
+	font-size: 48px;
+}
+#cart_count {
+	top: -9px;
+	right: -18px;
+}
+}
+@media (max-width: 480px) {
+		#header_icons {
+		top: 18px;
+		right: 90px;
+	}
+	#header_icons .icon_btn i {
+	font-size: 42px;
+}
+#cart_count {
+	top: -9px;
+	right: -18px;
+	font-size: 12px;
+	padding: 6px 12px;
+}
+}
+/* title_sectionここから */
+.title_section {
+	width: 100%;
+	height: 70vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding-top: 50px;
+}
+
+.title_text {
+	max-width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 100px;
+	padding-bottom: 50px;
+}
+
+.title_text h1 {
+	font-size: 60px;
+}
+
+.title_text h1 span {
+	color: #D62828;
+}
+
+.title_text p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.title_img {
+	display: block;
+	width: 60%;
+	height: 300px;
+	background-image: url(../img/takeout/takeout_header.png);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 820px) {
+	.title_section {
+		height: auto;
+		padding-top: 40px;
+		padding-bottom: 20px;
+	}
+	.title_text {
+		margin-left: 40px;
+		max-width: 55%;
+		padding-bottom: 20px;
+	}
+
+	.title_text h1 {
+		font-size: 50px;
+	}
+	
+	.title_text p {
+		font-size: 22px;
+	}
+	
+	.title_img {
+		height: 260px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.title_section {
+		flex-direction: column;
+		height: auto;
+		padding: 150px 0 20px 0;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 50px;
+		width: 100%;
+	}
+
+	.title_text {
+		margin-left: 0;
+		padding: 0 20px;
+	}
+
+	.title_text h1 {
+		font-size: 34px;
+	}
+
+	.title_text p {
+		font-size: 16px;
+	}
+
+	.title_img {
+		width: 100%;
+		height: 200px;
+		margin-left: 20px;
+	}
+}
+
+
+/* title section ここまで */
+
 .h1_wrapper {
 	text-align: center;
 }
@@ -22,13 +188,17 @@
 }
 .cart_item {
     display: grid;
-    grid-template-columns: 150px 1fr 100px 80px 100px 80px;
+    grid-template-columns: 140px 1fr 70px 70px 70px 80px;
     align-items: center;
     gap: 16px;
     padding: 16px 0;
     border-bottom: 1px solid #ddd;
     width: 90%;          /* ← 横幅90% */
     margin: 0 auto;      /* 中央寄せ */
+}
+.ci_info_wrapper {
+    /* PCではフレックスではなく、グリッドの子として振る舞わせる */
+    display: contents; 
 }
 
 /* 画像サイズ（横150px、高さは自動） */
@@ -40,15 +210,20 @@
 }
 
 .ci_name {
+  grid-column: 2; /* 2列目 (名前) */
     font-size: 16px;
     font-weight: 600;
 }
+/* 3. 価格（ci_price）を3列目に配置 */
+.ci_price {
+    grid-column: 3; /* 3列目 (価格) */
+}
 
-.ci_price,
-.ci_subtotal {
-    text-align: right;
-    font-size: 16px;
-    font-weight: bold;
+/* ---------------------------------- */
+/* 4. ci_quantity (数量の親) を4列目に配置 */
+.ci_quantity {
+    grid-column: 4; /* 4列目 (数量) */
+    display: contents; /* PCではこのラッパーの表示を無効化 */
 }
 
 .ci_quantity select {
@@ -56,7 +231,18 @@
     font-size: 15px;
     border-radius: 4px;
 }
+/* 6. item_sum (小計) を5列目に配置 */
+.item_sum {
+    grid-column: 5; /* 5列目 (小計) */
+    text-align: right;
+}
 
+/* 7. ci_delete (削除ボタン) を6列目に配置 */
+.ci_delete {
+    grid-column: 6; /* 6列目 (削除) */
+    /* PCでは bottom_area 内での配置設定を上書き */
+    display: block; 
+}
 /* 削除ボタン */
 .ci_delete .delete_btn {
     background: none;       /* ボタンの背景消す */
@@ -83,52 +269,97 @@
 }
 /* PCレイアウトでは bottom_area をラップとして無効化 */
 .bottom_area {
-    grid-column: 6;      /* ← grid の6列目（右端）に配置 */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
+    display: contents; /* bottom_area自体を無視し、子要素をグリッドに流す */
+    grid-column: 5 / 7; /* PC版では5列目から6列目を使う、という指定は不要になる */
 }
 
 
 .all_sum {
-	width: 60%;
+	width: 80%;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	text-align: center;
 	margin: 50px auto;
-	
+	gap: 50px;
 }
-.all_sum h2 {
-	font-size: 40px;
-}
-.all_sum p {
-	font-size: 40px;
+.all_sum_details {
+	width: 50%;
+	display: flex;
+	margin: 0 auto;
+
 }
 
+.all_sum_total {
+	width: 50%;
+	display: flex;
+	margin: 0 auto;
+
+}
+.all_sum h2 {
+	font-size: 30px;
+	width: 60%;
+	font-weight: 100;
+}
+.all_sum p {
+	font-size: 30px;
+	width: 40%;
+	font-weight: 100;
+}
+/* スマホ版 (820px以下) */
+@media (max-width: 820px) {
+    .all_sum {
+        flex-direction: column;
+        width: 90%;
+        gap: 15px; /* 行間の隙間 */
+        align-items: stretch; /* 横幅いっぱいに広げる */
+    }
+
+    .all_sum_details, 
+    .all_sum_total {
+        width: 80%;
+        justify-content: space-between; /* 左に見出し、右に数字 */
+        padding-bottom: 10px;
+    }
+
+    .all_sum h2, 
+    .all_sum p {
+        font-size: 24px; /* スマホで40pxは大きすぎるので調整 */
+        text-align: left; /* 左寄せ */
+        width: auto;
+    }
+    
+    .all_sum p {
+        text-align: right; /* 数字は右寄せにすると見やすい */
+    }
+}
 .foot_nav {
 	text-align: center;
 }
-.foot_nav button {
-	width: 50%;
-	border-radius: 30px;
-	border: solid 1px #FFFFFF;
-	background-color: #0F0F0F;
-	transition: 0.5s;
-	position: relative;
-	padding-right: 10px;
+.btn {
+  display: block;
+  margin: 20px auto;
+	width: 500px;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 200;
+	padding: 10px 20px;
+	border-radius: 50px;
 	cursor: pointer;
-	font-size: 20px;
+	background-color: #0F0F0F;
+	border: solid 1px #FFFFFF;
+	position: relative;
+	overflow: hidden;
+	transition: border-color .5s ease;
 }
 
-.foot_nav button span {
-	line-height: 2.8;
-	transition: 0.5s;
+ .btn span {
+	position: relative;
+	z-index: 1;
 }
 
-.backto_menu button span::after {
+.backto_menu .btn span::after {
 	position: absolute;
 	top: 50%;
-	left: 2em;               /* 左側に配置 */
+	left: -5em;               /* 左側に配置 */
 	content: '';
 	width: 0.5em;
 	height: 0.5em;
@@ -136,10 +367,10 @@
 	border-top: 1px solid #FFFFFF;
 	border-right: 1px solid #FFFFFF;
 }
-.to_buy button span::after {
+.to_buy .btn span::after {
 	position: absolute;
 	top: 50%;
-	right: 2em;
+	right: -5em;
 	content: '';
 	width: 0.5em;
 	height: 0.5em;
@@ -148,46 +379,108 @@
 	border-right: 1px solid #FFFFFF;
 }
 
+.to_buy .btn::before {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	content: '';
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #D62828;
+	transition: left .4s ease;
+	z-index: 0;
+}
+.backto_menu .btn::before {
+	position: absolute;
+	top: 0;
+	left: 100%;          /* ← 右側に待機させる */
+	content: '';
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #D62828;
+	transition: left .4s ease;
+	z-index: 0;
+}
+
+.btn:hover {
+	border-color: #D62828;
+  color: #FFFFFF;
+}
+.btn span:hover {
+  color: #FFFFFF;
+}
+.btn:hover::before {
+	left: 0;
+}
+
+@media (max-width: 820px) {
+  .btn {
+    width: 300px;
+  }
+  .backto_menu .btn span::after {
+	left: -3em;               /* 左側に配置 */
+  }
+  .to_buy .btn span::after {
+    right: -3em;
+  }
+}
+
 /* cart_item のレスポンシブここから*/
 @media (max-width: 820px) {
 	.cart_item {
     display: grid;
-    grid-template-columns: 150px 1fr;   /* 左：画像 / 右：詳細 */
+    grid-template-columns: 1fr 1fr;   /* 左：画像 / 右：詳細 */
     grid-template-areas:
-      "img info"
-      "bottom bottom";
+     "img    quantity"    /* 1段目: 左に画像、右に数量 */
+      "info   bottom";     /* 2段目: 左に名前・価格、右に小計・削除 */
     row-gap: 10px;
 	 column-gap: 16px;
     align-items: center;
+    padding: 16px 0;
   }
-
+  .ci_info_wrapper {
+        display: flex; /* これを追加して、名前、価格を縦に並べる */
+        flex-direction: column;
+        align-items: center;
+        grid-area: info; /* 画像と同じカラムに配置 */
+        grid-row: 2; /* 2行目として画像の下に配置 */
+        margin-top: 5px; /* 画像と名前の間に少し隙間 */
+    }
+    /* 既存の要素に新しいラッパーを適用するために、HTMLの変更が必要（後述） */
+    .ci_name,
+    .ci_price {
+        /* 名前と価格は、HTML側で新しいラッパーに入れることで調整 */
+        margin-bottom: 5px;
+    }
   /* 画像 */
   .ci_img {
     grid-area: img;
+    text-align: center;
   }
 
-  /* 上段（名前・価格・セレクトをまとめて info に流す） */
-  .ci_name,
-  .ci_price,
-  .ci_quantity {
-    grid-area: info;
-  }
 
-  /* 名前 → 価格 → セレクトが縦並び */
-  .ci_name { margin-bottom: 5px; }
-  .ci_price { margin-bottom: 5px; }
 
   /* セレクトだけ右寄せ */
   .ci_quantity {
-    text-align: right;
+    grid-area: quantity;;
+        /* 数量と小計・削除を縦に並べるためのFlexコンテナ化 */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* 右揃え */
+        gap: 10px; /* 数量と bottom_area の間の隙間 */
   }
 
   /* ▼ ここ大事！ bottom_area を bottom に割り当てる */
   .bottom_area {
+    display: flex;
     grid-area: bottom;
-    display: flex;               /* 小計 + 削除を横並び */
-    justify-content: flex-end;   /* 右寄せ */
-    gap: 10px;
+        justify-content: flex-end; /* 右寄せ */
+        align-items: center;
+        width: 100%; /* 親要素の幅いっぱいに広げる */
+        gap: 10px;
   }
 
   /* 小計 */
@@ -199,19 +492,6 @@
   .ci_delete {
     display: inline-block;
   }
-}
-
-/* ボタンやテキストにマウスが乗ったとき */
-.foot_nav button:hover,
-.foot_nav button span:hover {
-    border-color: #D62828;
-    color: #D62828;
-}
-
-/* 擬似要素 ::after もボタンや span に hover したら赤くする */
-.to_buy button:hover span::after,
-.backto_menu button:hover span::after {
-    border-color: #D62828;
 }
 
 

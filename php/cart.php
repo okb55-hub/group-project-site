@@ -26,7 +26,6 @@ $total = 0;
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>テイクアウト - 本格韓国料理 ソダム</title>
 	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/takeout.css">
 	<link rel="stylesheet" href="../css/cart.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,10 +88,10 @@ $total = 0;
         <img src="<?= $product['img'] ?>" alt="<?= $product['name'] ?>">
     </div>
 
-    <div class="ci_name"><?= $product['name'] ?></div>
-
-    <div class="ci_price">￥<?= number_format($product['price']) ?></div>
-
+    <div class="ci_info_wrapper">
+        <div class="ci_name"><?= $product['name'] ?></div>
+        <div class="ci_price">￥<?= number_format($product['price']) ?></div>
+    </div>
     <div class="ci_quantity">
         <form method="post" action="cart_update.php" class="update-form">
             <select name="quantity" class="item_quantity" data-id="<?= $id ?>">
@@ -104,32 +103,38 @@ $total = 0;
             </select>
             <input type="hidden" name="product_id" value="<?= $id ?>">
         </form>
-    </div>
-	<div class="bottom_area">
-    	<div class="item_sum">￥<?= $subtotal ?></div>
+        </div>
+        <div class="bottom_area">
+            <div class="item_sum">￥<?= $subtotal ?></div>
 
-    	<div class="ci_delete">
-        	<form method="post" action="cart_update.php">
-            <input type="hidden" name="remove_id" value="<?= $id ?>">
-            <button type="button" class="delete_btn" data-id="<?= $id ?>">
-				<svg viewBox="0 0 30 30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            	<path d="M9 3V4H4V6H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V6H20V4H15V3H9ZM7 6H17V20H7V6ZM9 8V18H11V8H9ZM13 8V18H15V8H13Z"/>
-       		 	</svg>
-			</button>
-        	</form>
-    	</div>
-		</div>
-	</div>
-
+            <div class="ci_delete">
+                <form method="post" action="cart_update.php">
+                <input type="hidden" name="remove_id" value="<?= $id ?>">
+                <button type="button" class="delete_btn" data-id="<?= $id ?>">
+                    <svg viewBox="0 0 30 30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 3V4H4V6H5V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V6H20V4H15V3H9ZM7 6H17V20H7V6ZM9 8V18H11V8H9ZM13 8V18H15V8H13Z"/>
+                    </svg>
+                </button>
+                </form>
+            </div>
+        </div>
+    
+</div>
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>
 
 		<?php if ($cart_count > 0): ?>
-  <div class="all_sum">
-    <h2>合計金額</h2>
-    <p>￥<?= $total ?></p>
-  </div>
+			<div class="all_sum">
+    <div class="all_sum_details">
+        <h2>合計点数</h2>
+        <p><span id="total_items"><?= array_sum($_SESSION['cart']) ?></span>点</p>
+    </div>
+    <div class="all_sum_total">
+        <h2>合計金額</h2>
+        <p id="total_price">￥<?= number_format($total) ?></p>
+    </div>
+</div>
 <?php endif; ?>
 
 <div class="foot_nav">

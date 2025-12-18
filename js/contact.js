@@ -1,7 +1,8 @@
 'use strict';
 
 const form = document.querySelector("#contact_form form");
-const modal = document.getElementById("confirmModal");
+const modal = document.getElementById("confirm_modal");
+const closeBtn = document.querySelector('.modal_close');
 const backButton = document.getElementById("backButton");
 const sendButton = document.getElementById("sendButton");
 const thanksPage = document.getElementById("thanksPage");
@@ -23,6 +24,10 @@ form.addEventListener("submit", function (e) {
     modal.style.display = "block";
 });
 
+// モーダルを閉じる
+closeBtn.addEventListener('click', function() {
+	modal.style.display = "none";
+})
 // 修正ボタンでモーダルを閉じる
 backButton.addEventListener("click", function () {
     modal.style.display = "none";
@@ -35,15 +40,33 @@ modal.addEventListener("click", function (e) {
     }
 });
 
-// 送信ボタンで完了画面表示（PHPはまだなし）
-sendButton.addEventListener("click", function (e) {
-    e.preventDefault(); // 本送信はまだ行わない
-    modal.style.display = "none"; // モーダル閉じる
-    thanksPage.style.display = "block"; // 送信完了画面表示
-});
+
 
 // トップへ戻るボタン
 backToTop.addEventListener("click", function () {
     thanksPage.style.display = "none";
     window.scrollTo(0, 0);
 });
+
+// 送信完了画面を表示する処理
+sendButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    modal.style.display = "none";
+
+    const titleSection = document.querySelector(".title_section");
+    const mainSection = document.querySelector(".main_section");
+
+    if (titleSection) titleSection.style.display = "none";
+    if (mainSection) mainSection.style.display = "none";
+
+    thanksPage.style.display = "block";
+    window.scrollTo(0, 0);
+});
+
+// ★修正：送信ボタンの外に書く！
+// トップに戻るボタン（index.htmlへ遷移）
+if (backToTop) {
+    backToTop.addEventListener("click", function () {
+        location.href = "../html/index.html"; 
+    });
+}

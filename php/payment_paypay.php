@@ -10,6 +10,9 @@ $order = $_SESSION['order'];
 
 $total = $order['total'];
 
+$datetime = new DateTime();
+$formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
+
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +27,7 @@ $total = $order['total'];
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -34,17 +36,21 @@ $total = $order['total'];
 
 	<main>
 		<div class="paypay_container">
-			<h1>PayPay決済</h1>
-
 			<div class="paypay_box">
-				<img class="paypay_logo" src="" alt="PayPayのロゴ">
-				 <p class="paypay_amount">
-					お支払い金額<br>
-					<span>¥<?= number_format($total) ?></span>
+				<div class="shop_icon">
+					<img src="../img/paymethod/pay_shop.png" alt="ショップのアイコン">
+				</div>
+				<p class="shop_name">本格韓国料理 ソダム テイクアウト予約・購入</p>
+				<p class="datetime"><?= $formatted_date ?></p>
+				<p class="paypay_amount">
+					<span><?= number_format($total) ?></span> 円
 				</p>
 
-				<button id="payButton" class="pay_btn">PayPayで支払う</button>
+				<div id="payButton" class="pay_btn">
+					<img src="../img/paymethod/paypay_complete.png" alt="PayPayで支払う">
+				</div>
 			</div>
+			<p class="comment">※疑似決済です。実際に決済されることはありません。</p>			
 		</div>
 
 	</main>

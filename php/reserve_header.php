@@ -1,14 +1,13 @@
 <header class="reserve_header">
     <div class="header_inner">
         <div class="header_left">
-            <a href="reserve.php" class="header_logo">本格韓国料理 ソダム</a>
+            <a href="reserve.php" class="header_logo"><img src="../img/reserve/logo.png" alt="本格韓国料理ソダム"></a>
             <span class="system_label">Reservation</span>
         </div>
 
         <!-- PC版：ナビゲーション -->
         <nav class="header_nav">
-            <!-- ここにindex.phpのURL入れる -->
-            <a href="https://example.com" target="_blank" class="store_link">
+            <a href="../html/index.html" target="_blank" class="store_link">
                 店舗サイトへ
                 <svg class="external_icon" viewBox="0 0 24 24">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

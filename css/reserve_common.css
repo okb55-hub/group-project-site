@@ -19,7 +19,7 @@ a {
 }
 
 body {
-    font-family: "Zen Old Mincho", sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     background-color: #0F0F0F;
     color: #FFFFFF;
 }
@@ -43,12 +43,13 @@ footer {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 40px;
+    padding: 15px 40px;
     background: #FAFAFA;
     border: 1.5px solid #D62828;
     box-shadow:
         inset 0 0 0 3px #FAFAFA,
         inset 0 0 0 4.5px #D62828;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .header_inner {
@@ -66,12 +67,8 @@ footer {
     gap: 16px;
 }
 
-.header_logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #D62828;
-    text-decoration: none;
-    letter-spacing: 0.05em;
+.header_logo img {
+    height: 2.5rem;
 }
 
 .system_label {
@@ -268,6 +265,7 @@ footer {
     background: #FAFAFA;
     transition: max-height 0.3s ease;
     z-index: 1000;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .mobile_menu.active {
@@ -336,32 +334,34 @@ footer {
 /* ======= 予約システム ロゴのみのヘッダーの設定ここから ======= */
 .logo_header {
     position: fixed;
-    top: 4px;
-    left: 4px;
+    top: 0px;
+    left: 0px;
     right: 0;
     z-index: 1000;
-    padding: 10px;
+    padding: 15px 40px;
     background: #FAFAFA;
-    width: 18rem;
     border: 1.5px solid #D62828;
     box-shadow:
         inset 0 0 0 3px #FAFAFA,
         inset 0 0 0 4.5px #D62828;
     cursor: pointer;
-}
-
-.logo_header:hover {
-    opacity: 0.8;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .logoheader_inner {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logoheader_inner:hover {
+    opacity: 0.7;
 }
 
 .logoheader_logo img {
-    height: 5rem;
+    height: 2.5rem;
 }
 
 .logoheader_system_label {
@@ -369,6 +369,7 @@ footer {
     color: #6B7280;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    display: block;
 }
 
 .logoheader_logo::after {
@@ -379,7 +380,6 @@ footer {
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* 他の要素より手前に来るようにする */
     cursor: pointer;
 }
 
@@ -390,11 +390,11 @@ footer {
 
     /* 共通ヘッダーここから */
     .reserve_header {
-        padding: 12px 20px;
+        padding: 10px 20px 5px;
     }
 
-    .header_logo {
-        font-size: 18px;
+    .header_logo img{
+        height: 2rem;
     }
 
     .system_label {
@@ -420,11 +420,11 @@ footer {
     /* 共通ヘッダーここまで */
     /* ロゴのみヘッダーここから */
     .logo_header {
-        padding: 12px 20px;
+        padding: 10px 20px 5px;
     }
 
-    .logoheader_logo {
-        font-size: 18px;
+    .logoheader_logo img{
+        height: 2rem;
     }
 
     .logoheader_system_label {
@@ -435,16 +435,15 @@ footer {
 
 /* =================フッター=================== */
 footer {
-    padding: 20px 0;
-    background-color: #FAFAFA;
-    border-top: 1px solid #E0E0E0;
+    padding: 10px 0;
     text-align: center;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 /* 著作権表示のスタイル */
 #copyright {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #666;
     line-height: 1.5;
 }
