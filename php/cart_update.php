@@ -40,6 +40,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
         "status" => "ok",
         "cart_count" => $cart_count,
         "total" => $total,
+        "total_items" => array_sum($_SESSION['cart']),
         "subtotal" => $subtotal
     ]);
     exit;
@@ -57,7 +58,8 @@ if (isset($_POST['remove_id'])) {
     echo json_encode([
         "status" => "ok",
         "cart_count" => $cart_count,
-        "total" => $total
+        "total" => $total,
+        "total_items" => array_sum($_SESSION['cart'])
     ]);
     exit;
 }

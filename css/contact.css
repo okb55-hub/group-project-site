@@ -72,7 +72,7 @@ body {
 	}
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
 	.title_section {
 		flex-direction: column;
 		height: auto;
@@ -186,7 +186,7 @@ body {
 	}
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
 	.h1_wrapper {
 		margin-bottom: 50px;
 	}
@@ -340,7 +340,7 @@ textarea {
 
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
 	#contact_form {
 		width: 100%;
 		font-size: 14px;
@@ -478,7 +478,7 @@ textarea {
 	}
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
 	.modal-content {
 		gap: 0;
 	}
