@@ -125,10 +125,16 @@ $total = 0;
 		</div>
 
 		<?php if ($cart_count > 0): ?>
-  <div class="all_sum">
-    <h2>合計金額</h2>
-    <p>￥<?= $total ?></p>
-  </div>
+			<div class="all_sum">
+    <div class="all_sum_details">
+        <h2>合計点数</h2>
+        <p><span id="total_items"><?= array_sum($_SESSION['cart']) ?></span>点</p>
+    </div>
+    <div class="all_sum_total">
+        <h2>合計金額</h2>
+        <p id="total_price">￥<?= number_format($total) ?></p>
+    </div>
+</div>
 <?php endif; ?>
 
 <div class="foot_nav">

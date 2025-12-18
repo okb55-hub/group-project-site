@@ -77,7 +77,7 @@ html {
 	}
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
 	.title_section {
 		flex-direction: column;
 		height: auto;
@@ -176,7 +176,7 @@ html {
 }
 
 /* 画面幅430px以下：2列 */
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
 	.menu_top_text {
 		margin: 15px 12px;
 		font-size: 14px;
@@ -302,7 +302,7 @@ section h1 {
 	}
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 480px) {
 	section {
 		margin: 60px auto;
 		width: 92%;
