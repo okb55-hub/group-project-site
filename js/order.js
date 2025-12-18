@@ -48,9 +48,20 @@ window.addEventListener('click', function(event) {
 });
 
 // モーダル閉じる関数
+// function closeModal() {
+// 	modal.style.display = 'none';
+// 	document.body.style.overflow = '';
+// }
+
+// モーダル閉じる関数（新）
 function closeModal() {
-	modal.style.display = 'none';
-	document.body.style.overflow = '';
+	modal.classList.add('is_closing');
+
+	setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('is_closing'); // 次回表示のためにクラスを消しておく
+        document.body.style.overflow = '';
+    }, 300); // CSSの0.3sと合わせる
 }
 
 // 日付をフォーマット

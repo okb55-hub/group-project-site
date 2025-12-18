@@ -52,48 +52,53 @@ $order = $_SESSION['order'];
 	<main>
 		<div class="payment_container">
 			<h1>決済方法を選択してください</h1>
+			<div class="payment_inner">
+				<div class="order_summary">
+					<h2>ご注文内容</h2>
+					<p class="order_id">注文番号：<?= htmlspecialchars($order['order_id']) ?></p>
+					<div class="summary_items">
+						<?php foreach ($order['items'] as $item): ?>
+							<div class="summary_item">
+								<p class="summary_item_name"><?= htmlspecialchars($item['name']) ?></p>
+								<div>
+									<p>数量：<?= $item['quantity'] ?></p>
+									<p>小計：￥<?= number_format($item['subtotal']) ?></p>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					</div>
+					<div class="summary_total">
+						<strong>合計金額</strong>
+						<strong class="total_price">￥<?= number_format($order['total']) ?></strong>
+					</div>
+				</div>
 
-			<div class="order_summary">
-				<h2>ご注文内容</h2>
-				<p class="order_id">注文番号：<?= htmlspecialchars($order['order_id']) ?></p>
-				<div class="summary_items">
-					<?php foreach ($order['items'] as $item): ?>
-						<div class="summary_item">
-							<span><?= htmlspecialchars($item['name']) ?> × <?= $item['quantity'] ?></span>
-							<span>￥<?= number_format($item['subtotal']) ?></span>
+				<div class="payment_methods">
+					<a href="stripe_checkout.php" class="payment_method_card">
+						<div class="payment_icon">
+							<img class="visa" src="../img/paymethod/visa.png" alt="Visa">
+							<img class="mastercard" src="../img/paymethod/mastercard.svg" alt="Mastercard">
+							<img class="jcb" src="../img/paymethod/jcb.gif" alt="JCB">
+							<picture>
+								<source media="(max-width: 430px)" srcset="../img/paymethod/amex_square.png">
+								<img class="amex" src="../img/paymethod/amex.png" alt="AmericaExpress">
+							</picture>
 						</div>
-					<?php endforeach; ?>
-				</div>
-				<div class="summary_total">
-					<strong>合計金額</strong>
-					<strong class="total_price">￥<?= number_format($order['total']) ?></strong>
+						<div class="payment_info">
+							<h3>クレジットカード決済</h3>
+						</div>
+					</a>
+
+					<a href="payment_paypay.php" class="payment_method_card paypay">
+						<div class="payment_icon">
+							<img class="paypay" src="../img/paymethod/paypay.png" alt="PayPay">
+						</div>
+						<div class="payment_info">
+							<h3>PayPay決済</h3>
+						</div>
+					</a>
 				</div>
 			</div>
-
-			<div class="payment_methods">
-				<a href="stripe_checkout.php" class="payment_method_card">
-					<div class="payment_icon">
-						<img src="" alt="クレジットカード">
-					</div>
-					<div class="payment_info">
-						<h3>クレジットカード決済</h3>
-						<p>Visa / Mastercard / JCB / American Express</p>
-					</div>
-					<i class="fa-solid fa-chevron-right"></i>
-				</a>
-
-				<a href="payment_paypay.php" class="payment_method_card paypay">
-					<div class="payment_icon">
-						<img src="" alt="PayPay">
-					</div>
-					<div class="payment_info">
-						<h3>PayPay決済</h3>
-						<p>スマートフォンで簡単決済</p>
-					</div>
-					<i class="fa-solid fa-chevron-right"></i>
-				</a>
-			</div>
-
 			<a href="order_input.php" class="back_link">
 				<i class="fa-solid fa-arrow-left"></i> 注文内容を修正する
 			</a>
@@ -104,7 +109,7 @@ $order = $_SESSION['order'];
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div>
-					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>

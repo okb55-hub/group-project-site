@@ -77,8 +77,8 @@ foreach ($cart as $id => $qty) {
 
 					<div class="form_group">
 						<label for="tel">電話番号</label>
-						<input type="tel" id="tel" name="tel" placeholder="000-1234-5678" required>
-						<small class="form_note">ハイフン(-)を含めて入力してください</small>
+						<input type="tel" id="tel" name="tel" placeholder="00012345678" required>
+						<small class="form_note">ハイフン(-)を含めずに入力してください</small>
 					</div>
 
 					<div class="form_group">
@@ -105,7 +105,7 @@ foreach ($cart as $id => $qty) {
 							}
 							?>
 						</select>
-						<small class="form_note">営業時間：17:00～24：00（定休日：水曜日）<br>
+						<small class="form_note">テイクアウト受付時間：17:00～22：30（定休日：水曜日）<br>
 							営業時間外のテイクアウトについては、電話にてお問い合わせください。
 						</small>
 					</div>
@@ -152,14 +152,26 @@ foreach ($cart as $id => $qty) {
 								<img src="<?= $product['img'] ?>" alt="<?= $product['name'] ?>">
 								<div class="modal_item_details">
 									<p class="modal_item_name"><?= $product['name'] ?></p>
-									<p class="modal_item_price">￥<?= $product['price'] ?> × <?= $qty ?>個 = ￥<?= $subtotal ?></p>
+									<div class="modal_item_price">
+										<p>価格</p>
+										<p class="item_info">￥<?= $product['price'] ?></p>
+									</div>
+									<div class="modal_item_qty">
+										<p>数量</p>
+										<p class="item_info"><?= $qty ?></p>
+									</div>
+									<div class="modal_item_subtotal">
+										<p>小計</p>
+										<p class="item_info">￥<?= $subtotal ?></p>
+									</div>
 								</div>
 							</div>
 
 						<?php endforeach; ?>
 					</div>
 					<div class="modal_total">
-						<strong>合計金額：￥<?= $total ?></strong>
+						<p>合計</p>
+						<p><strong>￥<?= $total ?></strong></p>
 					</div>
 				</div>
 
