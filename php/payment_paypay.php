@@ -19,7 +19,7 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>PayPay決済（疑似）</title>
 	<link rel="stylesheet" href="../css/paypay.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">

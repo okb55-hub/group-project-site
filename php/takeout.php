@@ -41,7 +41,7 @@ if (!empty($_SESSION['cart'])) {
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, , viewport-fit=cover">
 	<title>テイクアウト - 本格韓国料理 ソダム</title>
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/takeout.css">
@@ -56,7 +56,6 @@ if (!empty($_SESSION['cart'])) {
 
 <body>
 	<header>
-		<header>
 		<a href="../html/index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<div id="header_icons">
 			<a href="cart.php" class="icon_btn cart_icon">
