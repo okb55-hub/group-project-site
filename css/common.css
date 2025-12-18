@@ -39,7 +39,6 @@ header::before {
 	height: env(safe-area-inset-top);
 	background-color: #d32717;
 	z-index: 500;
-
 }
 
 /* header logo */
