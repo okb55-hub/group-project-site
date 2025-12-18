@@ -14,6 +14,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -132,13 +133,16 @@
 						をご確認ください。
 					</p>
 					<div class="button">
-						<button class="submit-button" type="submit">確認</button>
+						<button class="submit-button btn" type="submit"><span>確認</span></button>
 					</div>
 
 					<!-- 確認用モーダル -->
-					<div id="confirmModal" class="modal">
-						<div class="modal-content">
+					<div id="confirm_modal" class="modal_confirm">
+						<div class="modal_confirm_content">
+							<span class="modal_close">&times;</span>
+							<div class="modal_scroll_area">
 							<h2>入力内容の確認</h2>
+							<div class="modal_section">
 							<dl>
 								<div>
 									<dt>お名前</dt>
@@ -164,10 +168,13 @@
 									<dt>お問い合わせ内容</dt>
 									<dd id="confirm-message"></dd>
 								</div>
+								
 							</dl>
+							</div>
+							</div>
 							<div class="modal-buttons">
-								<button id="backButton" type="button">修正する</button>
-								<button id="sendButton" type="submit">送信する</button>
+								<button id="backButton" type="button" class="backbtn"><i class="fa-solid fa-arrow-left"></i>修正する</button>
+								<button id="sendButton" type="submit" class="gobtn">送信する<i class="fa-solid fa-arrow-right"></i></button>
 							</div>
 						</div>
 					</div>
@@ -175,6 +182,19 @@
 				</form>
 			</div>
 		</section>
+		<div id="thanksPage">
+    <div class="h1_wrapper">
+        <h1>送信完了</h1>
+    </div>
+    <div class="thanks_content">
+        <i class="fa-solid fa-circle-check"></i>
+        <p>
+            お問い合わせいただきありがとうございます。<br>
+            内容を確認の上、担当者よりご連絡させていただきます。
+        </p>
+        <button id="backToTop" class="btn"><span>トップページへ戻る</span></button>
+    </div>
+</div>
 	</main>
 		<footer>
 		<div id="footer_inner">
