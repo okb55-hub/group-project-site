@@ -35,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             // 4.ログイン成功
             else {
+                // セッションIDを新しく作り直す
+                session_regenerate_id(true);
                 $_SESSION['user_id'] = $user['user_id'];
 
                 // 予約途中だった場合は確認画面へ
@@ -48,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } catch (Exception $e) {
             $error = "エラーが発生しました。<br>時間をおいて再度お試しください。";
-            
+
             // 例外のクラスによってログの識別子を変える
             if ($e instanceof PDOException) {
                 error_log("DB接続エラー [login.php]: " . $e->getMessage());
@@ -70,49 +72,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/login.css">
 
-    	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <?php
-	require_once __DIR__ . "/reserve_logoheader.php";
-	?>
-    <div class="login_container">
-        <form action="login.php" method="post" class="login_form">
+    require_once __DIR__ . "/reserve_logoheader.php";
+    ?>
 
-            <!-- エラーがある場合ここに表示 -->
-            <?php if ($error): ?>
-                <p class="error_message"><?= $error ?></p>
-            <?php endif; ?>
+    <main>
+
+        <div class="login_container">
+            <h1>ログイン</h1>
+            <form action="login.php" method="post" class="login_form">
+
+                <!-- エラーがある場合ここに表示 -->
+                <?php if ($error): ?>
+                    <p class="error_message"><?= $error ?></p>
+                <?php endif; ?>
 
 
-            <div class="form_group">
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+                <div class="form_group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" value="<?= e($email ?? '') ?>" required>
+                </div>
 
-            <div class="form_group">
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+                <div class="form_group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-            <div class="button">
-                <button class="submit-button" type="submit" name="confirm">ログイン</button>
-            </div>
-        </form>
-        <p class="to_signup">アカウントをお持ちでない方は<br>
-            <a href="sign_up.php">新規登録はこちら</a>
-        </p>
-    </div>
+                <div class="button">
+                    <button class="submit-button" type="submit" name="confirm">ログイン</button>
+                </div>
+            </form>
+            <p class="to_signup">アカウントをお持ちでない方は<br>
+                <a href="sign_up.php">新規登録はこちら</a>
+            </p>
+        </div>
+    </main>
     <?php
-	require_once __DIR__ . "/reserve_footer.php";
-	?>
+    require_once __DIR__ . "/reserve_footer.php";
+    ?>
 </body>
 
 </html>

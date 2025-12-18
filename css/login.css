@@ -1,39 +1,66 @@
 @charset "UTF-8";
 
-/* ==================================== */
-/* 1. 全体レイアウト (Container) */
-/* ==================================== */
-.login_container {
-    /* フォーム全体を中央に配置するためのラッパー */
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 30px 20px;
+
+/* ==== 全体レイアウト ==== */
+body {
+    display: flex;             /* 縦並びのFlexboxにする */
+    flex-direction: column;    /* 縦並びのFlexboxにする */
+    min-height: 100vh;         /* ★heightではなくmin-heightにする */
+    margin: 0;
+    background-image:url(../img/index/hero_slide_1.png);
+    background-repeat: no-repeat;                   /* リピートしない */
+    background-size: cover;                        /* ★最重要：画面全体を覆う */
+    background-position: center center;            /* 画像を中央に寄せる */
+    background-attachment: fixed;
 }
 
-.login_form {
-    background-color: #1A1A1A;
-    border: 1px solid #2A2A2A;
-    border-radius: 12px;
-    padding: 40px; /* 登録フォームより少しゆったりと */
-    text-align: center; /* 中央に配置される要素があるため */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 110px 0 20px;
+}
+footer {
+    background: none;
+    border-top: none;
 }
 
-.login_form h1 {
-    font-size: 28px;
+#copyright {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-family: "Zen Old Mincho", sans-serif;
     text-align: center;
+    color: #FAFAFA;
+    font-size: 1.6rem;
     margin-bottom: 30px;
-    font-family: "Noto Serif JP", serif;
-    color: #E5E5E5;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333; /* 下線を入れると引き締まる */
+}
+.login_container {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;            /* 縦の100px autoを0 autoにする */
+    padding: 0 20px;
+    background-color: rgba(26, 26, 26, 0.8); /* 真っ黒より少しだけ透かす */
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); /* 背景をぼかすとお洒落 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 2. フォーム要素 (Form) */
+
 .login_form .form_group label {
-    display: block; /* ラベルをブロック要素にして、inputとの間にスペースを作る */
-    font-size: 14px;
+    display: block;
     font-weight: 600;
     color: #E5E5E5;
     margin-bottom: 8px;
-	font-family: "Noto Serif JP", serif;
 }
 
 .form_group input[type="email"],
@@ -42,14 +69,14 @@
     padding: 8px 15px;
     border: 1px solid #444444;
     border-radius: 6px;
-    background-color: #0F0F0F; /* 背景色に合わせる */
+    background-color: #0F0F0F;
     color: #E5E5E5;
     font-size: 16px;
     transition: border-color 0.3s;
 }
 
 .form_group input:focus {
-    border-color: #D62828; /* フォーカス時に赤に */
+    border-color: #D62828;
     outline: none;
     box-shadow: 0 0 0 1px #D62828;
 }
@@ -59,18 +86,11 @@
     text-align: left; /* ラベルと入力を左揃えに */
 }
 
-/* フォームの見た目自体は sign_up.css のものを適用 */
-/* label, input のCSSは sign_up.css からコピーするか、common.css に移動すると良いです */
-
-/* ==================================== */
-/* 3. ボタンとリンク */
-/* ==================================== */
-
+/* ==== ボタン ==== */
 /* ログインボタン */
 .button {
     margin-top: 30px;
     text-align: center;
-    font-family: sans-serif;
 }
 
 .submit-button {
@@ -98,15 +118,17 @@
     text-align: center;
     margin-top: 30px;
     font-size: 16px;
+    font-weight: 300;
     color: #9CA3AF;
     line-height: 1.6;
-	font-family: "Noto Serif JP", serif;
 }
 
 .to_signup a {
     color: #D62828;
     text-decoration: underline;
     transition: color 0.3s;
+    font-family: "Zen Old Mincho", sans-serif;
+
 }
 
 .to_signup a:hover {
@@ -125,12 +147,9 @@
     font-size: 14px;
         }
 
-/* ==================================== */
-/* 4. レスポンシブ調整 */
-/* ==================================== */
 @media (max-width: 480px) {
     .login_container {
-        margin: 50px auto;
+        margin: 0 auto;
         padding: 20px 10px;
     }
     .login_form {

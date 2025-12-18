@@ -1,25 +1,37 @@
 @charset "UTF-8";
 
-/* ==================================== */
-/* 1. 全体レイアウト */
-/* ==================================== */
+/* === 全体レイアウト === */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1; /* 余ったスペースを埋める */
+    display: flex;
+    align-items: center; /* 上下中央寄せ */
+    justify-content: center; /* 左右中央寄せ */
+}
+
 .mypage_container {
-    max-width: 800px; /* テーブルがあるので少し広めに */
-    margin: 80px auto;
-    padding: 30px 20px;
+    max-width: 600px; /* テーブルがあるので少し広めに */
+    padding: 100px 20px 10px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .mypage_container h1 {
     font-size: 32px;
     text-align: center;
     margin-bottom: 40px;
-    color: #E5E5E5;
+    color: #FAFAFA;
     letter-spacing: 0.1em;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* ==================================== */
-/* 2. 情報ブロック (共通) */
-/* ==================================== */
+/* === 情報レイアウト === */
 .info_block {
     background-color: #1A1A1A;
     border: 1px solid #2A2A2A;
@@ -34,11 +46,9 @@
     margin-bottom: 25px;
     padding-bottom: 10px;
     border-bottom: 1px solid #333;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
-.info_content {
-    font-family: sans-serif;
-}
 
 /* 登録情報の行レイアウト */
 .detail_row {
@@ -62,78 +72,8 @@
     font-weight: 500;
 }
 
-/* ==================================== */
-/* 3. 予約履歴テーブル */
-/* ==================================== */
-.table_wrapper {
-    overflow-x: auto; /* スマホで横スクロール */
-    -webkit-overflow-scrolling: touch;
-}
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    white-space: nowrap; /* 折り返し防止 */
-}
-
-th {
-    background-color: #0F0F0F;
-    color: #9CA3AF;
-    font-weight: normal;
-    padding: 15px;
-    text-align: left;
-    font-size: 14px;
-    border-bottom: 2px solid #333;
-}
-
-td {
-    padding: 15px;
-    color: #E5E5E5;
-    border-bottom: 1px solid #333;
-    font-size: 15px;
-}
-
-/* 過去の予約（薄くする） */
-tr.past td {
-    color: #666;
-}
-
-/* ステータスバッジ */
-.status_badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.status_badge.reserved {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #10B981; /* 緑 */
-    border: 1px solid #10B981;
-}
-
-.status_badge.today {
-    background-color: rgba(214, 40, 40, 0.1);
-    color: #D62828; /* 赤（本日） */
-    border: 1px solid #D62828;
-}
-
-.status_badge.done {
-    background-color: #333;
-    color: #999; /* グレー（完了） */
-    border: 1px solid #555;
-}
-
-.no_history {
-    color: #9CA3AF;
-    text-align: center;
-    padding: 20px;
-}
-
-/* ==================================== */
-/* 4. ボタンエリア */
-/* ==================================== */
+/* === 情報レイアウト === */
 .logout_area {
     text-align: center;
     margin-top: 40px;
@@ -144,18 +84,18 @@ tr.past td {
     display: inline-block;
     padding: 12px 40px;
     background-color: transparent;
-    color: #9CA3AF;
-    border: 1px solid #555;
-    border-radius: 30px; /* 丸みのあるボタン */
+    color: #E5E5E5;
+    border: 1px solid #D62828;
+    border-radius: 30px;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 14px;
 }
 
 .logout_btn:hover {
-    background-color: #333;
-    color: #FFF;
-    border-color: #FFF;
+    background-color: #d6282841;
+    color: #ffffff;
+    border-color: #D62828;
 }
 
 .back_link {
@@ -168,6 +108,7 @@ tr.past td {
     font-size: 14px;
     transition: all 0.3s ease;
     display: inline-block;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .back_link a:hover {
@@ -187,28 +128,24 @@ tr.past td {
     font-size: 14px;
         }
 
-/* ==================================== */
-/* 5. レスポンシブ (スマホ表示) */
-/* ==================================== */
-@media (max-width: 600px) {
+
+@media (max-width: 480px) {
     .mypage_container {
-        padding: 20px 15px;
+       width: 100%;       /* 画面幅いっぱいを基準にする */
+        max-width: none;   /* スマホでは制限を解除 */
+        padding: 80px 20px 20px; /* ★ここで「左右20px」を確実に確保する */
+        margin: 0;
     }
     
     .info_block {
         padding: 20px;
+        width: 100%;
     }
 
-    /* 登録情報を縦並びに */
     .detail_row {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
     }
     
-    /* テーブルのフォント調整 */
-    th, td {
-        padding: 10px;
-        font-size: 13px;
-    }
 }
