@@ -116,11 +116,11 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>予約内容の確認</title>
+    <title>予約内容確認 - 本格韓国料理 ソダム</title>
+    <link rel="icon" href="../favicon_reserve.ico">
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reserve_confirm.css">
-
-    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">

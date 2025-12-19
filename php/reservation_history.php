@@ -92,7 +92,8 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>予約履歴</title>
+    <title>予約履歴 - 本格韓国料理 ソダム</title>
+    <link rel="icon" href="../favicon_reserve.ico">
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/reservation_history.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

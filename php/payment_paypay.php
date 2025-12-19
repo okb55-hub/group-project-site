@@ -21,6 +21,7 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>PayPay疑似決済</title>
+	<link rel="icon" href="../favicon_paypay.ico">
 	<link rel="stylesheet" href="../css/paypay.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
