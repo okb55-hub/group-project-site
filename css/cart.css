@@ -181,6 +181,7 @@
 		margin-top: 50px;
 	}
 }
+
 .cart_container_wrapper {
 	width: 90%;
 	margin: 0px auto;
@@ -309,6 +310,13 @@
 	width: 40%;
 	font-weight: 100;
 }
+
+/* 商品がない時の文字 */
+.no_product {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 /* スマホ版 (820px以下) */
 @media (max-width: 820px) {
     .all_sum {

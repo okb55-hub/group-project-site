@@ -77,7 +77,7 @@ $total = 0;
 		</div>
 		<div class="cart_container_wrapper">
 			<?php if (!$cart): ?>
-				<p>カートに商品は入っていません。</p>
+				<p class="no_product">カートに商品は入っていません。</p>
 			<?php else: ?>
 				<?php foreach ($cart as $id => $qty):
 					$product = $products[$id];
