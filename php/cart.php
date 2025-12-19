@@ -25,6 +25,7 @@ $total = 0;
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>テイクアウト - 本格韓国料理 ソダム</title>
+	<link rel="icon" href="../favicon.ico">
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/cart.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +77,7 @@ $total = 0;
 		</div>
 		<div class="cart_container_wrapper">
 			<?php if (!$cart): ?>
-				<p>カートに商品は入っていません。</p>
+				<p class="no_product">カートに商品は入っていません。</p>
 			<?php else: ?>
 				<?php foreach ($cart as $id => $qty):
 					$product = $products[$id];

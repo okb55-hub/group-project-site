@@ -67,6 +67,12 @@ h1 {
     cursor: pointer;
 }
 
+.form_item input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    min-width: 0
+}
+
 .form_submit {
     flex-shrink: 0;
 }

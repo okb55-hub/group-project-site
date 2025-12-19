@@ -43,6 +43,7 @@ if (!empty($_SESSION['cart'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, , viewport-fit=cover">
 	<title>テイクアウト - 本格韓国料理 ソダム</title>
+	<link rel="icon" href="../favicon.ico">
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/takeout.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -277,7 +278,7 @@ if (!empty($_SESSION['cart'])) {
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>

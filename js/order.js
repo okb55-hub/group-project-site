@@ -6,6 +6,38 @@ const closeBtn = document.querySelector('.modal_close');
 const editBtn = document.querySelector('.modal_edit_btn');
 const errorMessages = document.getElementById('error_messages');
 
+/**水曜日制限　追加ここから */
+const dateInput = document.getElementById('pickup_date');
+const reserveForm = document.getElementById('order_submit_form');
+
+// チェック処理の関数
+function validateDate() {
+	const val = dateInput.value;
+	if (!val) return;
+
+	const selectedDate = new Date(val);
+	const dayOfWeek = selectedDate.getDay();
+	// 今日の日付（時刻を00:00:00にリセット）
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+	if (dayOfWeek === 3) {
+		dateInput.setCustomValidity('水曜日は定休日です。他の日付を選択してください。');
+	} else if (selectedDate <= today) {
+        dateInput.setCustomValidity('ご予約は明日以降の日付でお願いいたします。');
+    } else {
+		dateInput.setCustomValidity('');
+	}
+}
+
+// 1. 値が変わった時
+dateInput.addEventListener('change', function () {
+	validateDate();
+	dateInput.reportValidity();
+});
+
+
+/** 水曜日制限　追加ここまで*/
 // 確認ボタンクリック
 confirmBtn.addEventListener('click', function() {
 	// バリデーション
@@ -15,7 +47,15 @@ confirmBtn.addEventListener('click', function() {
 		showErrors(errors);
 		return;
 	}
+	// 水曜日制限追加分ここから
+	validateDate(); 
+    
+    if (errors.length > 0) {
+        showErrors(errors); // 赤文字リストを表示
+        return; // モーダルを開かない
+    }
 
+	//水曜日制限追加分ここまで
 	// エラークリア
 	errorMessages.style.display = 'none';
 
@@ -124,7 +164,15 @@ function validateForm() {
 	if (!formData.payment_method) {
 		errors.push('決済方法を選択してください');
 	}
-
+	// 水曜日制限追加分ここから
+	// --- 日付のチェック（ここを追加！） ---
+    if (!formData.pickup_date) {
+        errors.push('受け取り希望日を選択してください');
+    } else if (dateInput.validationMessage) {
+        // すでに吹き出し用にセットされているメッセージ（水曜日など）をそのままリストに入れる
+        errors.push(dateInput.validationMessage);
+    }
+	// 水曜日制限追加分ここまで
 	return errors;
 }
 

@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
-/* 注文完了ページのスタイル */
+main {
+    font-family: "Noto Sans JP", sans-serif;
+}
 
+/* 注文完了ページのスタイル */
 .complete_container {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
+    padding: 150px 20px 0 20px;
+    margin: 0 auto 50px auto;
 }
 
 /* 成功アイコン */
@@ -15,7 +18,7 @@
 }
 
 .success_icon i {
-    font-size: 5rem;
+    font-size: 4.5rem;
     color: #4caf50;
     animation: scaleIn 0.5s ease-out;
 }
@@ -37,17 +40,25 @@
 /* タイトル */
 .complete_container h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
+    font-family: "Zen Old Mincho", sans-serif;
+    font-weight: 400;
 }
 
 .complete_message {
     text-align: center;
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 0.8rem;
+    color: #ffffff;
     margin-bottom: 40px;
     line-height: 1.8;
+    font-weight: 400;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffebee;
+    border: 1px solid #ef5350;
+    color: #c62828;
 }
 
 /* 注文詳細 */
@@ -62,26 +73,28 @@
 .order_details h2 {
     font-size: 1.5rem;
     margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d32f2f;
     color: #333;
+    font-weight: 400;
 }
 
 .order_details h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
     color: #d32f2f;
+    font-weight: 400;
+    border-bottom: 1px solid #d32f2f;
+    padding-bottom: 10px;
 }
 
 /* セクション */
 .detail_section {
     margin-bottom: 30px;
-    padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
 }
 
 .detail_section:last-child {
-    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -90,8 +103,10 @@
 .detail_row {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 12px 0;
     border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95em;
 }
 
 .detail_row:last-child {
@@ -99,37 +114,43 @@
 }
 
 .detail_label {
-    font-weight: bold;
+    font-weight: 500;
     color: #666;
     min-width: 150px;
 }
 
-.detail_value {
+.detail_qty, .detail_value {
     color: #333;
+    font-weight: 400;
     text-align: right;
 }
 
 .order_id {
-    font-family: monospace;
     font-size: 1.1rem;
     color: #d32f2f;
-    font-weight: bold;
+    font-weight: 500;
+}
+
+.items_row:last-child {
+    border-bottom: none;
 }
 
 /* 合計行 */
 .total_row {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     padding-top: 15px;
-    border-top: 2px solid #d32f2f !important;
+    border-top: 1px solid #3b3b3b !important;
     font-size: 1.2rem;
 }
 
-.total_row span {
+.total_text strong {
 	color: #333;
+    font-weight: 500;
 }
 
 .total_price strong {
-    color: #d32f2f;
+    color: #0c0c0c;
+    font-weight: 600;
 }
 
 /* 注意書きボックス */
@@ -148,6 +169,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 400;
 }
 
 .notice_box ul {
@@ -181,11 +203,9 @@
 .action_buttons .btn_primary,
 .action_buttons .btn_secondary {
     flex: 1;
-    max-width: 300px;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    max-width: 210px;
+    padding: 0 35px;
+    border-radius: 20px;
     text-align: center;
     text-decoration: none;
     display: flex;
@@ -193,33 +213,39 @@
     justify-content: center;
     gap: 10px;
     transition: all 0.3s;
+    border: solid 1px #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    line-height: 2.8;
+    font-size: 0.8rem;
+    font-weight: 200;
+    position: relative;
+    background-color: transparent;
 }
 
-.action_buttons .btn_primary {
-    background: #d32f2f;
-    color: white;
-    border: none;
+.action_buttons .btn_primary::before,
+.action_buttons .btn_secondary::before {
+    position: absolute;
+	top: 0;
+	left: -100%;
+	content: '';
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-color: #D62828;
+	transition: left .4s ease;
+	z-index: -1;
 }
 
-.action_buttons .btn_primary:hover {
-    background: #b71c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.action_buttons .btn_secondary {
-    background: #fff;
-    color: #333;
-    border: 2px solid #ddd;
-}
-
-.action_buttons .btn_secondary:hover {
-    border-color: #999;
-    background: #f5f5f5;
+.action_buttons .btn_primary:hover::before,
+.action_buttons .btn_secondary:hover::before {
+    left: 0;
 }
 
 /* レスポンシブ */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .success_icon i {
         font-size: 4rem;
     }
@@ -237,24 +263,65 @@
     }
 
     .detail_row {
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 
     .detail_label {
         min-width: auto;
+        flex:  0 0 auto;
+        max-width: 50%;
+        word-break: keep-all;
+        white-space: normal;
     }
 
     .detail_value {
-        text-align: left;
-    }
-
-    .action_buttons {
-        flex-direction: column;
+        text-align: right;
+        flex: 1;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        font-size: 0.95rem;
     }
 
     .action_buttons .btn_primary,
     .action_buttons .btn_secondary {
         max-width: 100%;
+    }
+
+    .items_row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .items_row > div:first-child {
+        flex: 1 1 auto;
+        min-width: 0;
+        word-break: keep-all;
+        white-space: normal;
+    }
+
+    .items_row .detail_label {
+        max-width: none;
+        word-break: keep-all;
+        white-space: normal;
+    }
+
+
+    .items_row > div:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1;
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .action_buttons {
+        flex-direction: column;
     }
 }

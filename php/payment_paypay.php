@@ -19,8 +19,9 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<title>PayPay決済（疑似）</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PayPay疑似決済</title>
+	<link rel="icon" href="../favicon_paypay.ico">
 	<link rel="stylesheet" href="../css/paypay.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +31,6 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 	<link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header>
-		<h1>PayPay（疑似）</h1>
-	</header>
-
 	<main>
 		<div class="paypay_container">
 			<div class="paypay_box">
@@ -54,7 +51,6 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 		</div>
 
 	</main>
-
 	<footer>
 		<div id="footer_inner">
 			<small id="copyright">

@@ -93,7 +93,7 @@
 	}
 
 	.title_img {
-		width: 100%;
+		width: calc(100% - 20px);
 		height: 200px;
 		margin-left: 20px;
 	}
