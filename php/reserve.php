@@ -12,9 +12,9 @@ function getSeatStatus($remaining, $num_people)
 	if ($remaining == 0 || $remaining < $num_people) {
 		return ['symbol' => '×', 'text' => '満席', 'class' => 'full'];
 	} elseif ($remaining <= 2) {
-		return ['symbol' => '△', 'text' => "残{$remaining}席", 'class' => 'few'];
+		return ['symbol' => '△', 'text' => "{$remaining}席", 'class' => 'few'];
 	} else {
-		return ['symbol' => '◯', 'text' => "残{$remaining}席", 'class' => 'available'];
+		return ['symbol' => '◯', 'text' => "{$remaining}席", 'class' => 'available'];
 	}
 }
 
@@ -247,7 +247,7 @@ try {
 				</div>
 			</div>
 
-			<div class="table_container">
+			<div class="table_container" id="table_container">
 				<!-- オーバーレイ表示 -->
 				<?php if ($is_Error): ?><!-- DB接続エラーの際のオーバーレイ -->
 					<div class="initial-overlay error-overlay">
@@ -380,7 +380,7 @@ try {
             <div class="card_body">
                 <h4>お座敷</h4>
 				<p class="capacity">8名掛け × 3部屋&nbsp;(最大24名様)</p>
-                <p class="desc">つなげてご利用いただくことで、宴会も可能です。</p>
+                <p class="desc">宴会利用も可能なお席となっております</p>
             </div>
         </div>
     </div>
