@@ -30,7 +30,6 @@ h1 {
 
     margin: 0 auto 40px;
     width: 95%;
-    /* スマホで左右に少し隙間を作る */
 }
 
 .date_num_form {
@@ -147,25 +146,26 @@ h1 {
     border-radius: 10px;
     border: 1px solid #ddd;
     background-color: #fff;
+    max-width: 95%;
+    margin: 0 auto;
 }
 
 table {
     border-collapse: collapse;
     width: 800px;
     table-layout: fixed;
-
 }
 
 
 table th {
     background-color: #333;
     color: #fff;
-    padding: 15px 5px;
+    padding: 5px 10px;
     font-size: 0.9em;
     font-weight: normal;
     text-align: center;
     border: 1px solid #444;
-    width: 70px;
+    width: 100px;
 }
 
 table th.seat-type {
@@ -177,7 +177,6 @@ table th.seat-type {
     position: sticky;
     left: 0;
     z-index: 5;
-    width: 100px;
     font-size: 0.8em;
 }
 
@@ -199,7 +198,7 @@ table tr:nth-child(even) td {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 95%;
+    width: 80%;
     margin: 0 auto;
     height: 40px;
     font-weight: bold;
@@ -223,26 +222,24 @@ table tr:nth-child(even) td {
 /* available */
 .seat-button.available {
     background-color: #eefbff;
-    color: #4a90a4;
+    color: #109ac0;
     border: 1px solid #cde8f0;
 }
 
 .seat-button.available:hover {
-    background-color: #4a90a4;
+    background-color: #109ac0;
     color: #fff;
 }
 
 /* few（残りわずか） */
 .seat-button.few {
     background-color: #fff9f0;
-    /* 温かいベージュ系 */
-    color: #d68a47;
-    /* 落ち着いたオレンジ */
+    color: #ff9b18;
     border: 1px solid #f2e3d5;
 }
 
 .seat-button.few:hover {
-    background-color: #d68a47;
+    background-color: #ffb618;
     color: #fff;
 }
 
@@ -253,7 +250,7 @@ table tr:nth-child(even) td {
 
 .remain_seat {
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 /*  空席確認テーブルここまで  */
@@ -323,7 +320,6 @@ table tr:nth-child(even) td {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-    /* ゆっくり拡大 */
 }
 
 .seat_card:hover .card_img img {
@@ -422,7 +418,7 @@ table tr:nth-child(even) td {
 
     .reserve_form,
     .table_container {
-        max-width: 100%;
+        width: 100%;;
     }
 
     .menu_top_text p {
@@ -461,18 +457,32 @@ table tr:nth-child(even) td {
         font-size: 1.2em;
         padding: 15px;
     }
+    
+    .table_wrapper {
+        max-width: 100%;
+    }
 
     /* テーブルの中身の設定 */
+    table th.seat-type {
+    padding: 5px;
+}
     /* ボタンと満席表示共通の設定 */
     .seat-button,
     .full {
-        flex-direction: column;
-        height: 50px;
+        width: 70%;
     }
 
     table th {
         padding: 5px;
-        width: 50px;
+        width: 90px;
+    }
+
+    table td {
+        height: 80px;
+    }
+
+    th.seat-type {
+        width: 80px;
     }
 
     .intro_header h3 {

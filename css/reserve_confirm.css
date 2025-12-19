@@ -166,14 +166,13 @@ form {
 }
 
 @media (max-width: 480px) {
-
     .confirm-container h1 {
         font-size: 22px;
         margin-bottom: 28px;
     }
 
     .confirm_block {
-        max-width: none;
+        max-width: 1000px;
         width: 100%;
         padding: 20px;
     }

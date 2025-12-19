@@ -10,11 +10,11 @@ $is_Error = false;
 function getSeatStatus($remaining, $num_people)
 {
 	if ($remaining == 0 || $remaining < $num_people) {
-		return ['symbol' => '×', 'text' => '満席', 'class' => 'full'];
+		return ['symbol' => '×', 'text' => '&nbsp;満席', 'class' => 'full'];
 	} elseif ($remaining <= 2) {
-		return ['symbol' => '△', 'text' => "{$remaining}席", 'class' => 'few'];
+		return ['symbol' => '△', 'text' => "&nbsp;{$remaining}席", 'class' => 'few'];
 	} else {
-		return ['symbol' => '◯', 'text' => "{$remaining}席", 'class' => 'available'];
+		return ['symbol' => '◎', 'text' => "&nbsp;{$remaining}席", 'class' => 'available'];
 	}
 }
 
@@ -268,7 +268,7 @@ try {
 						<tr>
 							<th class="seat-type"></th>
 							<?php foreach ($time_slots as $slot): ?>
-								<th><?= substr($slot["slot_time"], 0, 5) ?></th>
+								<th class="time_slots"><?= substr($slot["slot_time"], 0, 5) ?></th>
 							<?php endforeach; ?>
 						</tr>
 
@@ -380,7 +380,7 @@ try {
             <div class="card_body">
                 <h4>お座敷</h4>
 				<p class="capacity">8名掛け × 3部屋&nbsp;(最大24名様)</p>
-                <p class="desc">宴会利用も可能なお席となっております</p>
+                <p class="desc">宴会利用も可能なお席です。</p>
             </div>
         </div>
     </div>
