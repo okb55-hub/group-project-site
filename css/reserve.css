@@ -5,22 +5,19 @@
 }
 
 /* -----main_section ここから----- */
-.title_section {
-    height: 400px;
-    background-image: url(../img/menu/bibimbap-1738580_1280.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 50px;
-    margin-top: 110px;
-}
-
-.title_text {
-    line-height: 400px;
+main {
+    padding-top: 110px;
+    overflow-x: hidden;
 }
 
 .menu_top_text {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: "Zen Old Mincho", sans-serif;
+    margin-bottom: 20px;
 }
 
 /*  日付・人数選択フォームここから  */
@@ -30,7 +27,9 @@
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     max-width: 900px;
-    margin: 30px auto;
+
+    margin: 0 auto 40px;
+    width: 95%; /* スマホで左右に少し隙間を作る */
 }
 
 .date_num_form {
@@ -51,6 +50,7 @@
     font-weight: bold;
     color: #0F0F0F;
     margin-bottom: 5px;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .form_item input[type="date"],
@@ -62,6 +62,7 @@
     color: #0F0F0F;
     background-color: #FFFFFF;
     width: 100%;
+    max-width: 100%;
     cursor: pointer;
     font-family: sans-serif;
 }
@@ -119,6 +120,7 @@
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .table_container h2 {
@@ -127,6 +129,7 @@
     margin-bottom: 20px;
     border-bottom: 3px solid #D62828;
     padding-bottom: 5px;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 /* テーブル全体 */
@@ -271,13 +274,11 @@ table tr:nth-child(even) td {
 @media (max-width: 820px) {
 
     /* --- ページ全体とセクションの余白調整 --- */
-    /* main_sectionに左右の余白を追加 */
     .main_section {
         padding: 0 15px;
-        /* 左右に15pxの余白を設ける */
     }
 
-    /* 日付・人数選択フォーム縦並びに変更 */
+    /* 日付・人数選択フォーム */
     .date_num_form {
         flex-direction: column;
         align-items: stretch;
@@ -291,6 +292,11 @@ table tr:nth-child(even) td {
     .form_item label {
         font-size: 1em;
     }
+
+    .form_item input[type="date"],
+.form_item select {
+    height: 3rem;
+}
 
     .form_submit {
         width: 100%;
@@ -312,14 +318,12 @@ table tr:nth-child(even) td {
 
 @media (max-width: 480px) {
 
-    /* フォームとテーブルの最大幅を解除 (paddingで調整) */
     .reserve_form,
     .table_container {
         max-width: 100%;
         padding: 20px;
     }
 
-    /* 予約情報のリード文 */
     .menu_top_text p {
         font-size: 13px;
         text-align: left;
@@ -341,8 +345,6 @@ table tr:nth-child(even) td {
         /* 上に少し隙間を作る */
     }
 
-    /* --- フォームの調整 --- */
-    /* フォームの縦並びは既に設定済みなのでOK */
     .reserve_form {
         margin: 20px auto;
     }
@@ -352,9 +354,6 @@ table tr:nth-child(even) td {
         font-size: 1em;
     }
 
-    /* --- テーブルの調整 (横スクロール対応) --- */
-
-    /* h2のタイトル調整 */
     .table_container h2 {
         font-size: 1.5em;
         margin-bottom: 15px;
@@ -365,7 +364,7 @@ table tr:nth-child(even) td {
         font-weight: 300;
     }
 
-    /* 初回オーバーレイの文字を調整 */
+    /* 初回オーバーレイの文字を */
     .overlay-text {
         font-size: 1.2em;
         padding: 15px;
@@ -399,7 +398,7 @@ table tr:nth-child(even) td {
         font-size: 0.8em;
         padding: 10px 5px;
         /* 幅を固定して横スクロール時に見切れにくくする */
-        width: 80px;
+
     }
 
     /* 席種アイコンの調整（既存のコードを上書き） */
@@ -415,6 +414,7 @@ table tr:nth-child(even) td {
         height: 50px;
         /* セルの高さを少し下げる */
         padding: 0;
+                width: 200px;
     }
 
     .seat-button,
@@ -438,100 +438,6 @@ table tr:nth-child(even) td {
 }
 
 
-
-
-/* 一旦追加 */
-/* 1. お席案内セクション */
-.seat_intro {
-    max-width: 900px;
-    margin: 40px auto;
-    text-align: center;
-}
-.seat_intro h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #FAFAFA;
-}
-.seat_intro_flex {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-.seat_card {
-    flex: 1;
-    background: #1A1A1A;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #333;
-}
-.seat_card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover; /* 画像を枠に合わせて切り抜く */
-}
-.seat_card p {
-    padding: 10px;
-    font-size: 0.9rem;
-}
-.seat_card p span {
-    display: block;
-    font-size: 0.75rem;
-    color: #AAA;
-}
-
-/* 2. テーブルのガタつき防止 */
-.table_wrapper {
-    background-color: #1A1A1A; /* 背景を少し明るい黒に */
-    border: none;
-}
-
-table {
-    table-layout: fixed; /* これで列幅が均等に固定されます */
-    width: 100%;
-    border-spacing: 0;
-}
-
-table th.seat-type {
-    width: 120px; /* 席タイプの列幅だけ固定 */
-    background-color: #D62828;
-}
-
-table td {
-    height: 80px; /* 高さをしっかり固定 */
-    padding: 5px;
-}
-
-/* 3. ボタンのデザインを洗練させる */
-.seat-button, .full {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-/* 空席：品のあるエメラルド */
-.seat-button.available {
-    background-color: transparent;
-    border: 1px solid #10B981;
-    color: #10B981;
-}
-.seat-button.available:hover {
-    background-color: #10B981;
-    color: #000;
-}
-
-/* 満席：シンプルに馴染ませる */
-.full {
-    background-color: #2A2A2A;
-    border: 1px solid #333;
-    color: #555;
-}
-
-
-
 /* 席案内セクション全体 */
 .seat_intro {
     max-width: 1000px; /* 少し広めに */
@@ -551,12 +457,14 @@ table td {
 .intro_header h3 {
     font-size: 1.4rem;
     color: #FAFAFA;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .total_seats {
     font-size: 0.9rem;
     color: #D62828;
     font-weight: bold;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 /* カードのレイアウト */
@@ -573,12 +481,6 @@ table td {
     transition: transform 0.3s ease;
     border: 1px solid #333;
 }
-
-/* ★ホバーでカード全体を少し浮かせる */
-/* .seat_card:hover {
-    transform: translateY(-5px);
-    border-color: #D62828;
-} */
 
 /* ★画像ホバー拡大の仕掛け */
 .card_img {

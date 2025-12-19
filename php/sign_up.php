@@ -43,10 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 
-
-
-
-
 	// 確認画面の戻るボタンを押した場合
 	if (isset($_POST['back'])) {
 		$step = 1;
@@ -109,8 +105,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-?>
+// ヘッダー用の変数
+$is_logged_in = false;
+$display_name = 'ゲスト';
 
+if (isset($_SESSION['user_id'])) {
+    $is_logged_in = true;
+    
+    if ($step === 3) {
+        $display_name = $name; 
+    } else {
+        $display_name = $_SESSION['user_name'] ?? '会員';
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -131,10 +140,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		rel="stylesheet">
 </head>
 
-<body>
+<body class="<?= $step === 3 ? 'is-done' : 'is-form' ?>">
 	<?php
-	require_once __DIR__ . "/reserve_logoheader.php";
-	?>
+    if ($step === 3) {
+        // 登録完了後はログイン後の共通ヘッダー
+        require_once __DIR__ . "/reserve_header.php";
+    } else {
+        // 入力・確認画面はロゴのみのシンプルなヘッダー
+        require_once __DIR__ . "/reserve_logoheader.php";
+    }
+    ?>
 
 	<main>
 
@@ -225,14 +240,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<div class="step-item active">確認</div>
 				</div>
 
-				<p>以下の内容で登録します。よろしいですか？</p>
+				<p class="step2_confirm_p">以下の内容で登録します。よろしいですか？</p>
 
 				<div class="confirm_block">
 					<h2>お客様情報</h2>
 					<div class="confirm_detail">
-						<p>お名前：<?= isset($_SESSION['name']) ? e($_SESSION['name']) : '' ?></p>
-						<p>電話番号：<?= isset($_SESSION['tel']) ? e($_SESSION['tel']) : '' ?></p>
-						<p>メール：<?= isset($_SESSION['email']) ? e($_SESSION['email']) : '' ?></p>
+						<p>
+							<span class="label">お名前:</span>
+							<span class="value"><?= isset($_SESSION['name']) ? e($_SESSION['name']) : '' ?></span>
+						</p>
+						<p>
+							<span class="label">電話番号:</span>
+							<span class="value"><?= isset($_SESSION['tel']) ? e($_SESSION['tel']) : '' ?></span>
+						</p>
+						<p>
+							<span class="label">メールアドレス:</span>
+							<span class="value"><?= isset($_SESSION['email']) ? e($_SESSION['email']) : '' ?></span>
+						</p>
 					</div>
 				</div>
 
@@ -263,12 +287,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 		<?php endif; ?>
 
-
 	</main>
 	<?php
 	require_once __DIR__ . "/reserve_footer.php";
 	?>
 	<script src="../js/sign_up.js"></script>
+	<script src="../js/reserve_common.js"></script>
 </body>
 
 </html>
