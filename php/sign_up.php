@@ -286,7 +286,6 @@ if (isset($_SESSION['user_id'])) {
 				</div>
 			</div>
 		<?php endif; ?>
-
 	</main>
 	<?php
 	require_once __DIR__ . "/reserve_footer.php";

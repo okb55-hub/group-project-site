@@ -410,11 +410,13 @@ table tr:nth-child(even) td {
 /* ==================================== */
 
 @media (max-width: 480px) {
+    .main_section {
+        padding: 0 10px;
+    }
 
     .reserve_form,
     .table_container {
         max-width: 100%;
-        padding: 20px;
     }
 
     .menu_top_text p {
@@ -431,7 +433,7 @@ table tr:nth-child(even) td {
     }
 
     .reserve_form {
-        margin: 20px auto;
+        margin: 0 auto;
     }
 
     .form_submit input[type="submit"] {

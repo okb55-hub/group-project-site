@@ -309,7 +309,6 @@ h2 {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* --- 確認画面のブロック全体 --- */
 .confirm_block h2 {
     font-size: 18px;
     color: #D62828;
@@ -319,10 +318,9 @@ h2 {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* --- 各行の設定（Flexboxで整列） --- */
 .confirm_detail p {
     display: flex;
-    align-items: center; /* 複数行になっても上が揃う */
+    align-items: center;
     border-bottom: 1px dashed #333;
     padding: 15px 8px;
     margin: 0;
@@ -332,7 +330,7 @@ h2 {
     border-bottom: none;
 }
 
-/* --- 左側：項目名（幅を固定してガタつきを防ぐ） --- */
+/* --- 左側：項目名 --- */
 .confirm_detail .label {
     flex: 0 0 180px;
     color: #9CA3AF;
@@ -343,7 +341,7 @@ h2 {
 /* --- 右側：入力された値 --- */
 .confirm_detail .value {
     flex: 1;
-    color: #FAFAFA;        /* パッと目立つ白 */
+    color: #FAFAFA;
     font-weight: 500;
     word-break: break-all;
     font-size: 1.2rem;
@@ -377,11 +375,11 @@ h2 {
     text-align: center;
     margin-bottom: 40px;
     padding: 30px;
-    background-color: #1A1A1A; /* カード背景色と統一 */
+    background-color: #1A1A1A;
     border-radius: 12px;
 }
 
-/* 成功アイコン (緑の丸を維持) */
+/* 成功アイコン*/
 .success-icon {
     width: 60px;
     height: 60px;
@@ -392,6 +390,21 @@ h2 {
     font-size: 40px;
     line-height: 60px;
     font-weight: bold;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .success-header h1 {
@@ -406,7 +419,7 @@ h2 {
     color:#ffffff;
 }
 
-/* アクションボタン (予約完了ページと統一) */
+/* アクションボタン  */
 .action-buttons {
     display: flex;
     gap: 20px;
@@ -488,8 +501,8 @@ h2 {
         padding-left: 5px;
 
         width: 100%;
-        text-align: left; /* ★ここを左寄せにする */
-        padding-left: 10px; /* ★少しだけ右にズラす */
+        text-align: left;
+        padding-left: 10px;
         font-size: 1.1rem;
     }
 

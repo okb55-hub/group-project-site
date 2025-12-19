@@ -7,11 +7,11 @@ body {
 }
 
 main {
+    padding-top: 110px;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 110px 0 20px;
 }
 
 .confirm-container h1 {
@@ -26,7 +26,6 @@ main {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 20px;
     padding: 40px 30px;
 }
 
@@ -127,16 +126,21 @@ form {
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
+    main {
+        padding-top: 0px;
+    }
+
     .confirm-container {
         margin: 0 auto;
-        padding: 20px 10px;
+        padding: 80px 20px 20px;
+        max-width: 1000px; 
         width: 100%;
-        max-width: none; 
     }
 
     .confirm-container h1 {
         font-size: 26px;
         margin-bottom: 32px;
+        padding: 16px 12px;
     }
 
     .confirm_block {
@@ -169,9 +173,9 @@ form {
     }
 
     .confirm_block {
-        width: 100%;       /* 画面幅いっぱいを基準にする */
-        max-width: none;   /* スマホでは制限を解除 */
-        padding: 20px; /* ★ここで「左右20px」を確実に確保する */
+        max-width: none;
+        width: 100%;
+        padding: 20px;
     }
 
     .confirm_block h2 {
