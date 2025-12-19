@@ -31,10 +31,6 @@ select {
     font-family: inherit;
 }
 
-header,
-footer {
-    background-color: #0F0F0F;
-}
 
 /* ======= 予約システム共通ヘッダーの設定ここから ======= */
 .reserve_header {

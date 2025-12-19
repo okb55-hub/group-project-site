@@ -1,12 +1,21 @@
 @charset "UTF-8";
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
 .confirm-container {
+    flex: 1;
     max-width: 700px;
-    margin: 80px auto;
-    padding: 40px 20px;
+    padding: 100px 20px 10px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .confirm-container h1 {
+    font-family: "Zen Old Mincho", sans-serif;
     font-size: 32px;
     text-align: center;
     margin-bottom: 40px;
@@ -42,6 +51,7 @@
     padding-bottom: 12px;
     border-bottom: 1px solid #2A2A2A;
     letter-spacing: 0.05em;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 .confirm_detail {
 	display: flex;
@@ -139,8 +149,8 @@ form {
 
 @media (max-width: 480px) {
     .confirm-container {
-        margin: 40px auto;
-        padding: 20px 12px;
+        width: 100%;       /* 画面幅いっぱいを基準にする */
+        max-width: none;   /* スマホでは制限を解除 */
     }
 
     .confirm-container h1 {
@@ -149,7 +159,9 @@ form {
     }
 
     .confirm_block {
-        padding: 20px 16px;
+        width: 100%;       /* 画面幅いっぱいを基準にする */
+        max-width: none;   /* スマホでは制限を解除 */
+        padding: 20px; /* ★ここで「左右20px」を確実に確保する */
     }
 
     .confirm_block h2 {

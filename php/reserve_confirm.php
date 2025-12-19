@@ -110,7 +110,6 @@ $formatted_time = substr($slot_time, 0, 5); // HH:MM
     header('Location: reserve.php');
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
