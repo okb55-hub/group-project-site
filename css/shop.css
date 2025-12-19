@@ -120,6 +120,21 @@ body {
 }
 
 /* section shop_info・shop_acces ここから */
+
+/* section アニメーションここから */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* sectionのアニメーションここまで */
+
 table {
 	width: 80%;
 	margin: 0 auto;
