@@ -6,42 +6,40 @@ body {
     margin: 0;
 }
 
-.confirm-container {
+main {
     flex: 1;
-    max-width: 700px;
-    padding: 100px 20px 10px;
-    width: 90%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 0 20px;
 }
 
 .confirm-container h1 {
     font-family: "Zen Old Mincho", sans-serif;
-    font-size: 32px;
+    font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     letter-spacing: 0.1em;
 }
 
-/* エラーメッセージ */
-.error_message {
-    background-color: rgba(214, 40, 40, 0.1);
-    border: 1px solid #D62828;
-    color: #D62828;
-    padding: 16px 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 14px;
+.confirm-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding: 40px 30px;
 }
 
 /* 確認ブロック */
 .confirm_block {
+    width: 100%;
     background-color: #1A1A1A;
     border: 1px solid #2A2A2A;
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 24px;
     transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .confirm_block h2 {
@@ -63,12 +61,13 @@ body {
     line-height: 2;
     color: #E5E5E5;
     padding-left: 8px;
-    font-family: sans-serif;
+
 }
 
 /* 確定ボタン */
 form {
-    margin: 40px 0 24px 0;
+    margin: 40px auto 24px ;
+    max-width: 700px;
 }
 
 .confirm-btn {
@@ -114,11 +113,25 @@ form {
     transform: translateX(-4px);
 }
 
+/* エラーメッセージ */
+.error_message {
+    background-color: rgba(214, 40, 40, 0.1);
+    border: 1px solid #D62828;
+    color: #D62828;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     .confirm-container {
-        margin: 60px auto;
-        padding: 30px 16px;
+        margin: 0 auto;
+        padding: 20px 10px;
+        width: 100%;
+        max-width: none; 
     }
 
     .confirm-container h1 {
@@ -129,6 +142,7 @@ form {
     .confirm_block {
         padding: 24px 20px;
         margin-bottom: 20px;
+        max-width: none; 
     }
 
     .confirm_block h2 {
@@ -148,10 +162,6 @@ form {
 }
 
 @media (max-width: 480px) {
-    .confirm-container {
-        width: 100%;       /* 画面幅いっぱいを基準にする */
-        max-width: none;   /* スマホでは制限を解除 */
-    }
 
     .confirm-container h1 {
         font-size: 22px;
