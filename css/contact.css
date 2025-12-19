@@ -121,7 +121,7 @@ header #header_logo {
 
 .h1_wrapper {
 	text-align: center;
-	margin: 70px 0;
+	margin-bottom: 70px;
 }
 .main_section h1 {
 	display: inline-block;
