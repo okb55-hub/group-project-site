@@ -47,17 +47,21 @@ composer install
 
 ### 3. 設定ファイルの作成
 
-以下の example ファイルをコピーし、各自の環境に合わせて設定してください。
+* 以下の example ファイルをコピーし、各自の環境に合わせて設定してください。
 
 ```bash
 cp php/DbManager.example.php php/DbManager.php
 cp php/stripe_config.example.php php/stripe_config.php
+cp php/stripe_checkout.example.php php/stripe_checkout.php
 cp php/discord_notify.example.php php/discord_notify.php
 ```
 
-* `DbManager.php`：データベース接続設定
-* `stripe_config.php`：Stripe API キー（テスト用）
-* `discord_notify.php`：Discord Webhook URL（テスト用）
+  * `DbManager.php`：データベース接続設定
+  * `stripe_config.php`：Stripe API キー（テスト用）
+  * `discord_notify.php`：Discord Webhook URL（テスト用）
+  * `stripe_config.php`：Stripe API キーおよびリダイレクトURLの設定
+    * **重要**: `success_url` と `cancel_url` を、ご自身のローカル環境のURLに合わせて修正してください。
+    * 例: `http://localhost/プロジェクトフォルダ名/php/order_complete.php...`
 
 ※ これらのファイルは **Git 管理対象外** です。
 

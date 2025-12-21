@@ -29,8 +29,8 @@ try {
 			],
 		],
 		'mode' => 'payment',
-		'success_url' => 'http://localhost/group-project-site/php/order_complete.php?session_id={CHECKOUT_SESSION_ID}',
-		'cancel_url' => 'http://localhost/group-project-site/php/payment_select.php',
+		'success_url' => 'http://YOUR_HOST/FOLDER_NAME/php/order_complete.php?session_id={CHECKOUT_SESSION_ID}',
+		'cancel_url' => 'http://YOUR_HOST/FOLDER_NAME/php/payment_select.php',
 		'customer_email' => $order['email'],
 		'metadata' => [
 			'order_id' => $order['order_id'],
