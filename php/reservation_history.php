@@ -17,19 +17,25 @@ $seat_label = [];
 $display_name = "ゲスト";
 $is_logged_in = false;
 $is_Error = false;
+$reserve_count = 0;
 
 try {
     $db = getDb();
 
-    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
+    if ($user_id > 0) {
         // ユーザーIDがある場合、DBから名前を取得
         $user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
-        $user_stmt->execute(['user_id' => $_SESSION['user_id']]);
+        $user_stmt->execute(['user_id' => $user_id]);
         $user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user_data) {
             $display_name = $user_data['name'];
             $is_logged_in = true;
+
+            $count_sql = "SELECT COUNT(*) FROM reservations WHERE user_id = :uid AND reserve_date >= CURDATE()";
+            $count_stmt = $db->prepare($count_sql);
+            $count_stmt->execute(['uid' => $user_id]);
+            $reserve_count = (int)$count_stmt->fetchColumn();
         }
     }
 
@@ -124,6 +130,10 @@ try {
                     <?php if (empty($future_reservations)): ?>
                         <p class="no_history">今後の予約はありません。</p>
                     <?php else: ?>
+                        <p class="reservation_summary">
+                            現在、<span class="reserve-count"><?= $reserve_count ?>件</span>のご予約を承っております。<br>
+                            当日のご来店をスタッフ一同心よりお待ちしております。
+                        </p>
                         <div class="table_wrapper">
                             <table>
                                 <thead>
@@ -193,18 +203,21 @@ try {
                 </section>
             <?php endif; ?>
 
-            <div class="mypage_area">
-                <a href="mypage.php" class="btn mypage_btn">マイページ</a>
+            <div class="reservepage_area">
+                <a href="reserve.php" class="btn reservepage_btn">新規予約・空席確認へ進む</a>
             </div>
 
             <div class="back_link">
-                <a href="reserve.php">← トップページへ戻る</a>
+                <a href="mypage.php">← マイページへ</a>
             </div>
+
+            
         </div>
     </main>
     <?php
     require_once __DIR__ . "/reserve_footer.php";
     ?>
-<script src="../js/reserve_common.js"></script>
+    <script src="../js/reserve_common.js"></script>
 </body>
+
 </html>

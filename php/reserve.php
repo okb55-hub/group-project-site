@@ -5,6 +5,7 @@ require_once __DIR__ . "/DbManager.php";
 $display_name = "ゲスト";
 $is_logged_in = false;
 $is_Error = false;
+$reserve_count = 0;
 
 // 席の記号を返す関数
 function getSeatStatus($remaining, $num_people)
@@ -22,6 +23,7 @@ try {
 
 	$db = getDb();
 
+	// ヘッダー表示のための処理
 	if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
 		// ユーザーIDがある場合、DBから名前を取得
 		$user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
@@ -31,6 +33,11 @@ try {
 		if ($user_data) {
 			$display_name = $user_data['name'];
 			$is_logged_in = true;
+
+			$count_sql = "SELECT COUNT(*) FROM reservations WHERE user_id = :uid AND reserve_date >= CURDATE()";
+        $count_stmt = $db->prepare($count_sql);
+        $count_stmt->execute(['uid' => $_SESSION['user_id']]);
+        $reserve_count = (int)$count_stmt->fetchColumn();
 		}
 	}
 
@@ -370,7 +377,7 @@ try {
             <div class="card_body">
                 <h4>テーブル席</h4>
                 <p class="capacity">4名掛け × 8卓</p>
-                <p class="desc">ご家族やグループで、ゆっくり食事を楽しめます。</p>
+                <p class="desc">ご家族やグループでゆっくり食事を楽しめます。</p>
             </div>
         </div>
         <div class="seat_card">
@@ -379,8 +386,8 @@ try {
             </div>
             <div class="card_body">
                 <h4>お座敷</h4>
-				<p class="capacity">8名掛け × 3部屋&nbsp;(最大24名様)</p>
-                <p class="desc">宴会利用も可能なお席です。</p>
+				<p class="capacity">8名掛け × 3部屋 &nbsp;(最大24名様)</p>
+                <p class="desc">宴会利用も可能な広々としたお席です。</p>
             </div>
         </div>
     </div>

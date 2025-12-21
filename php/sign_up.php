@@ -2,6 +2,7 @@
 require_once __DIR__ . "/init.php";
 require_once __DIR__ . "/DbManager.php";
 $error = '';
+$reserve_count = 0;
 $step = 1; // 1:入力画面, 2:確認画面, 3:登録完了 この数字によってHTMLの表示を分岐
 
 // 正規表現で前後の半角・全角スペースを調べて、消すための関数
@@ -156,7 +157,6 @@ if (isset($_SESSION['user_id'])) {
 		<?php if ($step === 1): ?>
 			<!-- 入力画面 -->
 			<div class="sign_up_container">
-
 				<h1>新規会員登録</h1>
 				<div class="step-container">
 					<div class="step-item active">入力</div>
@@ -208,7 +208,7 @@ if (isset($_SESSION['user_id'])) {
 					</div>
 
 					<div class="attention">
-						<p>お預かりした個人情報の取り扱いについては、<br>
+						<p>お預かりした個人情報の取り扱いについては、<br class="pc_br">
 							当店の<span class="policy">「<a href="../html/policy.html" target="_blank" class="privacy_link">プライバシーポリシー
 									<svg class="external_icon" viewBox="0 0 24 24">
 										<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -267,7 +267,7 @@ if (isset($_SESSION['user_id'])) {
 				</form>
 
 				<form action="sign_up.php" method="post">
-					<button class="back-button" type="submit" name="back">入力画面に戻る</button>
+					<button class="back-button" type="submit" name="back">← 入力画面に戻る</button>
 				</form>
 			</div>
 		<?php elseif ($step === 3): ?>
