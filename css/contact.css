@@ -577,7 +577,7 @@ textarea {
 /* 送信完了画面の全体エリア */
 #thanksPage {
     display: none; /* JSで切り替えるまで非表示 */
-    width: 100%;
+    width: 90%;
     max-width: 800px; /* フォームの幅に合わせる */
     margin: 100px auto;
     animation: fadeIn 0.8s ease forwards; /* ふわっと出す */
