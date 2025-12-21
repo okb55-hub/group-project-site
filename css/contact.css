@@ -46,7 +46,6 @@ header #header_logo {
 	font-weight: bold;
 }
 
-
 @media screen and (max-width: 820px) {
 	.title_section {
 		height: auto;
@@ -66,7 +65,6 @@ header #header_logo {
 	.title_text p {
 		font-size: 22px;
 	}
-	
 }
 
 @media screen and (max-width: 480px) {
@@ -92,7 +90,6 @@ header #header_logo {
 	.title_text p {
 		font-size: 16px;
 	}
-
 }
 
 /* ここまで */

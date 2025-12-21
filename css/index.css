@@ -345,7 +345,7 @@ main #message_text p {
     }
     
     main #message_title h3 {
-        font-size: 20px;
+        font-size: 22px;
 		margin: 25px 10px 0 10px;
     }
     
@@ -355,7 +355,7 @@ main #message_text p {
     }
     
     main #message_text p {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.9;
     }
     
@@ -540,8 +540,6 @@ main #commitment {
 
 
 @media (max-width: 820px) {
-		/* こだわり */
-
 	main #commitment {
 		padding: 100px 0 60px 0;
 	}
@@ -556,7 +554,6 @@ main #commitment {
 	}
 
 	#commitment_main_head p {
-		font-size: 14px;
 		padding: 0;
 	}
 
@@ -572,10 +569,6 @@ main #commitment {
 
 	.commitment_img_text {
 		gap: 30px;
-	}
-
-	.commitment_text div {
-		font-size: 13px;
 	}
 }
 
@@ -599,7 +592,7 @@ main #commitment {
     }
     
     #commitment_main_head p {
-        font-size: 13px;
+        font-size: 14px;
         padding: 0 10px;
         line-height: 1.9;
     }
@@ -636,7 +629,6 @@ main #commitment {
     }
     
     .commitment_text div {
-        font-size: 12px;
         line-height: 1.7em;
         gap: 3px;
     }
@@ -646,7 +638,7 @@ main #commitment {
     }
     
     .text_point span {
-        font-size: 13px;
+        font-size: 15px;
     }
 }
 
@@ -723,6 +715,7 @@ main #news_main ul li time, main #news_main ul li p {
     
     main #news_main ul li {
         padding: 20px 30px;
+		font-weight: 300;
     }
     
     main #news_main ul li a {
@@ -755,15 +748,6 @@ main #news_main ul li time, main #news_main ul li p {
     main #news_main ul li a {
         flex-direction: column;
         gap: 8px;
-    }
-    
-    main #news_main ul li time,
-    main #news_main ul li p {
-        font-size: 12px;
-    }
-    
-    main #news_main ul li time {
-        font-weight: 300;
     }
 }
 
@@ -992,7 +976,7 @@ main #menu_main {
     
     #menu_foot button span,
     #info_button span {
-        font-size: 14px;
+        font-size: 13px;
         line-height: 2.5;
     }
     
@@ -1080,7 +1064,6 @@ main #info_text_inner p {
     }
     
     main #info_text_inner p {
-        font-size: 13px;
         padding: 0 10px;
     }
     
@@ -1110,7 +1093,6 @@ main #info_text_inner p {
     }
     
     main #info_text_inner p {
-        font-size: 12px;
         padding: 0 5px;
         line-height: 1.9;
     }
