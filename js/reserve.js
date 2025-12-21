@@ -1,5 +1,5 @@
 "use strict";
-
+/* 日付選択の値を確認する処理 */
 const dateInput = document.getElementById('reserve_date');
 const reserveForm = document.querySelector('form');
 
@@ -43,4 +43,21 @@ reserveForm.addEventListener('submit', function (e) {
 		dateInput.reportValidity();
 		e.preventDefault();
 	}
+});
+
+/* 席タイプのカードを押したときの処理 */
+// 全ての席ボタン（div）を取得
+const seat_card = document.querySelectorAll('.seat_card');
+// 移動先の表を取得
+const targetTable = document.getElementById('table_container');
+
+// ループ処理で、各ボタンにクリック時の動きをつける
+seat_card.forEach(button => {
+    button.addEventListener('click', () => {
+        // しゅっと移動
+        targetTable.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start' // 表の先頭が画面の上に来るように調整
+        });
+    });
 });

@@ -42,7 +42,7 @@ $payment_method_name = '';
 if ($order['payment_method'] === 'store') {
 	$payment_method_name = '店頭支払い';
 } else {
-	$payment_method_name = '事前決済（クレジットカード・PayPay）';
+	$payment_method_name = '事前決済';
 	
 	if (isset($order['payment_status']) && $order['payment_status'] === 'paid') {
 		$payment_method_name  .= '：決済完了';
@@ -87,6 +87,7 @@ unset($_SESSION['cart']);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>注文完了 - 本格韓国料理 ソダム</title>
+	<link rel="icon" href="../favicon.ico">
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/complete.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,7 +100,7 @@ unset($_SESSION['cart']);
 </head>
 <body>
 	<header>
-		<a href="index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
+		<a href="../html/index.html"><img id="header_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 		<button id="hamburger">
 			<span></span>
 			<span></span>
@@ -107,12 +108,12 @@ unset($_SESSION['cart']);
 		</button>
 		<nav id="nav_list">
 			<ul>
-				<li><a href="index.html">TOP</a></li>
-				<li><a href="menu.html">メニュー</a></li>
-				<li><a href="shop.html">店舗情報</a></li>
+				<li><a href="../html/index.html">TOP</a></li>
+				<li><a href="../html/menu.html">メニュー</a></li>
+				<li><a href="../html/shop.html">店舗情報</a></li>
 				<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 				<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-				<li><a href="contact.html">お問い合わせ</a></li>
+				<li><a href="../html/contact.html">お問い合わせ</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -123,10 +124,11 @@ unset($_SESSION['cart']);
 				<i class="fa-solid fa-circle-check"></i>
 			</div>
 
-			<h1>ご注文ありがとうございました。</h1>
+			<h1>ご注文完了</h1>
 			<p class="complete_message">
-				ご注文を承りました。<br>
-				ご登録のメールアドレスに確認メールをお送りしております。
+				【重要：画面を保存してください】<br>
+				ご来店の際、ご本人確認のためご注文番号が必要となります。<br>
+				お忘れにならないよう、この画面のスクリーンショットを撮って保存してください。
 			</p>
 
 			<div class="order_details">
@@ -142,13 +144,18 @@ unset($_SESSION['cart']);
 				<div class="detail_section">
 					<h3>ご注文商品</h3>
 					<?php foreach ($order['items'] as $item): ?>
-						<div class="detail_row">
-							<span class="detail_label"><?= htmlspecialchars($item['name']) ?> × <?= $item['quantity'] ?></span>
-							<span class="detail_value">￥<?= number_format($item['subtotal']) ?></span>
+						<div class="detail_row items_row">
+							<div>
+								<p class="detail_label"><?= htmlspecialchars($item['name']) ?></p>
+							</div>
+							<div>
+								<p class="detail_qty">数量：<?= $item['quantity'] ?></p>
+								<p class="detail_value">小計：￥<?= number_format($item['subtotal']) ?></p>
+							</div>
 						</div>
 					<?php endforeach; ?>
 					<div class="detail_row total_row">
-						<span><strong>合計金額</strong></span>
+						<span class="total_text"><strong>合計金額</strong></span>
 						<span class="total_price"><strong>￥<?= number_format($order['total']) ?></strong></span>
 					</div>
 				</div>
@@ -193,10 +200,10 @@ unset($_SESSION['cart']);
 
 			<div class="action_buttons">
 				<a href="../html/index.html" class="btn_primary">
-					<i class="fa-solid fa-house"> トップページへ</i>
+					<i class="fa-solid fa-arrow-left"></i> トップページへ
 				</a>
 				<a href="takeout.php" class="btn_primary">
-					<i class="fa-solid fa-utensils"></i> 他の商品を見る
+					他の商品を見る <i class="fa-solid fa-arrow-right"></i>
 				</a>
 			</div>
 		
@@ -207,7 +214,7 @@ unset($_SESSION['cart']);
 		<div id="footer_inner">
 			<div id="footer_main">
 				<div id="footer_info">
-					<a href="index.html"><img id="footer_logo" src="../img/common/logo_white.png" alt="ロゴ"></a>
+					<a href="../html/index.html"><img id="footer_logo" src="../img/common/logo.png" alt="ロゴ"></a>
 					<div id="address">
 						<p>〒000-0000</p>
 						<p>石川県金沢市〇〇町0-0-0</p>
@@ -218,13 +225,13 @@ unset($_SESSION['cart']);
 				</div>
 				<div id="footer_nav">
 					<ul>
-						<li><a href="index.html">TOP</a></li>
-						<li><a href="menu.html">メニュー</a></li>
-						<li><a href="information.html">店舗情報</a></li>
+						<li><a href="../html/index.html">TOP</a></li>
+						<li><a href="../html/menu.html">メニュー</a></li>
+						<li><a href="../html/shop.html">店舗情報</a></li>
 						<li><a href="../php/reserve.php" target="_blank">来店予約</a></li>
 						<li><a href="../php/takeout.php" target="_blank">テイクアウト</a></li>
-						<li><a href="contact.html">お問い合わせ</a></li>
-						<li><a href="policy.html">プライバシーポリシー</a></li>
+						<li><a href="../html/contact.html">お問い合わせ</a></li>
+						<li><a href="../html/policy.html">プライバシーポリシー</a></li>
 					</ul>
 				</div>
 			</div>

@@ -102,7 +102,7 @@ html {
 	}
 
 	.title_img {
-		width: 100%;
+		width: calc(100% - 20px);
 		height: 200px;
 		margin-left: 20px;
 	}
@@ -287,11 +287,6 @@ section h1 {
 		font-size: 28px;
 	}
 
-	.item_info {
-		flex-direction: column;
-		gap: 18px;
-	}
-
 	.items ul li {
 		font-size: 15px;
 		padding: 12px 14px;
@@ -311,6 +306,11 @@ section h1 {
 	section h1 {
 		margin: 40px 0;
 		font-size: 22px;
+	}
+	
+	.item_info {
+		flex-direction: column;
+		gap: 18px;
 	}
 
 	.item_info {

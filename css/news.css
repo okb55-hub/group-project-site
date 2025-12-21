@@ -77,6 +77,15 @@
 	.title_text p {
 		font-size: 16px;
 	}
+<<<<<<< HEAD
+=======
+
+	.title_img {
+		width: calc(100% - 20px);
+		height: 200px;
+		margin-left: 20px;
+	}
+>>>>>>> 967e2a697b7d0e5259d667beb0aa9a9d13c9055d
 }
 
 /* ここまで */

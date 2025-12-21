@@ -12,9 +12,9 @@ function getSeatStatus($remaining, $num_people)
 	if ($remaining == 0 || $remaining < $num_people) {
 		return ['symbol' => '×', 'text' => '満席', 'class' => 'full'];
 	} elseif ($remaining <= 2) {
-		return ['symbol' => '△', 'text' => "残{$remaining}席", 'class' => 'few'];
+		return ['symbol' => '△', 'text' => "{$remaining}席", 'class' => 'few'];
 	} else {
-		return ['symbol' => '◯', 'text' => "残{$remaining}席", 'class' => 'available'];
+		return ['symbol' => '◯', 'text' => "{$remaining}席", 'class' => 'available'];
 	}
 }
 
@@ -182,9 +182,9 @@ try {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>来店予約 - 本格韓国料理 ソダム</title>
+	<link rel="icon" href="../favicon_reserve.ico">
 	<link rel="stylesheet" href="./../css/reserve_common.css">
 	<link rel="stylesheet" href="./../css/reserve.css">
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
@@ -205,7 +205,7 @@ try {
 		<div class="main_section">
 			<div class="menu_top">
 				<div class="menu_top_text">
-					<h2>ご来店予約について</h2>
+					<h1>ご来店予約について</h1>
 					<p>当店では、ネット予約を24時間受け付けております。 <br>
 						ご希望の日付・人数・時間をご入力のうえ、送信してください。<br>
 						※団体（16名以上）のご予約はお電話のみ承っております。<br>
@@ -226,7 +226,7 @@ try {
 							<div class="form_item">
 								<label for="reserve_date">来店日</label>
 								<!-- 一旦日付のminを消す -->
-								<input type="date" name="reserve_date" id="reserve_date"  value="<?= e($reserve_date) ?>">
+								<input type="date" name="reserve_date" id="reserve_date" min="<?= $tomorrow ?>" value="<?= e($reserve_date) ?>">
 
 							</div>
 							<div class="form_item">
@@ -247,7 +247,7 @@ try {
 				</div>
 			</div>
 
-			<div class="table_container">
+			<div class="table_container" id="table_container">
 				<!-- オーバーレイ表示 -->
 				<?php if ($is_Error): ?><!-- DB接続エラーの際のオーバーレイ -->
 					<div class="initial-overlay error-overlay">
@@ -284,9 +284,8 @@ try {
 											<span class="seat_symbol"><?= $status['symbol'] ?></span><span class="remain_seat"><?= $status['text'] ?></span>
 										</div>
 										<?php else: ?>
-											<!-- 空席の場合はボタン表示 -->
 											<form method="POST" action="reserve_process.php" style="margin: 0;">
-												<input type="hidden" name="slot_id" value="<?= $slot['slot_id'] ?>">
+											<input type="hidden" name="slot_id" value="<?= $slot['slot_id'] ?>">
 												<input type="hidden" name="seat_type" value="counter">
 												<button type="submit" class="seat-button <?= $status['class'] ?>">
 													<span class="seat_symbol"><?= $status['symbol'] ?></span><span class="remain_seat"><?= $status['text'] ?></span>
@@ -361,7 +360,7 @@ try {
             <div class="card_body">
                 <h4>カウンター席</h4>
                 <p class="capacity">全6席</p>
-                <p class="desc">お一人様やカップルに最適です。</p>
+                <p class="desc">お一人様や少人数でのご利用におすすめです。</p>
             </div>
         </div>
         <div class="seat_card">
@@ -370,8 +369,8 @@ try {
             </div>
             <div class="card_body">
                 <h4>テーブル席</h4>
-                <p class="capacity">4名様用 × 8卓</p>
-                <p class="desc">ご家族やご友人とゆったりお食事を。</p>
+                <p class="capacity">4名掛け × 8卓</p>
+                <p class="desc">ご家族やグループで、ゆっくり食事を楽しめます。</p>
             </div>
         </div>
         <div class="seat_card">
@@ -380,8 +379,8 @@ try {
             </div>
             <div class="card_body">
                 <h4>お座敷</h4>
-                <p class="capacity">最大24名様（8名用×3部屋）</p>
-                <p class="desc">宴会や小さなお子様連れも安心です。</p>
+				<p class="capacity">8名掛け × 3部屋&nbsp;(最大24名様)</p>
+                <p class="desc">宴会利用も可能なお席となっております</p>
             </div>
         </div>
     </div>
