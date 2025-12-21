@@ -67,6 +67,10 @@ select {
     height: 2.5rem;
 }
 
+.header_logo:hover {
+    opacity: 0.7;
+}
+
 .system_label {
     font-size: 12px;
     color: #6B7280;
@@ -163,6 +167,9 @@ select {
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav_link::after {
@@ -180,23 +187,75 @@ select {
     width: 100%;
 }
 
-/* 新規登録ボタン */
-#action_btn {
-    padding: 8px 16px;
-    background: #D62828;
-    border: 1px solid #D62828;
-    border-radius: 4px;
+/* 通知バッチの設定 */
+
+.badge {
+    background-color: #ff670e;
     color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    animation: badge-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mobile_menu .badge {
+    animation: none;
+}
+
+.mobile_menu.active .badge {
+    animation: badge-pop 0.4s 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes badge-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 新規登録ボタン ログアウトボタン共通の設定 */
+.action_btn,#mobile_logout_btn, #header_logout_btn {
+    padding: 8px 16px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s;
     display: inline-block;
 }
+.action_btn {
+background: #D62828;
+    border: 1px solid #D62828;
+    color: #FFFFFF;
+}
 
-#action_btn:hover {
+.action_btn:hover {
     background: #B91C1C;
     border-color: #B91C1C;
+}
+
+#mobile_logout_btn, #header_logout_btn{
+    background:none;
+    border: 1px solid #D6D6D6;
+    color: #888888;
+}
+
+#mobile_logout_btn:hover,#header_logout_btn:hover {
+    background: #F5F5F5;
+    color: #525252;
 }
 
 /* ハンバーガーメニューボタン */
@@ -281,7 +340,7 @@ select {
 
 .mobile_menu .store_link,
 .mobile_menu .nav_link,
-.mobile_menu #action_btn {
+.mobile_menu .action_btn {
     text-align: center;
     padding: 12px;
 }
@@ -290,10 +349,14 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F5F5F5;
+    background: #fff0e7;
     color: #0F0F0F;
     border-radius: 6px;
     padding: 10px;
+}
+
+.guest.mobile_user_info {
+    background-color: #F5F5F5;
 }
 
 .mobile_menu .nav_link::after {
@@ -380,6 +443,20 @@ select {
 }
 
 /* ======= 予約システム ロゴのみのヘッダーの設定ここまで ======= */
+/* ======= フッターここから ======= */
+footer {
+    padding: 10px 0;
+    text-align: center;
+    font-family: "Zen Old Mincho", sans-serif;
+}
+
+#copyright {
+    display: block;
+    font-size: 0.7rem;
+    color: #666;
+    line-height: 1.5;
+}
+/* ======= フッターここまで ======= */
 
 /* レスポンシブ */
 @media (max-width: 820px) {
@@ -426,20 +503,5 @@ select {
     .logoheader_system_label {
         font-size: 10px;
     }
-
-}
-
-/* =================フッター=================== */
-footer {
-    padding: 10px 0;
-    text-align: center;
-    font-family: "Zen Old Mincho", sans-serif;
-}
-
-/* 著作権表示のスタイル */
-#copyright {
-    display: block;
-    font-size: 0.7rem;
-    color: #666;
-    line-height: 1.5;
+    /* ロゴのみヘッダーここまで */
 }

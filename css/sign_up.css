@@ -22,7 +22,7 @@ body.is-done {
     background-color: #0F0F0F;
 }
 
-/* 1・2の時のコンテナ（透かし） */
+/* 1・2の時のコンテナ */
 body.is-form .sign_up_container {
     background-color: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(5px);
@@ -36,8 +36,6 @@ body.is-done .sign_up_container {
     border: 1px solid #2A2A2A;
     box-shadow: none;
 }
-
-
 
 /* 1,2の時のフッター */
 body.is-form #copyright {
@@ -62,9 +60,7 @@ main {
     font-size: 1.6rem;
     padding-bottom: 15px;
 }
-h2 {
-    font-family: "Zen Old Mincho", sans-serif;
-}
+
 .sign_up_container {
     max-width: 500px;
     margin: 0 auto;
@@ -73,7 +69,7 @@ h2 {
     border-radius: 16px;
 }
 
-/* 導入文 */
+ /* ======= 入力画面 (Step 1)ここから ======= */
 .lead {
     text-align: center;
     /* margin-bottom: 10px; */
@@ -83,9 +79,6 @@ h2 {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* ==================================== */
-/* 2. ステップ表示 (新規追加) */
-/* ==================================== */
 .step-container {
     display: flex;
     justify-content: center;
@@ -116,13 +109,11 @@ h2 {
     letter-spacing: 0.05em;
 }
 
-/* アクティブステップのスタイル */
+/* アクティブステップ */
 .step-item.active {
     color: #D62828;
-    /* アクティブな文字を赤に */
 }
 
-/* アクティブなステップを示す赤いマーカー */
 .step-item.active::before {
     content: '';
     position: absolute;
@@ -136,9 +127,6 @@ h2 {
     z-index: 10;
 }
 
-/* ==================================== */
-/* 3. フォーム要素 (Form) */
-/* ==================================== */
 .sign_up_form {
     background-color: #1A1A1A;
     border: 1px solid #2A2A2A;
@@ -182,7 +170,6 @@ h2 {
     color: #555555;
 }
 
-
 /* 注意事項 */
 .attention {
     margin-top: 30px;
@@ -213,11 +200,6 @@ h2 {
     stroke-width: 1.5;
 }
 
-
-
-/* ==================================== */
-/* 4. ボタン */
-/* ==================================== */
 .button {
     margin-top: 30px;
     text-align: center;
@@ -276,11 +258,9 @@ h2 {
     font-size: 14px;
 }
 
-/* ==================================== */
-/* 5. 確認画面 (Step 2) スタイル */
-/* ==================================== */
+ /* ======= 入力画面 (Step 1)ここまで ======= */
+ /* ======= 確認画面 (Step 2)ここから ======= */
 
-/* 確認画面のリード文 */
 .sign_up_container>p {
     text-align: center;
     margin-bottom: 30px;
@@ -303,13 +283,13 @@ h2 {
     margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid #2A2A2A;
+    font-family: "Zen Old Mincho", sans-serif;
 }
 
 .step2_confirm_p {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* --- 確認画面のブロック全体 --- */
 .confirm_block h2 {
     font-size: 18px;
     color: #D62828;
@@ -319,10 +299,9 @@ h2 {
     font-family: "Zen Old Mincho", sans-serif;
 }
 
-/* --- 各行の設定（Flexboxで整列） --- */
 .confirm_detail p {
     display: flex;
-    align-items: center; /* 複数行になっても上が揃う */
+    align-items: center;
     border-bottom: 1px dashed #333;
     padding: 15px 8px;
     margin: 0;
@@ -332,7 +311,6 @@ h2 {
     border-bottom: none;
 }
 
-/* --- 左側：項目名（幅を固定してガタつきを防ぐ） --- */
 .confirm_detail .label {
     flex: 0 0 180px;
     color: #9CA3AF;
@@ -340,10 +318,9 @@ h2 {
     font-weight: 600;
 }
 
-/* --- 右側：入力された値 --- */
 .confirm_detail .value {
     flex: 1;
-    color: #FAFAFA;        /* パッと目立つ白 */
+    color: #FAFAFA;
     font-weight: 500;
     word-break: break-all;
     font-size: 1.2rem;
@@ -368,20 +345,16 @@ h2 {
     background-color: #555555;
 }
 
-/* ==================================== */
-/* 7. 登録完了画面 (Step 3) スタイル */
-/* ==================================== */
-
-/* 成功ヘッダー */
+ /* ======= 確認画面 (Step 2)ここまで ======= */
+ /* ======= 完了画面 (Step 3)ここから ======= */
 .success-header {
     text-align: center;
     margin-bottom: 40px;
     padding: 30px;
-    background-color: #1A1A1A; /* カード背景色と統一 */
+    background-color: #1A1A1A;
     border-radius: 12px;
 }
 
-/* 成功アイコン (緑の丸を維持) */
 .success-icon {
     width: 60px;
     height: 60px;
@@ -392,6 +365,21 @@ h2 {
     font-size: 40px;
     line-height: 60px;
     font-weight: bold;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .success-header h1 {
@@ -406,7 +394,7 @@ h2 {
     color:#ffffff;
 }
 
-/* アクションボタン (予約完了ページと統一) */
+/* アクションボタン  */
 .action-buttons {
     display: flex;
     gap: 20px;
@@ -446,6 +434,7 @@ h2 {
 .btn-secondary:hover {
     background-color: #555555;
 }
+ /* ======= 完了画面 (Step 3)ここまで ======= */
 
 
 @media (max-width: 630px) {
@@ -455,6 +444,10 @@ h2 {
 }
 
 @media (max-width: 480px) {
+    .pc_br {
+        display: none;
+    }
+
     .sign_up_container {
         margin: 0 auto;
         padding: 20px 10px;
@@ -473,6 +466,11 @@ h2 {
         padding: 25px;
     }
 
+    .attention {
+    text-align: left;
+    font-size: 12px;
+}
+
     /* ステップ2ここから */
     .confirm_detail p {
         flex-direction: column;
@@ -488,8 +486,8 @@ h2 {
         padding-left: 5px;
 
         width: 100%;
-        text-align: left; /* ★ここを左寄せにする */
-        padding-left: 10px; /* ★少しだけ右にズラす */
+        text-align: left;
+        padding-left: 10px;
         font-size: 1.1rem;
     }
 

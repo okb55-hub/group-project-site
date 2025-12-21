@@ -4,7 +4,6 @@
             <a href="reserve.php" class="header_logo"><img src="../img/reserve/logo.png" alt="本格韓国料理ソダム"></a>
             <span class="system_label">Reservation</span>
         </div>
-
         <!-- PC版：ナビゲーション -->
         <nav class="header_nav">
             <a href="../html/index.html" target="_blank" class="store_link">
@@ -33,11 +32,13 @@
                 </div>
             <?php endif; ?>
             <?php if ($is_logged_in): ?>
-                <a href="reservation_history.php" class="nav_link">予約履歴</a>
-                <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
+                <a href="reservation_history.php" class="nav_link">予約履歴<?php if ($reserve_count > 0): ?>
+        <span class="badge"><?= $reserve_count ?></span>
+    <?php endif; ?></a>
+                <a href="logout.php" class="logout_btn action_btn" id="header_logout_btn">ログアウト</a>
             <?php else: ?>
                 <a href="login.php" class="nav_link">ログイン</a>
-                <a href="sign_up.php" id="action_btn">新規登録</a>
+                <a href="sign_up.php" class="action_btn">新規登録</a>
             <?php endif; ?>
         </nav>
 
@@ -85,11 +86,13 @@
             </svg>
         </a>
         <?php if ($is_logged_in): ?>
-            <a href="reservation_history.php" class="nav_link">予約履歴</a>
-            <a href="logout.php" class="logout_btn" id="action_btn">ログアウト</a>
+            <a href="reservation_history.php" class="nav_link">予約履歴<?php if ($reserve_count > 0): ?>
+        <span class="badge"><?= $reserve_count ?></span>
+    <?php endif; ?></a>
+            <a href="logout.php" class="logout_btn action_btn" id="mobile_logout_btn">ログアウト</a>
         <?php else: ?>
             <a href="login.php" class="nav_link">ログイン</a>
-            <a href="sign_up.php" id="action_btn">新規登録</a>
+            <a href="sign_up.php" class="action_btn">新規登録</a>
         <?php endif; ?>
     </div>
 </div>

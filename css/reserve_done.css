@@ -1,19 +1,16 @@
 @charset "UTF-8";
-/* 全体レイアウト */
 .done-container {
     max-width: 700px;
     margin: 80px auto;
     padding: 40px 20px;
 }
 
-/* 成功メッセージ */
 .success-header {
     text-align: center;
     margin-bottom: 40px;
 }
 
 .success-icon {
-    /* 完了マーク (✓) のデザイン */
     width: 60px;
     height: 60px;
     margin: 0 auto 15px;
@@ -24,6 +21,21 @@
     line-height: 60px;
     font-weight: bold;
     font-family: sans-serif;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .success-header h1 {
@@ -49,6 +61,7 @@
 }
 
 .reservation-details h2, .customer-details h2 {
+    font-family: "Zen Old Mincho", sans-serif;
     font-size: 18px;
     color: #D62828;
     margin-bottom: 20px;
@@ -72,7 +85,7 @@
 .label {
     font-size: 15px;
     color: #9CA3AF;
-    width: 150px; /* ラベル幅を固定して値を揃える */
+    width: 150px;
 }
 
 span.value {
@@ -83,7 +96,6 @@ span.value {
     flex-grow: 1;
 }
 
-/* 注意事項 */
 .notice-section {
     padding: 20px;
     margin-bottom: 30px;
@@ -92,6 +104,7 @@ span.value {
 }
 
 .notice-section h3 {
+    font-family: "Zen Old Mincho", sans-serif;
     color: #D62828;
     font-size: 16px;
     margin-bottom: 10px;
@@ -111,7 +124,6 @@ span.value {
     line-height: 1.8;
 }
 
-/* アクションボタン */
 .action-buttons {
     display: flex;
     gap: 20px;
@@ -165,7 +177,6 @@ span.value {
     font-size: 14px;
 }
 
-/* レスポンシブ対応 */
 @media (max-width: 480px) {
     .success-header h1 {
         font-size: 24px;

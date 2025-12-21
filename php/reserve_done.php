@@ -15,23 +15,12 @@ $user = null;
 $display_name = "ゲスト";
 $is_logged_in = false;
 $seat_type_jp = '';
+$reserve_count = 0;
 
 try {
     $db = getDb();
 
-
-		// 1．ユーザー情報の取得（ヘッダー・予約完了後のお客様情報用）
-		$user_stmt = $db->prepare("SELECT name, email, tel FROM users WHERE user_id = :user_id");
-		$user_stmt->execute(['user_id' => $user_id]);
-		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
-
-		if ($user_data) {
-			$display_name = $user_data['name'];
-			$is_logged_in = true;
-		}
-
-
-    // 2.予約登録のための処理（トランザクション）
+    // 1.予約登録のための処理（トランザクション）
     $db->beginTransaction();
 
     $stmt = $db->prepare("
@@ -52,6 +41,21 @@ try {
     // 今回INSERTした予約IDを取得
     $reserve_id = $db->lastInsertId();
     $db->commit();
+
+// 2．ユーザー情報の取得（ヘッダー・予約完了後のお客様情報用）
+		$user_stmt = $db->prepare("SELECT name, email, tel FROM users WHERE user_id = :user_id");
+		$user_stmt->execute(['user_id' => $user_id]);
+		$user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($user_data) {
+			$display_name = $user_data['name'];
+			$is_logged_in = true;
+
+            $count_sql = "SELECT COUNT(*) FROM reservations WHERE user_id = :uid AND reserve_date >= CURDATE()";
+        $count_stmt = $db->prepare($count_sql);
+        $count_stmt->execute(['uid' => $user_id]);
+        $reserve_count = (int)$count_stmt->fetchColumn();
+		}
 
 // 3．完了後の予約情報用のデータ取得
 $stmt = $db->prepare("
@@ -91,6 +95,7 @@ $stmt = $db->prepare("
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>予約完了 - 本格韓国料理 ソダム</title>
     <link rel="icon" href="../favicon_reserve.ico">
     <link rel="stylesheet" href="../css/reserve_common.css">
@@ -170,7 +175,7 @@ $stmt = $db->prepare("
         <h3>ご来店に際してのお願い</h3>
         <ul>
             <li>ご予約の時間に遅れる場合は、お電話にて直接店舗までご連絡をお願いいたします。</li>
-            <li>予約内容の確認・キャンセルは予約履歴から可能です</li>
+            <li>予約内容の確認は予約履歴から可能です</li>
         </ul>
     </section>
 

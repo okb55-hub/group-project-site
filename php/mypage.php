@@ -11,29 +11,33 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'] ?? null;
 $error = '';
 $user = null;
-$display_name = "取得できませんでした";
+$display_name = "ゲスト";
 $is_logged_in = false;
 $is_Error = false;
+$reserve_count = 0;
 
 try {
     $db = getDb();
 
-    if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
-        // ユーザーIDがある場合、DBから名前を取得
-        $user_stmt = $db->prepare("SELECT name FROM users WHERE user_id = :user_id");
-        $user_stmt->execute(['user_id' => $_SESSION['user_id']]);
-        $user_data = $user_stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user_id > 0) {
+        // ユーザーIDがある場合、データを取得
+        $user_stmt = $db->prepare("SELECT name, email, tel, created_at FROM users WHERE user_id = :user_id");
+        $user_stmt->execute(['user_id' => $user_id]);
+        $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user_data) {
-            $display_name = $user_data['name'];
+        // ヘッダーの中身のための処理
+        if ($user) {
+            // ヘッダー内のユーザー名表示
+            $display_name = $user['name'];
             $is_logged_in = true;
+
+            // ヘッダー内の予約件数表示
+            $count_sql = "SELECT COUNT(*) FROM reservations WHERE user_id = :uid AND reserve_date >= CURDATE()";
+            $count_stmt = $db->prepare($count_sql);
+            $count_stmt->execute(['uid' => $user_id]);
+            $reserve_count = (int)$count_stmt->fetchColumn();
         }
     }
-
-    // ▼ ユーザー情報を取得
-    $stt = $db->prepare("SELECT name, email, tel, created_at FROM users WHERE user_id = ?");
-    $stt->execute([$user_id]);
-    $user = $stt->fetch(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
     $error = "エラーが発生しました。<br>時間をおいて再度お試しください。";
 
@@ -99,16 +103,19 @@ try {
                         </div>
                     </div>
                 </section>
+
+                <div class="mypage_actions">
+                    <a href="reservation_history.php" class="btn_reservation_history">
+                        ご予約状況の確認
+                    </a>
+                    <a href="reserve.php" class="btn_reserve">新規予約</a>
+                </div>
             <?php endif; ?>
 
             <div class="logout_area">
                 <a href="logout.php" class="btn logout_btn">ログアウト</a>
             </div>
 
-            <div class="back_link">
-                <a href="reserve.php">← トップページへ戻る</a>
-            </div>
-        </div>
     </main>
     <?php
     require_once __DIR__ . "/reserve_footer.php";
