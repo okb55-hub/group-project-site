@@ -188,6 +188,7 @@ try {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="【公式予約サイト】本格韓国料理ソダムのオンライン予約はこちら。空席状況をリアルタイムで確認し、24時間いつでもご予約いただけます。本場の味を落ち着いた空間でお楽しみください。">
 	<title>来店予約 - 本格韓国料理 ソダム</title>
 	<link rel="icon" href="../favicon_reserve.ico">
 	<link rel="stylesheet" href="./../css/reserve_common.css">

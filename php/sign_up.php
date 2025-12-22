@@ -128,10 +128,10 @@ if (isset($_SESSION['user_id'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="会員登録（無料）で、次回からのご予約がよりスムーズに。お客様情報の入力により、来店予約をweb上から簡単に行えます。">
 	<title>新規会員登録</title>
 	<link rel="stylesheet" href="./../css/reserve_common.css">
 	<link rel="stylesheet" href="./../css/sign_up.css">
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">

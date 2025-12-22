@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-// カートに入っている商品の個数を数える（バッジ表示用） 
-// $cart_count = 0; if (!empty($_SESSION['cart'])) { $cart_count = count($_SESSION['cart']); }
-
-
 // Ajax処理
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
     header("Content-Type: application/json");
@@ -37,12 +33,13 @@ if (!empty($_SESSION['cart'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, , viewport-fit=cover">
 	<title>テイクアウト - 本格韓国料理 ソダム</title>
+	<meta name="description" content="本格韓国料理ソダム（SODAM）の人気メニューをご家庭やオフィスで。サムギョプサル弁当やビビンバ丼など、本場の味を詰め込んだテイクアウトメニューをご用意しております。24時間web予約受付中。できたてをお渡しいたします。">
 	<link rel="icon" href="../favicon.ico">
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/takeout.css">
