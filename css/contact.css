@@ -648,8 +648,12 @@ textarea {
 	border-top: 1px solid #FFFFFF;
 	border-right: 1px solid #FFFFFF;
 }
+<<<<<<< HEAD
 
 @media (max-width: 430px) {
+=======
+@media (max-width: 480px) {
+>>>>>>> 86495ed0357715169c34c9efa31d4a7eb2ced526
 	.thanks_content .btn {
 		width: 250px;
 	}
@@ -713,7 +717,7 @@ textarea {
 	.modal_confirm_content {
         margin: 0;
         width: 100%;
-        max-width: 100%;
+        max-width: calc(100% - 30px);
         max-height: 90vh;
         border-radius: 20px 20px 0 0;
         animation: slideUp 0.3s ease-out;
