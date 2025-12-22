@@ -189,7 +189,6 @@ main {
     align-items: center;
     gap: 2px;
     text-decoration: none;
-    transition: all 0.3s;
 }
 
 .external_icon {

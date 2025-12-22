@@ -116,7 +116,7 @@ try {
     require_once __DIR__ . "/reserve_header.php";
     ?>
     <main>
-        <div class="mypage_container">
+        <div class="reservation_history_container">
             <h1>予約履歴</h1>
 
             <?php if ($error): ?>

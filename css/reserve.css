@@ -10,16 +10,24 @@ main {
     overflow-x: hidden;
 }
 
+h1 {
+    font-family: "Zen Old Mincho", sans-serif;
+    margin-bottom: 20px;
+}
+
 .menu_top_text {
     text-align: center;
     font-family: "Zen Old Mincho", sans-serif;
     margin-bottom: 30px;
 }
 
-h1 {
-    font-family: "Zen Old Mincho", sans-serif;
-    margin-bottom: 20px;
-}
+.tel_number {
+        display: block;
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 
 /*  日付・人数選択フォームここから  */
 .reserve_form {
@@ -406,6 +414,9 @@ table tr:nth-child(even) td {
 }
 
 @media (max-width: 480px) {
+    main {
+        padding-top: 80px;
+    }
     .main_section {
         padding: 0 10px;
     }
@@ -419,14 +430,6 @@ table tr:nth-child(even) td {
     .menu_top_text p {
         font-size: 13px;
         text-align: left;
-    }
-
-    .tel_number {
-        display: block;
-        text-align: center;
-        font-size: 1.1em;
-        font-weight: bold;
-        margin-top: 10px;
     }
 
     .reserve_form {
