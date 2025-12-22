@@ -203,7 +203,7 @@ main {
 }
 
 .modal_confirm h2,.modal_confirm h3 {
-    font-family: "Zen Old Mincho", sans-serif;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 @keyframes fadeIn {
@@ -294,6 +294,7 @@ main {
     background: #FFFFFF;
     /* border-radius: 8px; */
     background-color: #fafafa;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 .modal_section h3 {
@@ -422,6 +423,7 @@ main {
     display: flex;
     gap: 15px;
     margin-top: 25px;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 .modal_actions form {
@@ -435,6 +437,8 @@ main {
 .btn_submit {
     width: 100%;
 }
+
+
 
 /* レスポンシブ */
 @media (max-width: 480px) {
