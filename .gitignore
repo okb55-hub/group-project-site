@@ -2,6 +2,7 @@
 php/DbManager.php
 php/stripe_config.php
 php/discord_notify.php
+php/stripe_checkout.php
 .env
 
 # Composer
