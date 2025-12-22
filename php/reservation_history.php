@@ -98,6 +98,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="本格韓国料理ソダムのお客様の予約履歴確認ページです。ご予約状況や過去の来店履歴の確認が行えます。">
     <title>予約履歴 - 本格韓国料理 ソダム</title>
     <link rel="icon" href="../favicon_reserve.ico">
     <link rel="stylesheet" href="../css/reserve_common.css">

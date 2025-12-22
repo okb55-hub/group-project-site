@@ -118,6 +118,8 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ご予約内容の最終確認ページです。日時、人数、お席のタイプに間違いがないかご確認の上、予約を確定してください。韓国料理ソダムが、皆様のご来店を心よりお待ちしております。">
+    <meta name="robots" content="noindex, follow">
     <title>予約内容確認 - 本格韓国料理 ソダム</title>
     <link rel="icon" href="../favicon_reserve.ico">
     <link rel="stylesheet" href="../css/reserve_common.css">

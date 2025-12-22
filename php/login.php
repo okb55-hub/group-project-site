@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン画面</title>
+    <meta name="description" content="本格韓国料理ソダム予約システムのログインページです。登録済みのメールアドレスでログインし、ご予約の申し込み、現在の予約状況の確認、来店履歴のチェックが可能です。">
+    <title>ログイン画面 - 本格韓国料理 ソダム</title>
     <link rel="stylesheet" href="../css/reserve_common.css">
     <link rel="stylesheet" href="../css/login.css">
 
