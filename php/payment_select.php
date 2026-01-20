@@ -1,6 +1,22 @@
 <?php
+// セッションクッキーの設定
+session_set_cookie_params([
+	'lifetime' => 0,
+	'path' => '/',
+	'domain' => '',
+	'secure' => false,   // テスト環境の場合はfalse
+	'httponly' => true,
+	'samesite' => 'Lax'
+]);
+
+// Stripeから戻ってきた場合にセッション復元
+if (isset($_GET['sid'])) {
+	session_id($_GET['sid']);
+}
+
 session_start();
 
+// セッションID復元後も空の場合は、リダイレクト
 if (empty($_SESSION['order'])) {
 	header('Location: cart.php');
 	exit;
