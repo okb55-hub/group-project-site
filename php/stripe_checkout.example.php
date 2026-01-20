@@ -30,7 +30,7 @@ try {
 		],
 		'mode' => 'payment',
 		'success_url' => 'http://YOUR_HOST/FOLDER_NAME/php/order_complete.php?session_id={CHECKOUT_SESSION_ID}',
-		'cancel_url' => 'http://YOUR_HOST/FOLDER_NAME/php/payment_select.php',
+		'cancel_url' => 'http://YOUR_HOST/FOLDER_NAME/php/payment_select.php?sid=' . session_id(),
 		'customer_email' => $order['email'],
 		'metadata' => [
 			'order_id' => $order['order_id'],
