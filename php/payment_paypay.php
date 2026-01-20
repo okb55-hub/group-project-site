@@ -44,7 +44,9 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 				</p>
 
 				<div id="payButton" class="pay_btn">
-					<img src="../img/paymethod/paypay_complete.png" alt="PayPayで支払う">
+					<a href="order_complete.php?sid=<?php echo session_id(); ?>">
+						<img src="../img/paymethod/paypay_complete.png" alt="PayPayで支払う">
+					</a>
 				</div>
 			</div>
 			<p class="comment">※疑似決済です。実際に決済されることはありません。</p>			
@@ -54,10 +56,9 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 	<footer>
 		<div id="footer_inner">
 			<small id="copyright">
-					Copyright &copy; PayPat疑似決済 All Right Reserved.
+					Copyright &copy; PayPay疑似決済 All Right Reserved.
 			</small>
 		</div>
 	</footer>
-	<script src="../js/paypay.js"></script>
 </body>
 </html>
