@@ -49,26 +49,6 @@ if ($order['payment_method'] === 'store') {
 	}
 }
 
-// メール送信（簡易版）
-$to = $order['email'];
-$subject = '【本格韓国料理 ソダム】ご注文を承りました';
-$message = "
-{$order['name']} 様
-
-ご注文ありがとうございます。
-以下の内容でご注文を承りました。
-
-━━━━━━━━━━━━━━━━━━━━
-注文番号: {$order['order_id']}
-━━━━━━━━━━━━━━━━━━━━
-
-【ご注文内容】
-";
-
-foreach ($order['items'] as $item) {
-	$message .= "{$item['name']} × {$item['quantity']}個 - ￥" . number_format($item['subtotal']) . "\n";
-}
-
 // Discordで店側に通知を送る
 require_once 'discord_notify.php';
 $discord_result = sendDiscordNotification($order);
