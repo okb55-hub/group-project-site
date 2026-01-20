@@ -1,5 +1,13 @@
 <?php
+// セッションIDの受け取り
+if (isset($_GET['sid'])) {
+	session_id($_GET['sid']);
+}
+
 session_start();
+
+// セッションIDの再発行
+session_regenerate_id(true);
 
 // Stripe設定読み込み
 if (isset($_GET['session_id'])) {
