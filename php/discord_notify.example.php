@@ -13,44 +13,30 @@ define('DISCORD_WEBHOOK_URL', 'YOUR_DISCORD_WEBHOOK_URL');
 function sendDiscordNotification($order) {
 	$webhook_url = DISCORD_WEBHOOK_URL;
 
+	// 店頭支払い
 	if ($order['payment_method'] === 'store') {
-	
 		$payment_text = '店頭支払い';
-		$color = 16776960;
+		$color = 16776960; // 黄色
 
+	// カード決済
 	} elseif ($order['payment_method'] === 'stripe' || (isset($order['payment_type']) && $order['payment_type'] === 'stripe')) {
-		
-		// カード決済
 		if (isset($order['payment_status']) && $order['payment_status'] === 'paid') {
 			$payment_text = 'カード決済（決済完了）';
-			$color = 65280;
+			$color = 65280; // 緑色
 		} else {
 			$payment_text = 'カード決済（決済未）';
-			$color = 3447003;
+			$color = 3447003; // 青色
 		}
 	
-	} elseif ($order['payment_method'] === 'paypay' || (isset($order['payment_type']) && $order['payment_type'] === 'paypay')) {
+	// PayPay
+	} elseif (isset($order['payment_type']) && $order['payment_type'] === 'paypay') {
+		$payment_text = 'PayPay決済（決済完了）';
+		$color = 16711680; // 赤色
 	
-		// PayPay決済
-		if (isset($order['payment_status']) && $order['payment_status'] === 'paid') {
-			$payment_text = 'PayPay決済（決済完了）';
-			$color = 16711680;
-		} else {
-			$payment_text = 'PayPay決済（決済未）';
-			$color = 16711680;
-		}
-	
+	// その他
 	} else {
-	
-		// 事前決済でタイプ不明な時
-		if (isset($order['payment_status']) && $order['payment_status'] === 'paid') {
-			$payment_text = '事前決済（決済完了）';
-			$color = 65280;
-		} else {
-			$payment_text = '事前決済（決済未）';
-			$color = 3447003;
-		}
-	
+		$payment_text = '不明な決済方法';
+		$color = 10066329; // グレー
 	}
 
 	// 注文リスト作成

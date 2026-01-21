@@ -6,9 +6,6 @@ if (isset($_GET['sid'])) {
 
 session_start();
 
-// セッションIDの再発行
-session_regenerate_id(true);
-
 // Stripe設定読み込み
 if (isset($_GET['session_id'])) {
 	require_once 'stripe_config.php';
@@ -45,15 +42,24 @@ if (empty($_SESSION['order'])) {
 
 $order = $_SESSION['order'];
 
-// 決済方法の表示名
+// 支払い方法の表示名
 $payment_method_name = '';
 if ($order['payment_method'] === 'store') {
 	$payment_method_name = '店頭支払い';
 } else {
-	$payment_method_name = '事前決済';
-	
+	// 事前決済の場合、詳細を確認
+	if (isset($order['payment_type'])) {
+		if ($order['payment_type'] === 'stripe') {
+			$payment_method_name = 'クレジットカード';
+		} elseif ($order['payment_type'] === 'paypay') {
+			$payment_method_name = 'PayPay';
+		}
+	} else {
+		$payment_method_name = '事前決済';
+	}
+
 	if (isset($order['payment_status']) && $order['payment_status'] === 'paid') {
-		$payment_method_name  .= '：決済完了';
+		$payment_method_name .= '（決済完了）';
 	}
 }
 
@@ -67,6 +73,9 @@ if (!$discord_result) {
 
 // カートクリア
 unset($_SESSION['cart']);
+
+// セッションIDの再発行
+session_regenerate_id(true);
 
 ?>
 <!DOCTYPE html>
@@ -171,7 +180,7 @@ unset($_SESSION['cart']);
 						<span class="detail_value"><?= htmlspecialchars($order['pickup_date']) ?> <?= htmlspecialchars($order['pickup_time']) ?></span>
 					</div>
 					<div class="detail_row">
-						<span class="detail_label">決済方法</span>
+						<span class="detail_label">お支払い方法</span>
 						<span class="detail_value"><?= htmlspecialchars($payment_method_name) ?></span>
 					</div>
 				</div>
