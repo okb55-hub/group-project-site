@@ -44,7 +44,7 @@ $formatted_date = $datetime->format('Y年m月d日 H時i分s秒');
 				</p>
 
 				<div id="payButton" class="pay_btn">
-					<a href="order_complete.php?sid=<?php echo session_id(); ?>">
+					<a href="order_complete.php?paypay_success=1&sid=<?php echo session_id(); ?>">
 						<img src="../img/paymethod/paypay_complete.png" alt="PayPayで支払う">
 					</a>
 				</div>
